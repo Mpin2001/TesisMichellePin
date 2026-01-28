@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/instructions_view"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:gravity="center"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:id="@+id/lblModelo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/azul2_bassa"
+                    android:textAlignment="center"
+                    android:padding="10dp"
+                    android:text="Georeferencia"
+                    android:textColor="@color/blanco"
+                    android:layout_marginBottom="15dp"
+                    android:fontFamily="@font/roboto_medium_italic"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:id="@+id/tv_local"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/roboto_medium_italic"
+                    android:textSize="12dp"
+                    android:text="PDV: C.C AMAZONAS ZODISPAS"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    android:background="@color/gris3_bassa"
+
+                    />
+
+                <TextView
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:fontFamily="@font/roboto_medium_italic"
+                    android:textSize="12dp"
+                    android:text="Genere las coordenadas"
+                    android:textAlignment="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/colorBlack"
+                    />
+
+                <LinearLayout
+                    android:layout_width="300dp"
+                    android:layout_height="111dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:background="@android:color/white"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="344dp"
+                            android:layout_height="90dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:background="@android:color/white"
+                                android:orientation="horizontal">
+
+                                <ImageButton
+                                    android:id="@+id/ibLocalizacion"
+                                    android:layout_width="80dp"
+                                    android:layout_height="80dp"
+                                    android:background="#0000"
+                                    android:scaleType="fitCenter"
+                                    android:src="@drawable/gps" />
+
+                                <LinearLayout
+                                    android:layout_width="190dp"
+                                    android:layout_height="match_parent"
+                                    android:orientation="vertical"
+                                    android:layout_marginLeft="10dp"
+                                    android:paddingRight="5dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="83dp"
+                                        android:layout_weight="1"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/l_latitud"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="25dp"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/roboto_medium_italic"
+                                            android:gravity="center_vertical"
+                                            android:textColor="@color/gris"
+                                            android:text="Latitud:"
+                                            android:textSize="12sp" />
+
+                                        <EditText
+                                            android:id="@+id/txtLatitud"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="38dp"
+                                            android:layout_weight=".5"
+                                            android:background="@drawable/edittext_border"
+                                            android:ems="10"
+                                            android:fontFamily="@font/roboto_light"
+                                            android:gravity="center"
+                                            android:hint="Latitud"
+                                            android:enabled="false"
+                                            android:textColor="@color/negro"
+                                            android:textColorHint="@color/negro"
+                                            android:inputType="textPersonName" />
+
+                                    </LinearLayout>
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:orientation="horizontal">
+
+                                        <TextView
+                                            android:id="@+id/l_longitud"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="26dp"
+                                            android:layout_weight="1"
+                                            android:fontFamily="@font/roboto_medium_italic"
+                                            android:gravity="center_vertical"
+                                            android:textColor="@color/gris"
+                                            android:text="Longitud:"
+                                            android:textSize="12sp" />
+
+                                        <EditText
+                                            android:id="@+id/txtLongitud"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="38dp"
+                                            android:layout_weight=".5"
+                                            android:background="@drawable/edittext_border"
+                                            android:ems="10"
+                                            android:fontFamily="@font/roboto_light"
+                                            android:gravity="center"
+                                            android:hint="Longitud"
+                                            android:enabled="false"
+                                            android:textColor="@color/negro"
+                                            android:textColorHint="@color/negro"
+                                            android:inputType="textPersonName" />
+
+                                    </LinearLayout>
+
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

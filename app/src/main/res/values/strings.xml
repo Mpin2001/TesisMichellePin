@@ -1,0 +1,405 @@
+<resources>
+    <string name="app_name">Bassa App</string>
+    <string name="title_activity_puntos">Punto de Venta</string>
+    <string name="title_activity_precios">Ventas</string>
+    <string name="title_activity_promo">Promoción</string>
+    <string name="title_activity_gps">Registro</string>
+    <string name="title_activity_exhi">Exhibición</string>
+    <string name="title_activity_flooring">Stock</string>
+    <string name="title_activity_pr">Precios</string>
+    <string name="title_activity_implementacion">Implementacion</string>
+    <string name="title_activity_share">Share</string>
+    <string name="title_activity_agotados">Agotados</string>
+    <string name="fechafin">Fecha Fin</string>
+
+    <!--New bassa-->
+    <string name="title_activity_exh">Exhibición</string>
+    <string name="title_activity_exh_cp_adicionales">Herramientas</string>
+    <string name="title_activity_nueva">Nueva Herramienta</string>
+    <string name="menu_herramientas_exh">Herramientas Exhibiciones</string>
+    <string name="mng_salirherramientas">¿Desea regresar al Menú Principal?</string>
+    <string name="title_activity_geosupervision">Geosupervisión</string>
+    <string name="title_activity_prom">Promoción</string>
+    <string name="title_activity_visibilidad">Visibilidad IT</string>
+    <string name="title_activity_tracking">Tracking</string>
+    <string name="title_activity_materialpop">Material POP</string>
+    <string name="title_activity_herramientas">Herramientas Exhibiciones</string>
+    <string name="tipo_exh">Tipo de Exhibición</string>
+    <string name="reporte">Reporte</string>
+    <string name="herramienta">Herramienta</string>
+    <string name="title_activity_exh_cp">Exhibicion BS</string>
+    <string name="tipo_cab">Tipo de Herramienta</string>
+    <string name="cat">Categoría</string>
+    <string name="tipo_novedad">Tipo Novedades</string>
+    <string name="zonaexh">(*) Zona Exhibición</string>
+    <string name="personalizacion">Personalización BS</string>
+    <string name="estrella">Estrella de Precio</string>
+    <string name="subprim">Carga Primaria</string>
+    <string name="num_exh">Número Exhibición</string>
+    <string name="foto">foto</string>
+    <string name="obser">Observación \n (Opcional)</string>
+    <string name="galeria">Abrir Galería</string>
+    <string name="correccion">Es una corrección</string>
+    <string name="campana">Campana</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="str_next">Siguiente</string>
+    <string name="title_activity_result">Results!!!</string>
+
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyAd4j6z6jx8T3rhpdWJT3XZdtg1xJ_GGrw</string>
+
+    <string name="settings_menu_item">Settings</string>
+
+    <string name="name">com.luckyecuador.app.bassaApp.name</string>
+    <string name="cluf">com.luckyecuador.app.bassaApp.cluf</string>
+
+
+     <string name="timeout">Tiempo de espera agotado</string>
+     <string name="no_connection">Sin conexión a Internet</string>
+     <string name="server_error">Error del servidor</string>
+     <string name="network_error">Error de red</string>
+
+
+    <!--Items Vista-->
+    <string name="user">Usuario</string>
+    <string name="pass">Contraseña</string>
+    <string name="city">Ciudad</string>
+    <string name="prom">Promotor</string>
+    <string name="retail">Retail</string>
+    <string name="sucursal">Sucursal</string>
+    <string name="status">Marca</string>
+    <string name="tipofact">Fabricante</string>
+    <string name="numfact">Numero de factura</string>
+    <string name="numsku">Cantidad</string>
+    <string name="precioP">Precio Bassa</string>
+    <string name="codificados">Codificados</string>
+    <string name="fabricante">Fabricante</string>
+    <string name="precio_descuento">Precio Descuento</string>
+    <string name="codigo">Codigo</string>
+    <string name="usuario">Usuario</string>
+    <string name="categoria">Categoría</string>
+    <string name="tareass">Tareas</string>
+    <string name="ejecutada">Ejecutada</string>
+    <string name="subcat">Subcategoría</string>
+    <string name="presentacion">Presentacion</string>
+    <string name="otros">Otros</string>
+    <string name="carasyganchos">Caras/Ganchos</string>
+    <string name="filtro">Filtro</string>
+    <string name="search">Buscar</string>
+    <string name="tipo">Tipo</string>
+    <string name="tipo_logro">Tipo Logro</string>
+    <string name="local">Local</string>
+    <string name="codigo_fabril">Código Fabril</string>
+    <string name="vendedor_fabril">Vendedor Fabril</string>
+    <string name="tipoim">Implementación</string>
+    <string name="modo">Modo Foto</string>
+    <string name="promo">Promoción</string>
+    <string name="productos">Productos</string>
+    <string name="tipof">Foto Exhibición</string>
+    <string name="njefe">Nombre Jefe Almacen</string>
+    <string name="obsv">Comentario:</string>
+    <string name="tipoexh">Tipo Exhibición</string>
+    <string name="numexh">Numero de Exhibidores</string>
+    <string name="comentario">Comentario</string>
+    <string name="caracter">200</string>
+    <string name="registro">Registro</string>
+    <string name="lat">Latitud</string>
+    <string name="total">Total</string>
+    <string name="novedades">Novedades</string>
+    <string name="longi">Longitud</string>
+    <string name="inventario">Inventario</string>
+    <string name="pdv_name">Punto de venta</string>
+    <string name="tipopromo"></string>
+
+    <!--AlertDialog-->
+    <string name="model">Modelo</string>
+    <string name="fecha">Fecha</string>
+    <string name="fechaVenta">Fecha Venta</string>
+    <string name="hora">Hora</string>
+    <string name="cantidad">Cantidad</string>
+    <string name="comentario_1">Comentario 1</string>
+    <string name="comentario_2">Comentario 2</string>
+    <string name="comentario_3">Comentario 3</string>
+
+    <string name="ventas">Ventas</string>
+    <string name="pvp">Pvp ($)</string>
+    <string name="mecanica">Mecanica</string>
+    <string name="periodo">Periodo</string>
+    <string name="porta_productos">Productos</string>
+    <string name="pcont">Precio Contado</string>
+    <string name="inv_inicial">Inventario Inicial</string>
+    <string name="fecharto">Fecha Rotacion</string>
+    <string name="pcuotas">Precio Cuotas</string>
+    <string name="cuota">Cuotas</string>
+    <string name="vcuota">Valor Cuota</string>
+    <string name="cuota2">Cuotas 2</string>
+    <string name="vcuota2">""</string>
+    <string name="quiebre">Quibre</string>
+    <string name="Udisponible">Unidad Disponible</string>
+    <string name="Csugerido">Sugerido</string>
+    <string name="Ccantidad">Cantidad</string>
+    <string name="Sobservaciones">Observaciones</string>
+    <string name="spiso">Piso</string>
+    <string name="ventrada">Valor de Entrada</string>
+    <string name="fpago">Forma de Pago</string>
+    <string name="stienda">Stock Tienda</string>
+    <string name="sgeneral">Stock General</string>
+    <string name="num">Número Factura</string>
+    <string name="modulo">Modulo</string>
+    <string name="pos_id">Codigo</string>
+    <string name="dealer">Dealer</string>
+    <string name="ubicacion">Ubicacion</string>
+    <string name="correo">Correo</string>
+    <string name="estado">Estado</string>
+    <string name="reg">Registro</string>
+    <string name="coord">Coordenadas</string>
+    <string name="causal">Causal</string>
+    <string name="sync_agotados">Agotados</string>
+    <string name="establecimiento">Establecimiento</string>
+    <string name="telefono">Teléfono</string>
+    <string name="address">Dirección</string>
+    <string name="material">Material POP</string>
+    <string name="numero">Numero</string>
+    <string name="producto">Producto</string>
+    <string name="sku">Sku</string>
+    <string name="lote">Lote</string>
+    <string name="cantidadNovedades">Cantidad</string>
+    <string name="LoteProbadores">Lote</string>
+    <string name="numeroFactura">#  de Factura</string>
+    <string name="numeroMecanica">Mecánica</string>
+    <string name="precioAnterior">Precio Anterior</string>
+    <string name="precioPromocion">Precio Promocion</string>
+    <string name="fecha_vencimiento">Fecha vencimiento</string>
+    <string name="fecha_inicio">Fecha inicio</string>
+    <string name="preciocredito">Precio Crédito</string>
+    <string name="estadovisita">Estado de Visita</string>
+    <string name="notificacion">Notificacion</string>
+    <string name="action_info">Info</string>
+    <string name="action_hist">Vaciar Historial</string>
+
+    <string name="empty_list">No hay registros para mostrar...</string>
+    <string name="marcas">CodigoMarca</string>
+    <string name="tareas">Tareas Asignadas</string>
+    <string name="quiebres">Quiebre/Posible Quiebre</string>
+    <string name="otrosshare">Otros</string>
+    <string name="sugerido">Sugerido</string>
+    <string name="observaciones">Observaciones</string>
+    <string name="entrega">Tiempo de Entrega</string>
+    <string name="disponible">Und. Disponible</string>
+    <string name="target">Inventario</string>
+    <string name="cant">Cantidad</string>
+    <string name="cantt">CANT</string>
+    <string name="souv">Souvenirs</string>
+    <string name="display">Display</string>
+    <string name="motivo_sugerido">Motivo Sugerido</string>
+    <string name="fechainicio">Fecha Inicio</string>
+    <string name="unidades">Unidades</string>
+
+
+    <!--AlertDialog-->
+    <string name="promotor">Promotor</string>
+
+    <!--Botones-->
+    <string name="login">Ingresar</string>
+    <string name="send">Enviar</string>
+    <string name="next">Continuar</string>
+    <string name="save">Guardar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="salir">Salir</string>
+
+    <!--Mensajes-->
+    <string name="es_audio">Necesita permiso para grabar audio. Por favor habilitar desde el administrador de aplicaciones.</string>
+    <string name="es_storage">Necesita permiso para utilizar el almacenamiento externo. Por favor habilitar desde el administrador de aplicaciones.</string>
+    <string name="es_camera">Necesita permiso para utilizar la cámara. Por favor habilitar desde el administrador de aplicaciones.</string>
+    <string name="all">all</string>
+
+    <!--Menu-->
+    <string name="action_sync">Cargar información retenida</string>
+    <string name="action_bajada">SyncBajada</string>
+    <string name="action_log">Status Enviado/No Enviado</string>
+    <string name="action_registro">Registro</string>
+    <string name="action_version">Version App</string>
+    <string name="action_popup">Información</string>
+    <string name="descarga">Descargar Nueva Version</string>
+    <string name="action_test">Test</string>
+    <string name="version">Aplicación Actualizada : 16/08/2025</string>
+
+    <string name="account_type">com.luckyecuador.app.bassaApp.account</string>
+    <string name="provider_authority">com.luckyecuador.app.bassaApp</string>
+
+    <!--Tutorial-->
+    <string name="siguiente">Siguiente</string>
+    <string name="skip">Omitir</string>
+    <string name="start">Finalizar</string>
+    <string name="slide_1_title">Daily Workout</string>
+    <string name="slide_1_desc">Set your daily workout routine by the help of trainer</string>
+    <string name="slide_2_title">Meditation Techniques </string>
+    <string name="slide_2_desc">Learn about the different meditation techniques and practice them</string>
+    <string name="slide_3_title">Diet Chart</string>
+    <string name="slide_3_desc">Make your diet chart by the help of health experts</string>
+    <string name="play_again_desc">To see the welcome slider again, goto Settings -> apps -> welcome slider -> clear data</string>
+    <string name="play_again">Play Again</string>
+
+
+    <!-- TEST -->
+    <string name="tiempo">Tiempos Perzonalizados</string>
+    <string name="puntuacion">Puntúa entre el 70% mejor \n para conseguir una insignia</string>
+    <string name="empezar_quiz">Empezar</string>
+    <string name="recomendaciones">ANTES DE EMPEZAR
+        \n\n •    Debes completar la evaluación de una sola vez..
+        \n\n•     No puedes conseguir el reconocimiento si el puntaje es
+                  menor al 70%.
+        \n\n •    Podrás volver a tomar el TEST previa revisión (aprobación)
+                  del ejecutivo y/o controller.</string>
+    <string name="evaluacion_de">Evaluacion de </string>
+
+
+    <!--CAUSALES-->
+    <string name="A">CERRADO</string>
+    <string name="B">CERRADO TEMPORALMENTE</string>
+    <string name="C">NO SE ENCONTRABA EL DUEÑO</string>
+    <string name="D">NO PERMITE GESTIÓN</string>
+    <string name="E">PDV SIN MERCADERIA</string>
+    <string name="F">ABIERTO</string>
+    <string name="title_activity_rutero">RuteroActivity</string>
+
+    <!--INFO PDV-->
+    <string name="info1">Segmentación</string>
+    <string name="info2">Compra de los pultimos 3 meses</string>
+    <string name="info3">Portafolio prioritario</string>
+    <string name="info4">POP Sugerido</string>
+    <string name="info5">Tareas Pendientes</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_back">Back</string>
+    <string name="label_pointa">Punto A</string>
+    <string name="label_pointb">Punto B</string>
+    <string name="label_calcrout">Calcular Ruta</string>
+    <string name="signo">$</string>
+    <string name="producto_trastienda">Producto En Trastienda/Almacen</string>
+    <string name="cartera">Cartera</string>
+    <string name="no">No</string>
+    <string name="si">Si</string>
+    <string name="pvc">PVC</string>
+    <string name="precio_oferta">Precio Oferta</string>
+    <string name="pvp_osa">PVP</string>
+    <string name="guardar">Guardar</string>
+    <string name="caras">Caras</string>
+    <string name="candisp">Disponible</string>
+    <string name="title_activity_rotacion">RotacionActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="save_action">Save</string>
+    <string name="share_action">Share</string>
+    <string name="categorias_foods">Foods</string>
+    <string name="categorias_home_care">Home Care</string>
+    <string name="c_armados">C. Armados</string>
+    <string name="stock">Stock</string>
+
+    <string name="notification_text">Tracking, tap to cancel</string>
+    <string name="transport_id" translatable="false">123</string>
+    <string name="firebase_path" translatable="false">locations</string>
+    <string name="firebase_email" translatable="false">mail@mail.com</string>
+    <string name="firebase_password" translatable="false">1234567890</string>
+    <string name="pdv">PDV</string>
+    <string name="test">Test</string>
+    <string name="otras">OTRAS</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="pdvs">PDVs</string>
+    <string name="mapa">Mapa</string>
+    <string name="title_activity_puntos_list">PuntosListActivity</string>
+    <string name="open">open</string>
+    <string name="close">close</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="cerrar_sesion">Cerrar Sesión</string>
+    <string name="actualizar_pdvs_productos">Actualizar PDVs/Productos</string>
+    <string name="subir_info">Subir Información</string>
+    <string name="icono">icono</string>
+    <string name="notificaciones">Notificaciones</string>
+    <string name="portafolio_pdf">Portafolio PDF</string>
+    <string name="status_enviados_no_enviados">Status Enviados/No Enviados</string>
+    <string name="linea_de_tiempo">Línea de Tiempo</string>
+    <string name="materiales_recibidos">Materiales Recibidos</string>
+    <string name="title_activity_menu_status">MenuStatusActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+
+    <string name="menu_home">Inicio</string>
+    <string name="menu_osa">OSA</string>
+    <string name="menu_precios">Precios</string>
+    <string name="menu_sod">Share Of Shelf</string>
+    <string name="menu_promo">Promociones</string>
+    <string name="menu_exh">Exhibiciones</string>
+    <string name="prodPrincipal">PRODUCTO PRINCIPAL</string>
+    <string name="prodSecundario">PRODUCTO SECUNDARIO</string>
+    <string name="menu_logros">Logros</string>
+    <string name="menu_gestion">Gestion en PDV</string>
+    <string name="menu_sms">SMS</string>
+    <string name="menu_tareas">Tareas</string>
+    <string name="menu_inventario">Inventario+Sugerido</string>
+    <string name="menu_canjes">Canjes</string>
+    <string name="menu_mci">MCI del PDV</string>
+    <string name="menu_ejecucion_materiales">Ejecución de Materiales</string>
+    <string name="menu_materiales_recibidos">Materiales Recibidos</string>
+    <string name="menu_pdi">PDI</string>
+    <string name="menu_impulso">Impulso</string>
+    <string name="menu_onPacks">OnPacks</string>
+    <string name="menu_malla">Malla Codificados</string>
+    <string name="menu_evidencias">Logros</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_convenios">Convenios</string>
+    <string name="menu_tracking">Tracking</string>
+    <string name="alerta">Alerta</string>
+    <string name="prioridad">Prioridad</string>
+    <string name="estado_material">Estado Material</string>
+    <string name="descripcion">Descripción</string>
+    <string name="foto_de_la_guia">FOTO DE LA GUÍA (FACTURA RECIBIDA)</string>
+    <string name="no_permiso">No tiene permisos para relevar este reporte</string>
+    <string name="entrada">ENTRADA</string>
+    <string name="salida">SALIDA</string>
+    <string name="bodega">Bodega</string>
+    <string name="percha">Percha</string>
+    <string name="responsable">Responsable</string>
+    <string name="tipo_sugerido">Tipo Sugerido</string>
+    <string name="buscador">Buscador</string>
+    <string name="obj_categoria">Obj. (%) categoría</string>
+    <string name="part_categoria">Part. (%) categoría</string>
+    <string name="caras_percha">Caras/Percha</string>
+    <string name="universo">Universo</string>
+    <string name="distancia_al_pdv">Distancia al PDV:</string>
+    <string name="cerrar">Cerrar</string>
+    <string name="visitas">Visitas</string>
+    <string name="distancia">Distancia</string>
+    <string name="nombre_pdv">Nombre PDV</string>
+    <string name="marca_propia">Bassa</string>
+    <string name="competencia">Competencia</string>
+    <string name="marca">Marca</string>
+    <string name="malla_codificados">Malla Codificados</string>
+    <string name="relevo_tardio">Relevo tardío</string>
+    <string name="termometro">Termómetro</string>
+    <string name="antes">Antes</string>
+    <string name="despues">Después</string>
+    <string name="observacion">Observación</string>
+    <string name="status_general">Status General</string>
+    <string name="title_activity_menu_herramientas">MenuHerramientasActivity</string>
+    <string name="codigo_st">Codigo</string>
+    <string name="subcategoria">Subcategoria</string>
+    <string name="menu_encuesta">Encuesta App</string>
+    <string name="menu_ventas">Ventas</string>
+    <string name="menu_muestras_medicas">Muestras Médicas</string>
+    <string name="menu_probadores">Probadores</string>
+    <string name="menu_novedades">Novedades</string>
+
+
+</resources>

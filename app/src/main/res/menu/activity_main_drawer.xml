@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="@string/menu_home" />
+        <item
+            android:id="@+id/nav_ventas"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_ventas"
+            android:visible="true"/>
+        <item
+            android:id="@+id/nav_evidencias"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_gestion" />
+        <item
+            android:id="@+id/nav_novedades"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_novedades"
+            android:visible="true"/>
+        <item
+            android:id="@+id/nav_muestras_medicas"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_muestras_medicas"
+            android:visible="true"/>
+        <item
+            android:id="@+id/nav_probadores"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_probadores"
+            android:visible="true"/>
+
+
+
+        <item
+            android:id="@+id/nav_inv"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_inventario"
+          />
+
+<!--        <item-->
+<!--            android:id="@+id/nav_osa"-->
+<!--            android:icon="@drawable/ic_assignment"-->
+<!--            android:title="@string/menu_osa" />-->
+        <item
+            android:id="@+id/nav_precios"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_precios" />
+        <item
+            android:id="@+id/nav_sod"
+            android:icon="@drawable/ic_assignment"
+            android:title="Caras de Exhibiciones"
+            android:visible="false"/>
+        <item
+            android:id="@+id/nav_promo"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_promo" />
+
+        <item
+            android:id="@+id/nav_onPacks"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_onPacks"
+            android:visible="false"/>
+
+        <item
+            android:id="@+id/nav_exh"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_exh"
+            android:visible="true"/>
+
+        <item
+            android:id="@+id/nav_logros"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_gestion"
+            android:visible="false"/>
+
+        <item
+            android:id="@+id/nav_sms"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_sms"
+            android:visible="false"/>
+
+        <item
+            android:id="@+id/nav_tareas"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_tareas"
+            android:visible="false"/>
+        <item
+            android:id="@+id/nav_canjes"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_canjes"
+            android:visible="false"/>
+
+        <item
+            android:id="@+id/nav_codificados"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/codificados"
+            android:visible="false"/>
+        <item
+            android:id="@+id/nav_pdi"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_pdi"
+            android:visible="false"/>
+        <item
+            android:id="@+id/nav_mci"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_mci"
+            android:visible="false"/>
+
+
+        <item
+            android:id="@+id/nav_tracking"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_tracking"
+            android:visible="false"/>
+
+        <item
+            android:id="@+id/nav_convenios"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_convenios"
+            android:visible="false"/>
+
+<!--        <item-->
+<!--            android:id="@+id/nav_herramientas_exh"-->
+<!--            android:icon="@drawable/ic_assignment"-->
+<!--            android:title="@string/menu_herramientas_exh" />-->
+
+        <item
+            android:id="@+id/nav_materiales_recibidos"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_materiales_recibidos"
+            android:visible="false"/>
+
+        <item
+            android:id="@+id/nav_ejecucion_materiales"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_ejecucion_materiales"
+            android:visible="false"/>
+
+        <item
+            android:id="@+id/nav_impulso"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_impulso"
+            android:visible="false"/>
+
+        <item
+            android:id="@+id/nav_encuesta_app"
+            android:icon="@drawable/ic_assignment"
+            android:title="@string/menu_encuesta"
+            android:visible="true"/>
+
+
+
+
+
+
+    </group>
+</menu>

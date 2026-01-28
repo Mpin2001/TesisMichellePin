@@ -1,0 +1,929 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/layoutPreg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginVertical="3dp"
+        android:layout_marginHorizontal="5dp">
+
+        <TextView
+            android:id="@+id/lblCategoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:text="@string/categoria"
+            android:padding="5dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:textSize="18sp"
+            android:textAlignment="textStart"
+            android:textColor="@color/negro"
+            android:fontFamily="@font/roboto_bold"/>
+
+        <View
+            android:id="@+id/dividerCategoria"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:id="@+id/layoutPregImagen"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.jsibbold.zoomage.ZoomageView
+                android:id="@+id/myZoomageViewU"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:zoomage_restrictBounds="false"
+                app:zoomage_animateOnReset="true"
+                app:zoomage_autoResetMode="UNDER"
+                app:zoomage_autoCenter="true"
+                app:zoomage_zoomable="true"
+                app:zoomage_translatable="true"
+                app:zoomage_minScale="0.6"
+                app:zoomage_maxScale="8"
+                android:layout_marginVertical="5dp"
+                app:srcCompat="@drawable/ic_camera"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lblPregunta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:hint="Pregunta a evaluar"
+            android:padding="5dp"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_light"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <RadioGroup
+                android:id="@+id/rgCodifica"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="2">
+
+                <RadioButton
+                    android:id="@+id/rba"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_light_italic"
+                    android:text="@string/si" />
+
+                <RadioButton
+                    android:id="@+id/rbb"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_light_italic"
+                    android:text="@string/no" />
+                <RadioButton
+                    android:id="@+id/rbc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_light_italic"
+                    android:text="@string/no" />
+                <RadioButton
+                    android:id="@+id/rbd"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_light_italic"
+                    android:text="@string/no"
+                    android:visibility="visible"/>
+                <RadioButton
+                    android:id="@+id/rbe"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/roboto_light_italic"
+                    android:text="@string/no"
+                    android:visibility="visible"/>
+            </RadioGroup>
+
+            <LinearLayout
+                android:id="@+id/layoutFoto"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start"
+                android:layout_weight="3"
+                android:visibility="gone">
+
+                <ImageButton
+                    android:id="@+id/ibCargarFoto"
+                    android:layout_width="200px"
+                    android:layout_height="match_parent"
+                    android:background="#0000"
+                    android:scaleType="fitCenter"
+                    android:layout_marginHorizontal="10dp"
+                    android:src="@drawable/cameraicon2"/>
+
+                <ImageView
+                    android:id="@+id/ivFoto"
+                    android:layout_width="250px"
+                    android:layout_height="250px"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/txtComentario1"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:gravity="center"
+            android:hint="@string/comentario"
+            android:inputType="textMultiLine"
+            android:textSize="13sp"
+            android:maxLength="500"
+            android:visibility="gone"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutPregAb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginVertical="5dp"
+        android:layout_marginHorizontal="5dp">
+
+        <TextView
+            android:id="@+id/lblCategoriaA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:text="Categoria A"
+            android:padding="5dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:textSize="18sp"
+            android:textAlignment="textStart"
+            android:textColor="@color/negro"
+            android:fontFamily="@font/roboto_bold"/>
+
+        <View
+            android:id="@+id/dividerCategoriaA"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:id="@+id/layoutPregAbImagen"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
+
+            <com.jsibbold.zoomage.ZoomageView
+                android:id="@+id/myZoomageViewA"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:zoomage_restrictBounds="false"
+                app:zoomage_animateOnReset="true"
+                app:zoomage_autoResetMode="UNDER"
+                app:zoomage_autoCenter="true"
+                app:zoomage_zoomable="true"
+                app:zoomage_translatable="true"
+                app:zoomage_minScale="0.6"
+                android:layout_marginVertical="5dp"
+                app:zoomage_maxScale="8"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lblPreguntaA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:hint="Pregunta a evaluar"
+            android:padding="5dp"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_light"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="5">
+
+            <EditText
+                android:id="@+id/respuestaPreg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Escribe Tu Respuesta"
+                android:gravity="center"
+                android:inputType="textPersonName"
+                android:textSize="15sp"
+                android:visibility="visible"
+                android:digits="abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ,"/>
+
+            <EditText
+                android:id="@+id/respuestaPregNum"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Escribe Tu Respuesta"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:textSize="15sp"
+                android:visibility="gone" />
+
+            <EditText
+                android:id="@+id/respuestaPregGeneral"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Escribe Tu Respuesta"
+                android:gravity="center"
+                android:inputType="text"
+                android:textSize="15sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutPregMult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginVertical="5dp"
+        android:layout_marginHorizontal="5dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/lblCategoriaM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:text="Categoria M"
+            android:padding="5dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:textSize="18sp"
+            android:textAlignment="textStart"
+            android:textColor="@color/negro"
+            android:fontFamily="@font/roboto_bold"/>
+
+        <View
+            android:id="@+id/dividerCategoriaM"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:id="@+id/layoutPregMultImagen"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.jsibbold.zoomage.ZoomageView
+                android:id="@+id/myZoomageViewMult"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:zoomage_restrictBounds="false"
+                app:zoomage_animateOnReset="true"
+                app:zoomage_autoResetMode="UNDER"
+                app:zoomage_autoCenter="true"
+                app:zoomage_zoomable="true"
+                app:zoomage_translatable="true"
+                app:zoomage_minScale="0.6"
+                android:layout_marginVertical="5dp"
+                app:zoomage_maxScale="8"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lblPreguntaM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:hint="Pregunta a evaluar"
+            android:padding="5dp"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_light"/>
+
+        <LinearLayout
+            android:id="@+id/check_options"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20sp"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <CheckBox
+                android:id="@+id/check_opta"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"/>
+            <CheckBox
+                android:id="@+id/check_optb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"/>
+            <CheckBox
+                android:id="@+id/check_optc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"/>
+            <CheckBox
+                android:id="@+id/check_optd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"/>
+            <CheckBox
+                android:id="@+id/check_opte"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"/>
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutPregFoto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginVertical="5dp"
+        android:layout_marginHorizontal="5dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/lblCategoriaFoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:text="Categoria Foto"
+            android:padding="5dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:textSize="18sp"
+            android:textAlignment="textStart"
+            android:textColor="@color/negro"
+            android:fontFamily="@font/roboto_bold"/>
+
+        <View
+            android:id="@+id/dividerCategoriaFoto"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="?android:attr/listDivider" />
+
+        <LinearLayout
+            android:id="@+id/layoutPregFotoImagen"
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <com.jsibbold.zoomage.ZoomageView
+                android:id="@+id/myZoomageViewFoto"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                app:zoomage_restrictBounds="false"
+                app:zoomage_animateOnReset="true"
+                app:zoomage_autoResetMode="UNDER"
+                app:zoomage_autoCenter="true"
+                app:zoomage_zoomable="true"
+                app:zoomage_translatable="true"
+                app:zoomage_minScale="0.6"
+                android:layout_marginVertical="5dp"
+                app:zoomage_maxScale="8"
+                />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lblPreguntaFoto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:hint="Pregunta a evaluar"
+            android:padding="5dp"
+            android:textColor="#000000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/roboto_light"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_margin="20sp"
+            android:orientation="horizontal"
+            android:layout_weight="5"
+            android:visibility="visible">
+
+            <ImageButton
+                android:id="@+id/btnCamara"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:background="#FAFAFA"
+                android:layout_gravity="center"
+                android:src="@drawable/cameraicon1" />
+
+            <ImageView
+                android:id="@+id/foto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"/>
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutPregFinal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginVertical="3dp"
+        android:layout_marginHorizontal="5dp">
+
+        <LinearLayout
+            android:id="@+id/layoutFooter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical"
+            android:weightSum="10"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:visibility="visible">
+
+            <TextView
+                android:id="@+id/lbCategoriaF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|start"
+                android:text="Categoria f"
+                android:padding="5dp"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:textSize="18sp"
+                android:textAlignment="textStart"
+                android:textColor="@color/negro"
+                android:fontFamily="@font/roboto_bold"/>
+
+
+            <View
+                android:id="@+id/dividerCategoriaF"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginBottom="5dp"
+                android:background="?android:attr/listDivider" />
+
+            <LinearLayout
+                android:id="@+id/layoutPregFinalImagen"
+                xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="horizontal"
+                android:visibility="visible">
+
+                <com.jsibbold.zoomage.ZoomageView
+                    android:id="@+id/myZoomageViewFinal"
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    app:zoomage_restrictBounds="false"
+                    app:zoomage_animateOnReset="true"
+                    app:zoomage_autoResetMode="UNDER"
+                    app:zoomage_autoCenter="true"
+                    app:zoomage_zoomable="true"
+                    app:zoomage_translatable="true"
+                    app:zoomage_minScale="0.6"
+                    android:layout_marginVertical="5dp"
+                    app:zoomage_maxScale="8"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <ImageButton
+                    android:id="@+id/btnCamera"
+                    android:layout_width="60dp"
+                    android:layout_height="80dp"
+                    android:layout_weight=".5"
+                    android:background="#0000"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/cameraicon2" />
+
+                <ImageView
+                    android:id="@+id/ivFotoV"
+                    android:layout_width="130dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".5" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginTop="5dp"
+                android:background="?android:attr/listDivider"
+                android:visibility="gone"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="string/mensaje_importante"
+                android:fontFamily="@font/roboto_bold"
+                android:visibility="gone"/>
+
+            <TextView
+                android:id="@+id/lblPreguntaF"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|start"
+                android:hint="Pregunta a evaluar"
+                android:padding="5dp"
+                android:textColor="#000000"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:fontFamily="@font/roboto_light"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:weightSum="10">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="1"
+                    android:background="@color/blanco"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/roboto_light"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="2"
+                    android:background="@color/blanco"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/roboto_light"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="3"
+                    android:background="@color/blanco"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/roboto_light"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="4"
+                    android:background="@color/blanco"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/roboto_light"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="5"
+                    android:background="@color/blanco"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/roboto_light"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="6"
+                    android:background="@color/blanco"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/roboto_light"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="7"
+                    android:background="@color/blanco"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/roboto_light"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="8"
+                    android:background="@color/blanco"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/roboto_light"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="9"
+                    android:background="@color/blanco"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/roboto_light"/>
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="10"
+                    android:background="@color/blanco"
+                    android:textColor="@color/colorBlack"
+                    android:fontFamily="@font/roboto_light"/>
+
+            </LinearLayout>
+
+            <RadioGroup
+                android:id="@+id/rgCalificacion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:foregroundGravity="center"
+                android:weightSum="10">
+
+                <RadioButton
+                    android:id="@+id/rbMuyMala"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:buttonTint="@color/colorPrimary"
+                    android:text=""
+                    android:button="@null"
+                    android:drawableBottom="@android:drawable/btn_radio"/>
+
+                <RadioButton
+                    android:id="@+id/rbMala"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:buttonTint="@color/colorPrimary"
+                    android:text=""
+                    android:button="@null"
+                    android:drawableBottom="@android:drawable/btn_radio"/>
+
+                <RadioButton
+                    android:id="@+id/rbBuenaMala"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:buttonTint="@color/colorPrimary"
+                    android:text=""
+                    android:button="@null"
+                    android:drawableBottom="@android:drawable/btn_radio"/>
+
+                <RadioButton
+                    android:id="@+id/rbBuena"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:buttonTint="@color/colorPrimary"
+                    android:fontFamily="@font/roboto_light_italic"
+                    android:text=""
+                    android:button="@null"
+                    android:drawableBottom="@android:drawable/btn_radio"/>
+
+                <RadioButton
+                    android:id="@+id/rbMuyBuena"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:buttonTint="@color/colorPrimary"
+                    android:text=""
+                    android:button="@null"
+                    android:drawableBottom="@android:drawable/btn_radio"/>
+                <RadioButton
+                    android:id="@+id/rbMuyBuena6"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:buttonTint="@color/colorPrimary"
+                    android:text=""
+                    android:button="@null"
+                    android:drawableBottom="@android:drawable/btn_radio"/>
+                <RadioButton
+                    android:id="@+id/rbMuyBuena7"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:buttonTint="@color/colorPrimary"
+                    android:text=""
+                    android:button="@null"
+                    android:drawableBottom="@android:drawable/btn_radio"/>
+                <RadioButton
+                    android:id="@+id/rbMuyBuena8"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:buttonTint="@color/colorPrimary"
+                    android:text=""
+                    android:button="@null"
+                    android:drawableBottom="@android:drawable/btn_radio"/>
+                <RadioButton
+                    android:id="@+id/rbMuyBuena9"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:buttonTint="@color/colorPrimary"
+                    android:text=""
+                    android:button="@null"
+                    android:drawableBottom="@android:drawable/btn_radio"/>
+                <RadioButton
+                    android:id="@+id/rbMuyBuena10"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:buttonTint="@color/colorPrimary"
+                    android:text=""
+                    android:button="@null"
+                    android:drawableBottom="@android:drawable/btn_radio"/>
+
+            </RadioGroup>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center|start"
+                android:text="Observaciones"
+                android:padding="5dp"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:textSize="18sp"
+                android:textAlignment="textStart"
+                android:textColor="@color/negro"
+                android:fontFamily="@font/roboto_bold"
+                android:visibility="gone"/>
+
+            <View
+                android:id="@+id/dividerObservaciones"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_marginBottom="5dp"
+                android:background="?android:attr/listDivider"
+                android:visibility="gone"/>
+
+
+            <EditText
+                android:id="@+id/txtComentario"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginEnd="30dp"
+                android:gravity="center"
+                android:hint="Escriba sus comentarios..."
+                android:inputType="textMultiLine"
+                android:maxLength="300"
+                android:visibility="gone"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="5dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btnGuardar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/button_background"
+                    android:fontFamily="@font/roboto_medium"
+                    android:paddingLeft="30dp"
+                    android:paddingRight="30dp"
+                    android:text="GUARDAR Y DESCARGAR PDF"
+                    android:textColor="@android:color/white"
+                    android:visibility="gone"/>
+
+                <LinearLayout
+                    android:id="@+id/botones"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/btn_generarPDF"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    android:weightSum="2">
+
+                    <Button
+                        android:id="@+id/btn_viewer"
+                        android:layout_width="150dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/button_background_selected"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"
+                        android:text="Ver Certificado"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                    <Button
+                        android:id="@+id/btn_compartir"
+                        android:layout_width="150dp"
+                        android:layout_height="35dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/button_background_cluf"
+                        android:paddingLeft="30dp"
+                        android:paddingRight="30dp"
+                        android:text="Compartir"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="10sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

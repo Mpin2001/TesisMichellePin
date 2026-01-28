@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/lblPregunta"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_weight="1.1"
+        android:background="@color/blanco"
+        android:fontFamily="@font/roboto_light"
+        android:gravity="center|left"
+        android:padding="5dp"
+        android:paddingLeft="2dp"
+        android:text="¿El producto codifica?"
+        android:textColor="@color/blanco"
+        android:textColorHint="@color/blanco"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lblSku"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.4"
+            android:fontFamily="@font/roboto_light"
+            android:gravity="center|left"
+            android:padding="5dp"
+            android:paddingLeft="2dp"
+            android:text="SKU"
+            android:textColor="#000000" />
+
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioGroup
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".6"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/r1"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3"
+                        android:fontFamily="@font/roboto_light"
+                        android:hint="@string/si"/>
+
+                    <RadioButton
+                        android:id="@+id/r2"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight=".3"
+                        android:fontFamily="@font/roboto_light"
+                        android:hint="@string/no"/>
+
+                </RadioGroup>
+                <!--<CheckBox-->
+                    <!--android:id="@+id/ckbPresencia"-->
+                    <!--android:layout_width="113dp"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:background="@null"-->
+                    <!--android:textColor="#676666"-->
+                    <!--android:hint="@string/presencia"-->
+                    <!--android:textColorHint="#b9b9b9"-->
+                    <!--android:inputType="number"/>-->
+
+                <!--<Button-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="35dp"-->
+                    <!--android:text="@string/save"-->
+                    <!--android:padding="0dp"-->
+                    <!--android:id="@+id/btnSave"/>-->
+            </LinearLayout>
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

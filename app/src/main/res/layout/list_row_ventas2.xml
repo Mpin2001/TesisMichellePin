@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/lblSku"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_column="0"
+            android:gravity="center|start"
+            android:hint="@string/marcas"
+            android:padding="5dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:fontFamily="@font/aspira_black"
+            android:textSize="13dp"
+            android:textColor="@color/blanco"
+            android:textColorHint="@color/blanco"
+            android:background="@color/lila_lucky"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="1"
+        android:paddingTop="2dp"
+        android:paddingBottom="2dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="0.4"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:padding="5dp"
+            android:layout_marginLeft="2dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:layout_column="0"
+            android:text="Tipo Venta"
+            android:fontFamily="@font/aspira_black"
+            android:textAlignment="textStart"
+            android:textColor="@color/lila_lucky"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spTipoVenta"
+            android:layout_width="0dp"
+            android:layout_weight="0.5"
+            android:layout_height="match_parent"
+            android:ems="10"
+            android:entries="@array/seleccione"
+            android:textSize="14sp" />
+
+
+        <ImageButton
+            android:id="@+id/btnEliminar"
+            android:layout_width="0dp"
+            android:layout_weight="0.1"
+            android:layout_height="match_parent"
+            android:background="@color/blanco"
+            android:src="@drawable/baseline_delete_24"
+            />
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5"
+        android:orientation="horizontal">
+
+
+        <TextView
+            android:id="@+id/lblStockInicial"
+            android:layout_width="0dp"
+            android:layout_weight="1.10"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:padding="5dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_column="0"
+            android:text="Stock Inicial"
+            android:textColor="@color/lila_lucky"
+            android:fontFamily="@font/aspira_black"
+
+            android:textAlignment="textStart"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lblCantidad"
+            android:layout_width="0dp"
+            android:layout_weight="1.10"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:padding="5dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:layout_column="0"
+            android:text="Cant. Vendida"
+            android:textColor="@color/lila_lucky"
+            android:fontFamily="@font/aspira_black"
+
+            android:textAlignment="textStart"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lblPrecio"
+            android:layout_width="0dp"
+            android:layout_weight="1.10"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:padding="5dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:layout_column="0"
+            android:text="Precio Unitario"
+            android:fontFamily="@font/aspira_black"
+            android:textAlignment="textStart"
+            android:textColor="@color/lila_lucky"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lblValorTotal"
+            android:layout_width="0dp"
+            android:layout_weight="1.10"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:padding="5dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:layout_column="0"
+            android:text="Valor Total"
+            android:fontFamily="@font/aspira_black"
+            android:textAlignment="center"
+            android:textColor="@color/lila_lucky"
+            android:textStyle="bold"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/lblStockFinal"
+            android:layout_width="0dp"
+            android:layout_weight="1.10"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:padding="5dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:layout_column="0"
+            android:text="Stock Final"
+            android:fontFamily="@font/aspira_black"
+            android:textAlignment="textStart"
+            android:textColor="@color/lila_lucky"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="5"
+        android:orientation="horizontal">
+
+
+
+        <EditText
+            android:id="@+id/txt_stock_inicial"
+            android:layout_width="0dp"
+            android:layout_weight="1.10"
+            android:layout_height="match_parent"
+            android:gravity="center|start"
+            android:inputType="number"
+            android:layout_marginLeft="2dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:maxLength="4"
+            android:layout_column="1"
+            android:textAlignment="center"
+            android:imeOptions="actionNext"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/txt_cantidad"
+            android:layout_width="0dp"
+            android:layout_weight="1.10"
+            android:layout_height="match_parent"
+            android:gravity="center|start"
+            android:inputType="number"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:maxLength="4"
+            android:layout_column="1"
+            android:textAlignment="center"
+            android:imeOptions="actionNext"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/txt_precio_regular"
+            android:layout_width="0dp"
+            android:layout_weight="1.10"
+            android:layout_height="match_parent"
+            android:gravity="center|start"
+            android:inputType="numberDecimal"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:layout_column="1"
+            android:imeOptions="actionNext"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="14sp" />
+
+        <EditText
+            android:id="@+id/txt_valor_total"
+            android:layout_width="0dp"
+            android:layout_weight="1.10"
+            android:layout_height="match_parent"
+            android:gravity="center|start"
+            android:inputType="numberDecimal"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:maxLength="5"
+            android:layout_column="1"
+            android:imeOptions="actionNext"
+            android:textAlignment="center"
+            android:textColor="@color/gris"
+            android:enabled="false"
+            android:textSize="14sp"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/txt_stock_final"
+            android:layout_width="0dp"
+            android:layout_weight="1.10"
+            android:layout_height="match_parent"
+            android:gravity="center|start"
+            android:inputType="numberDecimal"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:maxLength="5"
+            android:layout_column="1"
+            android:enabled="false"
+            android:textAlignment="center"
+            android:textColor="@color/gris"
+            android:textSize="14sp" />
+
+
+        <CheckBox
+            android:id="@+id/checkGuardar"
+            android:layout_width="0dp"
+            android:layout_weight="0.4"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical|center_horizontal|center" />
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

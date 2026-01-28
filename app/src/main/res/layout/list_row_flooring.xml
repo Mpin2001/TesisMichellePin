@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="3dp">
+
+        <TextView
+            android:id="@+id/lblSku"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:text="SKU"
+            android:padding="5dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:textSize="16sp"
+            android:textAlignment="center"
+            android:textColor="@color/blanco"
+            android:background="@color/azul2_bassa"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/lblInventariotitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:text="Inventario"
+            android:background="@drawable/border_bottom_left"
+            android:drawableLeft="@drawable/baseline_keyboard_double_arrow_down_24"
+            android:drawableRight="@drawable/baseline_keyboard_double_arrow_down_24"
+            android:padding="5dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:textColor="@color/azul2_bassa"
+            android:textStyle="bold" />
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center|start"
+                android:padding="5dp"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_column="0"
+                android:text="Stock Percha"
+                android:textColor="@color/azul2_bassa"
+                android:textAlignment="center"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:gravity="center|start"
+                android:padding="5dp"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_column="0"
+                android:text="Stock Bodega"
+                android:textAlignment="center"
+                android:textColor="@color/azul2_bassa"
+                android:textStyle="bold" />
+
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.5"
+                android:gravity="center|start"
+                android:padding="5dp"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_column="0"
+                android:text="Tipo de Stock Bodega"
+                android:textAlignment="center"
+                android:textColor="@color/azul2_bassa"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <EditText
+                android:id="@+id/txt_stock"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:inputType="number"
+                android:hint="Unidades"
+                android:textAlignment="center">
+
+            </EditText>
+
+            <EditText
+                android:id="@+id/txt_stock_bodega"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:inputType="number"
+                android:hint="Unidades"
+                android:textAlignment="center"
+                android:visibility="visible">
+
+            </EditText>
+
+            <Spinner
+                android:id="@+id/sp_sugerido"
+                android:layout_weight="1.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:entries="@array/combo_si_no"
+                android:visibility="gone"/>
+
+            <EditText
+                android:id="@+id/txtObservaciones"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:gravity="center|start"
+                android:hint="@string/observacion"
+                android:inputType="text"
+                android:maxLength="200"
+                android:paddingEnd="2dp"
+                android:paddingStart="2dp"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="14sp"
+                android:visibility="gone"/>
+
+            <Spinner
+                android:id="@+id/sp_tipo"
+                android:layout_weight="1.5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:entries="@array/combo_stock_bodega"/>
+
+
+
+
+            <!--            <EditText-->
+            <!--                android:id="@+id/txtObservaciones"-->
+            <!--                android:layout_width="0dp"-->
+            <!--                android:layout_height="match_parent"-->
+            <!--                android:layout_weight="3"-->
+            <!--                android:gravity="center|start"-->
+            <!--                android:hint="@string/observacion"-->
+            <!--                android:inputType="text"-->
+            <!--                android:maxLength="200"-->
+            <!--                android:paddingEnd="2dp"-->
+            <!--                android:paddingStart="2dp"-->
+            <!--                android:textAlignment="center"-->
+            <!--                android:textColor="#000000"-->
+            <!--                android:textSize="14sp" />-->
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lblSugeridotitulo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center|start"
+            android:background="@drawable/border_bottom_left"
+            android:text="Sugerido"
+            android:drawableLeft="@drawable/baseline_keyboard_double_arrow_down_24"
+            android:drawableRight="@drawable/baseline_keyboard_double_arrow_down_24"
+            android:padding="5dp"
+            android:paddingStart="2dp"
+            android:paddingEnd="2dp"
+            android:textSize="14sp"
+            android:textAlignment="center"
+            android:textColor="@color/azul2_bassa"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".9"
+                android:gravity="center|start"
+                android:padding="5dp"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_column="0"
+                android:text="Sugerido"
+                android:textAlignment="center"
+                android:textColor="@color/azul2_bassa"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight=".7"
+                android:gravity="center|start"
+                android:padding="5dp"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_column="0"
+                android:text="Cant Sugerido"
+                android:textAlignment="center"
+                android:textColor="@color/azul2_bassa"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2"
+                android:gravity="center|start"
+                android:padding="5dp"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_column="0"
+                android:text="Tipo Sugeridos"
+                android:textAlignment="center"
+                android:textColor="@color/azul2_bassa"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2"
+                android:gravity="center|start"
+                android:padding="5dp"
+                android:paddingStart="2dp"
+                android:paddingEnd="2dp"
+                android:layout_column="0"
+                android:text="Motivo"
+                android:textAlignment="center"
+                android:textColor="@color/azul2_bassa"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="4">
+
+
+            <Spinner
+                android:id="@+id/sp_tiposug"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:entries="@array/tipo_unidades"
+                android:visibility="gone"/>
+
+            <Spinner
+                android:id="@+id/sp_sug"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".9"
+                android:entries="@array/combo_si_no"
+                android:visibility="visible"/>
+
+
+            <EditText
+                android:id="@+id/txt_cantidad_sugerida"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight=".7"
+                android:inputType="number"
+                android:hint="Cant. Sugerido">
+
+
+            </EditText>
+
+            <Spinner
+                android:id="@+id/sp_entrega"
+                android:layout_weight="1.2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:entries="@array/tipo_sugeridos"/>
+
+            <Spinner
+                android:id="@+id/sp_motivo"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2"
+                android:entries="@array/tipo_sugeridos" />
+
+
+        </LinearLayout>
+
+        <!--        <Button-->
+        <!--            android:id="@+id/checkGuardar"-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:background="@drawable/button_background"-->
+        <!--            android:layout_margin="5dp"-->
+        <!--            android:text="Guardar"/>-->
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="horizontal"
+    android:weightSum="15">
+    <!--    android:padding="5dp">-->
+
+    <TextView
+        android:id="@+id/lblSku"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="6"
+        android:gravity="center|start"
+        android:hint="@string/marcas"
+        android:fontFamily="@font/roboto_light"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/txtventa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:gravity="center|start"
+        android:hint="@string/caras"
+        android:inputType="number"
+        android:maxLength="7"
+        android:fontFamily="@font/roboto_light"
+        android:paddingEnd="2dp"
+        android:paddingStart="2dp"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="12sp" />
+
+    <EditText
+        android:id="@+id/txtCumplimiento"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="5"
+        android:gravity="center|start"
+        android:background="@null"
+        android:enabled="false"
+        android:inputType="number"
+        android:hint="Cumplimiento"
+        android:maxLength="7"
+        android:fontFamily="@font/roboto_light"
+        android:paddingEnd="2dp"
+        android:paddingStart="2dp"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="12sp"
+        />
+
+    <Spinner
+        android:id="@+id/spRazon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/RazonCambio"
+        android:layout_weight="6"
+        android:visibility="gone"/>
+
+    <CheckBox
+        android:id="@+id/checkPresencia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.20"
+        android:gravity="center_vertical|center_horizontal|center"
+        android:visibility="gone"/>
+
+</LinearLayout>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.luckyecuador.app.bassaApp.ui.status.StatusFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_status" />
+
+    <fragment
+        android:id="@+id/nav_osa"
+        android:name="com.luckyecuador.app.bassaApp.ui.osa.ValoresFragment"
+        android:label="@string/menu_osa"
+        tools:layout="@layout/fragment_valores" />
+
+    <fragment
+        android:id="@+id/nav_precios"
+        android:name="com.luckyecuador.app.bassaApp.ui.precios.PreciosFragment"
+        android:label="@string/menu_precios"
+        tools:layout="@layout/fragment_precios" />
+
+    <fragment
+        android:id="@+id/nav_sod"
+        android:name="com.luckyecuador.app.bassaApp.ui.share.ShareFragment"
+        android:label="Caras de Exhibiciones"
+        tools:layout="@layout/fragment_share" />
+
+    <fragment
+        android:id="@+id/nav_promo"
+        android:name="com.luckyecuador.app.bassaApp.ui.promociones.PromoFragment"
+        android:label="@string/menu_promo"
+        tools:layout="@layout/fragment_promo" />
+
+    <fragment
+        android:id="@+id/nav_onPacks"
+        android:name="com.luckyecuador.app.bassaApp.ui.packs.PacksFragment"
+        android:label="@string/menu_onPacks"
+        tools:layout="@layout/fragment_packs" />
+
+    <fragment
+        android:id="@+id/nav_exh"
+        android:name="com.luckyecuador.app.bassaApp.ui.exhibiciones.ExhibicionFragment"
+        android:label="@string/menu_exh"
+        tools:layout="@layout/fragment_exhibicion" />
+
+    <fragment
+        android:id="@+id/nav_logros"
+        android:name="com.luckyecuador.app.bassaApp.ui.logros.FotograficoFragment"
+        android:label="@string/menu_gestion"
+        tools:layout="@layout/fragment_fotografico" />
+
+    <fragment
+        android:id="@+id/nav_sms"
+        android:name="com.luckyecuador.app.bassaApp.ui.sms.SmsFragment"
+        android:label="@string/menu_sms"
+        tools:layout="@layout/fragment_sms" />
+
+    <fragment
+        android:id="@+id/nav_tareas"
+        android:name="com.luckyecuador.app.bassaApp.ui.tareas.TareasFragment"
+        android:label="@string/menu_tareas"
+        tools:layout="@layout/fragment_tareas" />
+
+    <fragment
+        android:id="@+id/nav_inv"
+        android:name="com.luckyecuador.app.bassaApp.ui.inventario.FlooringFragment"
+        android:label="@string/menu_inventario"
+        tools:layout="@layout/fragment_flooring" />
+
+    <fragment
+        android:id="@+id/nav_canjes"
+        android:name="com.luckyecuador.app.bassaApp.ui.canjes.CanjesFragment"
+        android:label="@string/menu_canjes"
+        tools:layout="@layout/fragment_canjes" />
+
+    <fragment
+        android:id="@+id/nav_mci"
+        android:name="com.luckyecuador.app.bassaApp.ui.mci.MciPdvFragment"
+        android:label="@string/menu_mci"
+        tools:layout="@layout/fragment_mci_pdv" />
+
+    <fragment
+        android:id="@+id/nav_ejecucion_materiales"
+        android:name="com.luckyecuador.app.bassaApp.ui.materiales.EjecucionMaterialesFragment"
+        android:label="@string/menu_ejecucion_materiales"
+        tools:layout="@layout/fragment_ejecucion_materiales" />
+<!--
+    <fragment
+        android:id="@+id/nav_materiales_recibidos"
+        android:name="bassaApp.ui.materiales.EjecucionMaterialesFragment"
+        android:label="@string/menu_ejecucion_materiales"
+        tools:layout="@layout/fragment_ejecucion_materiales" />
+-->
+    <fragment
+        android:id="@+id/nav_pdi"
+        android:name="com.luckyecuador.app.bassaApp.ui.pdi.PDIFragment"
+        android:label="@string/menu_pdi"
+        tools:layout="@layout/fragment_pdi" />
+
+    <fragment
+        android:id="@+id/nav_impulso"
+        android:name="com.luckyecuador.app.bassaApp.ui.impulso.ImpulsoFragment"
+        android:label="@string/menu_impulso"
+        tools:layout="@layout/fragment_impulso" />
+
+    <fragment
+        android:id="@+id/nav_codificados"
+        android:name="com.luckyecuador.app.bassaApp.ui.codificados.CodificadosFragment"
+        android:label="@string/codificados"
+        tools:layout="@layout/fragment_codificados" />
+
+    <fragment
+        android:id="@+id/nav_evidencias"
+        android:name="com.luckyecuador.app.bassaApp.ui.evidencias.EvidenciasFragment"
+        android:label="@string/menu_gestion"
+        tools:layout="@layout/fragment_evidencias" />
+
+    <fragment
+        android:id="@+id/nav_tracking"
+        android:name="com.luckyecuador.app.bassaApp.ui.tracking.TrackingFragment"
+        android:label="@string/menu_tracking"
+        tools:layout="@layout/activity_tracking" />
+
+    <fragment
+        android:id="@+id/nav_convenios"
+        android:name="com.luckyecuador.app.bassaApp.ui.convenios.ConveniosFragment"
+        android:label="@string/menu_convenios"
+        tools:layout="@layout/fragment_convenios" />
+
+    <fragment
+        android:id="@+id/nav_encuesta_app"
+        android:name="com.luckyecuador.app.bassaApp.ui.encuesta.EncuestaFragment3"
+        android:label="@string/menu_encuesta"
+        tools:layout="@layout/fragment_encuesta3" />
+
+    <fragment
+        android:id="@+id/nav_ventas"
+        android:name="com.luckyecuador.app.bassaApp.ui.ventas.VentasFragment"
+        android:label="@string/menu_ventas"
+        tools:layout="@layout/fragment_ventas" />
+    <fragment
+        android:id="@+id/nav_muestras_medicas"
+        android:name="com.luckyecuador.app.bassaApp.ui.muestras.MuestrasFragment"
+        android:label="@string/menu_muestras_medicas"
+        tools:layout="@layout/fragment_muestras" />
+
+    <fragment
+        android:id="@+id/nav_probadores"
+        android:name="com.luckyecuador.app.bassaApp.ui.probadores.ProbadoresFragment"
+        android:label="@string/menu_probadores"
+        tools:layout="@layout/fragment_probadores" />
+
+    <fragment
+        android:id="@+id/nav_novedades"
+        android:name="com.luckyecuador.app.bassaApp.ui.novedades.NovedadesFragment"
+        android:label="@string/menu_novedades"
+        tools:layout="@layout/fragment_ventas" />
+
+<!--    <activity-->
+<!--        android:id="@+id/nav_herramientas_exh"-->
+<!--        android:name="com.luckyecuador.app.bassaApp.MenuHerramientasActivity"-->
+<!--        android:label="@string/menu_herramientas_exh"-->
+<!--        tools:layout="@layout/fragment_convenios" />-->
+
+
+</navigation>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="horizontal"
+    android:weightSum="15">
+    <!--    android:padding="5dp">-->
+
+    <TextView
+        android:id="@+id/lblSku"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="6"
+        android:gravity="center|start"
+        android:hint="@string/marcas"
+        android:paddingStart="2dp"
+        android:paddingEnd="2dp"
+        android:textColor="#000000"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/txtventa"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="3"
+        android:gravity="center|start"
+        android:hint="@string/caras"
+        android:inputType="number"
+        android:maxLength="7"
+        android:paddingEnd="2dp"
+        android:paddingStart="2dp"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="14sp" />
+
+    <Spinner
+        android:id="@+id/spRazon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:entries="@array/RazonCambio"
+        android:layout_weight="6" />
+
+    <CheckBox
+        android:id="@+id/checkPresencia"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1.20"
+        android:gravity="center_vertical|center_horizontal|center"
+        android:visibility="gone"/>
+
+</LinearLayout>

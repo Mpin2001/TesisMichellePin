@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/txtEstado"
+                    android:layout_width="85dp"
+                    android:layout_height="match_parent"
+                    android:ems="5"
+                    android:background="@null"
+                    android:padding="5dp"
+                    android:textColor="#000000"
+                    android:text="@string/estado"/>
+
+                <TextView
+                    android:id="@+id/txtFecha"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Fecha"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/txtHora"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Hora"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/txtNombrePdv"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Nombre PDV"
+                    android:textColor="#000000"
+                    android:visibility="visible"/>
+
+                <TextView
+                    android:id="@+id/txtUsuario"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Usuario"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/txtTipoNovedad"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Tipo Novedad"
+                    android:textColor="#000000" />
+
+
+                <TextView
+                    android:id="@+id/txtMarca"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Marca"
+                    android:textColor="#000000" />
+                <TextView
+                    android:id="@+id/txtSku"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Sku"
+                    android:textColor="#000000" />
+                <TextView
+                    android:id="@+id/txtLote"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Lote"
+                    android:textColor="#000000" />
+                <TextView
+                    android:id="@+id/txtObservacion1"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Comentario 1"
+                    android:textColor="#000000" />
+                <TextView
+                    android:id="@+id/txtObservacion2"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Comentario 2"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/txtObservacion3"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Comentario 3"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/txtTipoUnidades"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Tipo U/C"
+                    android:textColor="#000000" />
+
+                <TextView
+                    android:id="@+id/txtFechaVencimiento"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Fecha vencimiento"
+                    android:textColor="#000000" />
+                <TextView
+                    android:id="@+id/txtFechaInicio"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Fecha inicio"
+                    android:textColor="#000000" />
+                <TextView
+                    android:id="@+id/txtNumeroFactura"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Numero factura"
+                    android:textColor="#000000" />
+                <TextView
+                    android:id="@+id/txtTipoImplementacion"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Tipo de Implementacion"
+                    android:textColor="#000000" />
+                <TextView
+                    android:id="@+id/txtMecanica"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Mecanica"
+                    android:textColor="#000000" />
+                <TextView
+                    android:id="@+id/txtPrecioAnterior"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Precio anterior"
+                    android:textColor="#000000" />
+                <TextView
+                    android:id="@+id/txtPrecioPromocion"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Precio Promocion"
+                    android:textColor="#000000" />
+
+
+
+                <TextView
+                    android:id="@+id/txtCantidad"
+                    android:layout_width="90dp"
+                    android:layout_height="38dp"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="Cantidad"
+                    android:textColor="#000000"
+                   />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/lblEstado"
+                    android:layout_width="85dp"
+                    android:layout_height="match_parent"
+                    android:ems="5"
+                    android:background="@null"
+                    android:padding="5dp"
+                    android:textColor="#676666"
+                    android:text="@string/estado"/>
+
+                <TextView
+                    android:id="@+id/lblfecha"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:ems="5"
+                    android:background="@null"
+                    android:padding="5dp"
+                    android:textColor="#676666"
+                    android:text="@string/fechainicio"/>
+
+                <TextView
+                    android:id="@+id/lblHora"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:ems="5"
+                    android:background="@null"
+                    android:padding="5dp"
+                    android:textColor="#676666"
+                    android:text="@string/marca" />
+
+                <TextView
+                    android:id="@+id/lblNombrePdv"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/categoria"
+                    android:textColor="#676666"/>
+
+                <TextView
+                    android:id="@+id/lblUsuario"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:ems="5"
+                    android:background="@null"
+                    android:padding="5dp"
+                    android:textColor="#676666"
+                    android:text="@string/tipo"/>
+
+                <TextView
+                    android:id="@+id/lblTipoNovedad"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/productos"
+                    android:textColor="#676666"
+                    />
+
+
+                <TextView
+                    android:id="@+id/lblMarca"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/marca"
+                    android:textColor="#676666"
+                    />
+                <TextView
+                    android:id="@+id/lblSku"
+                    android:layout_width="200dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/sku"
+                    android:textColor="#676666"
+                    />
+                <TextView
+                    android:id="@+id/lblLote"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/lote"
+                    android:textColor="#676666"
+                    />
+                <TextView
+                    android:id="@+id/lblObservacion1"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/comentario_1"
+                    android:textColor="#676666"
+                    />
+
+                <TextView
+                    android:id="@+id/lblObservacion2"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/comentario_2"
+                    android:textColor="#676666"
+                    />
+
+                <TextView
+                    android:id="@+id/lblObservacion3"
+                    android:layout_width="150dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/comentario_3"
+                    android:textColor="#676666"
+                    />
+
+                <TextView
+                    android:id="@+id/lblTipo"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/tipo"
+                    android:textColor="#676666" />
+
+                <TextView
+                    android:id="@+id/lblFechavencimento"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/fecha_vencimiento"
+                    android:textColor="#676666"
+                    />
+                <TextView
+                    android:id="@+id/lblFechaInicio"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/fecha_inicio"
+                    android:textColor="#676666"
+                    />
+                <TextView
+                    android:id="@+id/lblNumeroFactura"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/numeroFactura"
+                    android:textColor="#676666"
+                    />
+                <TextView
+                    android:id="@+id/lblTipoImplementacion"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/numeroFactura"
+                    android:textColor="#676666"
+                    />
+                <TextView
+                    android:id="@+id/lblTipoMecanica"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/mecanica"
+                    android:textColor="#676666"
+                    />
+                <TextView
+                    android:id="@+id/lblPrecioAnterior"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/precioAnterior"
+                    android:textColor="#676666"
+                    />
+                <TextView
+                    android:id="@+id/lblPrecioPromocio"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/precioPromocion"
+                    android:textColor="#676666"
+                    />
+
+
+
+                <TextView
+                    android:id="@+id/lblCantidad"
+                    android:layout_width="90dp"
+                    android:layout_height="match_parent"
+                    android:background="@null"
+                    android:ems="5"
+                    android:padding="5dp"
+                    android:text="@string/cantidad"
+                    android:textColor="#676666"
+                    />
+
+        </LinearLayout>
+
+</LinearLayout>

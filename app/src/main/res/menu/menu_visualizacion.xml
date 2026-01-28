@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.luckyecuador.app.bassaApp.MainActivity">
+
+    <item
+        android:id="@+id/action_view"
+        android:orderInCategory="200"
+        android:title="@string/share_action"
+        android:icon="@drawable/white_eye_24"
+        app:showAsAction="ifRoom"/>
+
+</menu>

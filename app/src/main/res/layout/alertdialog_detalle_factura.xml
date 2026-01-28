@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/white">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/instructions_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbars="vertical">
+
+                <TextView
+                    android:id="@+id/lblModelo"
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="@drawable/layout_background"
+                    android:padding="10dp"
+                    android:text="Detalle Factura"
+                   
+                    android:textAlignment="center"
+                    android:textColor="@color/blanco" />
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:text="Total Factura:"
+
+                            android:textAlignment="textStart"
+                            />
+
+                        <EditText
+                            android:id="@+id/txt_total_factura"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:ems="10"
+                            android:textSize="14dp"
+
+                            android:gravity="center"
+                            android:enabled="false"
+                            android:inputType="textMultiLine" />
+                        <!--
+                                                <ImageButton
+                                                    android:id="@+id/btnCamera"
+                                                    android:layout_width="40dp"
+                                                    android:layout_height="40dp"
+                                                    android:layout_weight=".5"
+                                                    android:background="#0000"
+                                                    android:scaleType="fitCenter"
+                                                    android:src="@drawable/cameraicon2" />
+                        -->
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="5dp"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.6"
+                            android:text="Entrego Promocional?"
+
+                            android:textAlignment="textStart"
+                            />
+
+<!--                        <Space-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_weight="0.2"-->
+<!--                            />-->
+
+                        <Spinner
+                            android:id="@+id/spEntregoPromocional"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.4"
+                            android:ems="10"
+                            android:entries="@array/promocional_si_no"
+                            android:fontFamily="@font/roboto_light"
+                            android:hint="No"
+                            android:textAlignment="textEnd"
+                            android:inputType="textPersonName"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:id="@+id/llNumFactura"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:text="Número de Factura:"
+                            android:textAlignment="textStart"/>
+
+                        <EditText
+                            android:id="@+id/txt_numero_factura"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:ems="10"
+                            android:gravity="center"
+                            android:maxLength="20"
+                            android:inputType="number" />
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutPromoEntregado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="5dp"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.6"
+                            android:text="Promocional Entregado:"
+                            
+                            android:textAlignment="textStart"
+                            />
+
+                        <Spinner
+                            android:id="@+id/spPromocionalEntregado"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.4"
+                            android:entries="@array/seleccione"
+                            android:fontFamily="@font/roboto_light"
+                            android:hint="No"
+                            android:inputType="textPersonName"
+                            android:textAlignment="textEnd"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/linearLayoutCantPromoEntregado"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="0dp"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.7"
+                            android:text="Cantidad entregada:"
+
+                            android:textAlignment="textStart"
+                            />
+
+<!--                        <Space-->
+<!--                            android:layout_width="0dp"-->
+<!--                            android:layout_height="match_parent"-->
+<!--                            android:layout_weight="0.1"-->
+<!--                            />-->
+
+
+                        <EditText
+                            android:id="@+id/txt_cant_promo"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.3"
+                            android:ems="10"
+                            android:maxLength="2"
+                            android:gravity="center"
+                            android:textSize="14dp"
+                            android:inputType="number" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llMecanica"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="5dp"
+                        android:weightSum="1">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.6"
+                            android:text="Mecánica:"
+
+                            android:textAlignment="textStart"
+                            />
+
+                        <Spinner
+                            android:id="@+id/spMecanicaVenta"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.4"
+                            android:entries="@array/comboTipoPromo"
+                            android:fontFamily="@font/roboto_light"
+                            android:hint="No"
+                            android:textAlignment="textEnd"
+                            android:inputType="textPersonName"
+                            android:textSize="18sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llFotoFactura"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="visible"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="F. Factura"
+                            android:textStyle="bold"
+                            android:gravity="center_vertical"
+                            android:paddingEnd="16dp"
+                            android:minWidth="80dp" />
+
+                        <ImageButton
+                            android:id="@+id/btnCameraFactura"
+                            android:layout_width="26dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="8dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:scaleType="centerInside"
+                            app:srcCompat="@drawable/cameraicon2" />
+
+                        <ImageButton
+                            android:id="@+id/ivFotoFactura"
+                            android:layout_width="27dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="8dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:scaleType="centerInside"
+                            app:srcCompat="@drawable/ic_baseline_preview_24" />
+
+                        <ScrollView
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:layout_marginStart="16dp"
+                            android:scrollbars="vertical">
+
+                            <EditText
+                                android:id="@+id/txtComentarioFactura"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:background="@color/background_color"
+                                android:gravity="top|start"
+                                android:inputType="textMultiLine"
+                                android:padding="12dp"
+                                android:textColor="#000000"
+                                android:hint="Comentario..."
+                                android:minHeight="50dp" />
+
+                        </ScrollView>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/llFotoAdicional"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="visible"
+                        android:padding="8dp">
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="F. Entrega"
+                            android:textStyle="bold"
+                            android:gravity="center_vertical"
+                            android:paddingEnd="16dp"
+                            android:minWidth="80dp" />
+
+                        <ImageButton
+                            android:id="@+id/btnCameraAdicional"
+                            android:layout_width="26dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="8dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:scaleType="centerInside"
+                            app:srcCompat="@drawable/cameraicon2" />
+
+                        <ImageButton
+                            android:id="@+id/ivFotoAdicional"
+                            android:layout_width="27dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="8dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:scaleType="centerInside"
+                            app:srcCompat="@drawable/ic_baseline_preview_24" />
+
+                        <ScrollView
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:layout_marginStart="16dp"
+                            android:scrollbars="vertical">
+                        <EditText
+                            android:id="@+id/txtComentarioAdicional"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background_color"
+                            android:gravity="top|start"
+                            android:inputType="textMultiLine"
+                            android:padding="12dp"
+                            android:textColor="#000000"
+                            android:hint="Comentario..."
+                            android:minHeight="50dp" />
+
+                        </ScrollView>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/llFotoActividad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:visibility="visible"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="F. Actividad"
+                            android:textStyle="bold"
+                            android:gravity="center_vertical"
+                            android:paddingEnd="16dp"
+                            android:minWidth="80dp" />
+
+
+                        <ImageButton
+                            android:id="@+id/btnCameraActividad"
+                            android:layout_width="26dp"
+                            android:layout_height="36dp"
+                            android:layout_marginStart="8dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:scaleType="centerInside"
+                            app:srcCompat="@drawable/cameraicon2" />
+
+                        <ImageButton
+                            android:id="@+id/ivFotoActividad"
+                            android:layout_width="27dp"
+                            android:layout_height="41dp"
+                            android:layout_marginStart="8dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:scaleType="centerInside"
+                            app:srcCompat="@drawable/ic_baseline_preview_24" />
+                        <ScrollView
+                            android:layout_width="0dp"
+                            android:layout_height="50dp"
+                            android:layout_weight="1"
+                            android:layout_marginStart="16dp"
+                            android:scrollbars="vertical">
+                        <EditText
+                            android:id="@+id/txtComentarioAcitividad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/background_color"
+                            android:gravity="top|start"
+                            android:inputType="textMultiLine"
+                            android:padding="12dp"
+                            android:textColor="#000000"
+                            android:hint="Comentario..."
+                            android:minHeight="50dp" />
+
+                        </ScrollView>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
