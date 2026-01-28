@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/alicorp_fondo"
     android:orientation="vertical"
-    tools:context="com.luckyecuador.app.bassaApp.PromoActivity">
+    tools:context="com.tesis.michelle.pin.PromoActivity">
 
     <!-- App Bar -->
     <com.google.android.material.appbar.AppBarLayout

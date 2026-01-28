@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#eceff1"
-    tools:context="com.luckyecuador.app.bassaApp.VentaActivity">
+    tools:context="com.tesis.michelle.pin.VentaActivity">
 
     <!-- Toolbar -->
 

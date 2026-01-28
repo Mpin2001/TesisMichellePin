@@ -5,7 +5,7 @@
     android:id="@+id/coordinatorPos"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.luckyecuador.app.bassaApp.PuntosActivity">
+    tools:context="com.tesis.michelle.pin.PuntosActivity">
 
     <!-- App Bar -->
     <com.google.android.material.appbar.AppBarLayout

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/colorBlack"
     android:orientation="vertical"
-    tools:context="com.luckyecuador.app.bassaApp.CameraActivity">
+    tools:context="com.tesis.michelle.pin.CameraActivity">
 
     <androidx.camera.view.PreviewView
         android:id="@+id/previewView"

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/colorWhite"
-    tools:context="com.luckyecuador.app.bassaApp.CanjesActivity">
+    tools:context="com.tesis.michelle.pin.CanjesActivity">
 
     <!-- App Bar -->
     <com.google.android.material.appbar.AppBarLayout

@@ -11,7 +11,7 @@
         android:layout_centerVertical="true"
         android:padding="200dp"
         android:text="holamundo"
-        tools:context="com.luckyecuador.app.bassaApp.MainActivity" />
+        tools:context="com.tesis.michelle.pin.MainActivity" />
 
     <com.google.android.gms.maps.MapView
         android:id="@+id/mapview"

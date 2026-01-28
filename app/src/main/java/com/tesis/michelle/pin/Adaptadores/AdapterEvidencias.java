@@ -1,0 +1,162 @@
+package com.tesis.michelle.pin.Adaptadores;
+
+import android.content.Context;
+import android.database.Cursor;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.tesis.michelle.pin.DataBase.Provider;
+import com.tesis.michelle.pin.Conexion.Constantes;
+import com.tesis.michelle.pin.Contracts.ContractInsertEvidencias;
+import com.tesis.michelle.pin.DataBase.DatabaseHelper;
+import com.tesis.michelle.pin.R;
+
+/**
+ * Created by Lucky Ecuador on 21/02/2017.
+ */
+
+public class AdapterEvidencias extends RecyclerView.Adapter<AdapterEvidencias.ViewHolder> {
+    private Cursor cursor;
+    private Context context;
+
+    // Instancia de escucha
+    private OnItemClickListener escucha;
+
+    /**
+     * Interfaz para escuchar clicks del recycler
+     */
+    interface OnItemClickListener {
+        public void onClick(ViewHolder holder, String idContacto);
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        // Campos respectivos de un item
+        private TextView estado;
+        private TextView fecha;
+        private TextView hora;
+        private TextView codigo;
+        private TextView usuario;
+        private TextView categoria;
+        private TextView marca;
+        private TextView subcategoria;
+        private TextView sub;
+        private TextView brand;
+        private TextView sku;
+        private TextView regular;
+        private TextView promocion;
+        private TextView ofer;
+
+        public ViewHolder(View v) {
+            super(v);
+            estado = (TextView) v.findViewById(R.id.lblEstado);
+            fecha = (TextView) v.findViewById(R.id.lblfechainicial);
+            hora = (TextView) v.findViewById(R.id.lblMara);
+            codigo = (TextView) v.findViewById(R.id.lblPDV);
+            usuario = (TextView) v.findViewById(R.id.lblTipo);
+            categoria = (TextView) v.findViewById(R.id.lblCategoria);
+            marca = (TextView) v.findViewById(R.id.lblMarca);
+            subcategoria = (TextView) v.findViewById(R.id.lblSubcategoria);
+            brand = (TextView) v.findViewById(R.id.lblCantidad);
+            sku = (TextView) v.findViewById(R.id.lblPcont);
+            regular = (TextView) v.findViewById(R.id.lblFecha);
+            promocion = (TextView) v.findViewById(R.id.lblHora);
+            sub = (TextView) v.findViewById(R.id.lblSub);
+            ofer = (TextView) v.findViewById(R.id.lblOfert);
+        }
+    }
+
+    public AdapterEvidencias(Context context) {
+        this.context= context;
+    }
+
+    @Override
+    public int getItemCount() {
+        if (cursor!=null)
+            return cursor.getCount();
+        return 0;
+    }
+
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        View v = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.status_evidencias, viewGroup, false);
+        return new ViewHolder(v);
+    }
+
+    @Override
+    public void onBindViewHolder(ViewHolder viewHolder, int i) {
+        cursor.moveToPosition(i);
+
+        DatabaseHelper handler = new DatabaseHelper(context, Provider.DATABASE_NAME,null,1);
+
+        String consulta;
+
+        String estado;
+        String codigo;
+        String fecha;
+        String hora;
+        String usuario;
+        String marca;
+        String categoria;
+        String subcategoria;
+        String brand;
+        String sku;
+        String regular;
+        String promocion;
+        String sub;
+        String ofer;
+        String pos_name;
+
+        consulta = cursor.getString(cursor.getColumnIndexOrThrow(Constantes.PENDIENTE_INSERCION));
+        if(consulta.equals("1")){
+            estado = "No Enviado";
+        }else{
+            estado = "Enviado";
+        }
+
+
+
+        codigo = cursor.getString(cursor.getColumnIndexOrThrow(ContractInsertEvidencias.Columnas.CODIGO));
+        fecha = cursor.getString(cursor.getColumnIndexOrThrow(ContractInsertEvidencias.Columnas.FECHA));
+        hora= cursor.getString(cursor.getColumnIndexOrThrow(ContractInsertEvidencias.Columnas.HORA));
+        usuario = cursor.getString(cursor.getColumnIndexOrThrow(ContractInsertEvidencias.Columnas.USUARIO));
+        marca = cursor.getString(cursor.getColumnIndexOrThrow(ContractInsertEvidencias.Columnas.MARCA));
+        categoria = cursor.getString(cursor.getColumnIndexOrThrow(ContractInsertEvidencias.Columnas.CATEGORIA));
+        subcategoria = cursor.getString(cursor.getColumnIndexOrThrow(ContractInsertEvidencias.Columnas.SUBCATEGORIA));
+        sub = cursor.getString(cursor.getColumnIndexOrThrow(ContractInsertEvidencias.Columnas.COMENTARIO));
+//        brand = cursor.getString(cursor.getColumnIndexOrThrow(ContractInsertEvidencias.Columnas.BRAND));
+//        sku = cursor.getString(cursor.getColumnIndexOrThrow(ContractInsertEvidencias.Columnas.SKU_CODE));
+//        regular = cursor.getString(cursor.getColumnIndexOrThrow(ContractInsertEvidencias.Columnas.PREGULAR));
+//        promocion = cursor.getString(cursor.getColumnIndexOrThrow(ContractInsertEvidencias.Columnas.PPROMOCION));
+//        ofer = cursor.getString(cursor.getColumnIndexOrThrow(ContractInsertEvidencias.Columnas.POFERTA));
+
+        viewHolder.estado.setText(estado);
+        viewHolder.fecha.setText(fecha);
+        viewHolder.categoria.setText(categoria);
+        viewHolder.subcategoria.setText(subcategoria);
+        viewHolder.codigo.setText(handler.getPosNamePdv(codigo));
+        viewHolder.hora.setText(hora);
+        viewHolder.usuario.setText(usuario);
+        viewHolder.marca.setText(marca);
+        viewHolder.sub.setText(sub);
+//        viewHolder.brand.setText(brand);
+//        viewHolder.sku.setText(sku);
+//        viewHolder.regular.setText(regular);
+//        viewHolder.promocion.setText(promocion);
+//        viewHolder.ofer.setText(ofer);
+
+    }
+
+    public void swapCursor(Cursor newCursor) {
+        cursor = newCursor;
+        notifyDataSetChanged();
+    }
+
+    public Cursor getCursor() {
+        return cursor;
+    }
+}

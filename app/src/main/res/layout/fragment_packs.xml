@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.luckyecuador.app.bassaApp.ui.packs.PacksFragment">
+    tools:context="com.tesis.michelle.pin.ui.packs.PacksFragment">
 
     <ScrollView
         android:layout_width="match_parent"

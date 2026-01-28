@@ -7,7 +7,7 @@
     android:id="@+id/coordinatorPos"
     android:orientation="vertical"
     android:background="@color/menu_back"
-    tools:context="com.luckyecuador.app.bassaApp.ui.share.ShareFragment">
+    tools:context="com.tesis.michelle.pin.ui.share.ShareFragment">
 
 
 

@@ -8,7 +8,7 @@ plugins {
 android {
     compileSdk 34
     defaultConfig {
-        applicationId "com.luckyecuador.app.bassaApp"
+        applicationId "com.tesis.michelle.pin"
         minSdk 26
         targetSdk 34
         versionCode 3
@@ -39,7 +39,7 @@ android {
     dataBinding {
         enabled = true
     }
-    namespace 'com.luckyecuador.app.bassaApp'
+    namespace 'com.tesis.michelle.pin'
 //    kotlinOptions {
 //        jvmTarget = '11'
 //    }

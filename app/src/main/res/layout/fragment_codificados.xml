@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/blanco"
-    tools:context="com.luckyecuador.app.bassaApp.ui.codificados.CodificadosFragment">
+    tools:context="com.tesis.michelle.pin.ui.codificados.CodificadosFragment">
 
 <!--    &lt;!&ndash; App Bar &ndash;&gt;-->
 <!--    <com.google.android.material.appbar.AppBarLayout-->

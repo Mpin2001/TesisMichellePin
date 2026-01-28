@@ -51,8 +51,8 @@
 
     <string name="settings_menu_item">Settings</string>
 
-    <string name="name">com.luckyecuador.app.bassaApp.name</string>
-    <string name="cluf">com.luckyecuador.app.bassaApp.cluf</string>
+    <string name="name">com.tesis.michelle.pin.name</string>
+    <string name="cluf">com.tesis.michelle.pin.cluf</string>
 
 
      <string name="timeout">Tiempo de espera agotado</string>
@@ -225,8 +225,8 @@
     <string name="action_test">Test</string>
     <string name="version">Aplicación Actualizada : 16/08/2025</string>
 
-    <string name="account_type">com.luckyecuador.app.bassaApp.account</string>
-    <string name="provider_authority">com.luckyecuador.app.bassaApp</string>
+    <string name="account_type">com.tesis.michelle.pin.account</string>
+    <string name="provider_authority">com.tesis.michelle.pin</string>
 
     <!--Tutorial-->
     <string name="siguiente">Siguiente</string>

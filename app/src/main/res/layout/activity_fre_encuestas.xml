@@ -5,6 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#eceff1"
-    tools:context="com.luckyecuador.app.bassaApp.com.luckyecuador.app.bassaApp.FreEncuestas">
+    tools:context="com.tesis.michelle.pin.com.tesis.michelle.pin.FreEncuestas">
 
 </androidx.constraintlayout.widget.ConstraintLayout>

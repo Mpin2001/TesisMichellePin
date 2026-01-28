@@ -1,0 +1,92 @@
+package com.tesis.michelle.pin.Contracts;
+
+import android.content.UriMatcher;
+import android.net.Uri;
+import android.provider.BaseColumns;
+
+import com.tesis.michelle.pin.Conexion.Constantes;
+
+
+/**
+ * Created by Lucky Ecuador on 15/07/2016.
+ */
+public class ContractInsertExh {
+    /**
+     * Representación de la tabla a consultar
+     */
+    public static final String INSERT_EXH = "insert_exhibicion";
+    /**
+     * Tipo MIME que retorna la consulta de una sola fila
+     */
+    public final static String SINGLE_MIME =
+            "vnd.android.cursor.item/vnd." + Constantes.AUTHORITY + INSERT_EXH;
+    /**
+     * Tipo MIME que retorna la consulta de {@link //CONTENT_URI}
+     */
+    public final static String MULTIPLE_MIME =
+            "vnd.android.cursor.dir/vnd." + Constantes.AUTHORITY + INSERT_EXH;
+    /**
+     * URI de contenido principal
+     */
+    public final static Uri CONTENT_URI =
+            Uri.parse("content://" + Constantes.AUTHORITY + "/" + INSERT_EXH);
+    /**
+     * Comparador de URIs de contenido
+     */
+    public static final UriMatcher uriMatcher;
+    /**
+     * Código para URIs de multiples registros
+     */
+    public static final int ALLROWS = 1;
+    /**
+     * Código para URIS de un solo registro
+     */
+    public static final int SINGLE_ROW = 2;
+
+
+    // Asignación de URIs
+    static {
+        uriMatcher = new UriMatcher(UriMatcher.NO_MATCH);
+        uriMatcher.addURI(Constantes.AUTHORITY, INSERT_EXH, ALLROWS);
+        uriMatcher.addURI(Constantes.AUTHORITY, INSERT_EXH + "/#", SINGLE_ROW);
+    }
+
+
+    /**
+     * Estructura de la tabla
+     */
+    public static class Columnas implements BaseColumns {
+
+        private Columnas() {
+            // Sin instancias
+        }
+
+
+        public final static String PHARMA_ID = "id";
+        public final static String CODIGO = "pos_id";
+        public final static String USUARIO = "user";
+        public final static String SUPERVISOR = "supervisor";
+        public final static String FECHA = "fecha";
+        public final static String HORA = "hora";
+        public final static String SECTOR = "sector";
+        public final static String CATEGORIA = "categoria";
+        public final static String SUBCATEGORIA = "subcategoria";
+        public final static String SEGMENTO = "segmento";
+        public final static String BRAND = "brand";
+        public final static String TIPO_EXH = "tipo_exh";
+        public final static String FABRICANTE = "fabricante"; //para guardar el tipo de fabricante que se haya escojido
+        public final static String ZONA_EX = "zona_exh";
+        public final static String NIVEL = "nivel";
+        public final static String TIPO = "tipo";
+        public final static String CONTRATADA = "contratada";
+        public final static String CONDICION  = "condicion";
+
+        public final static String FOTO = "foto";
+        public final static String COMENTARIO_REVISOR = "comentario_revisor";
+        public final static String POS_NAME = "pos_name";
+        public final static String PLATAFORMA = "plataforma";
+
+
+    }
+
+}

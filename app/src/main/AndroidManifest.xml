@@ -264,7 +264,7 @@
             android:screenOrientation="portrait" />
         <!--
         <activity
-            android:name="com.luckyecuador.app.bassaApp.LoginActivity"
+            android:name="com.tesis.michelle.pin.LoginActivity"
             android:screenOrientation="portrait" />
         -->
         <activity

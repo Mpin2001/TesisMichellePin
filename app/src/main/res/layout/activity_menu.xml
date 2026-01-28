@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/alicorp_fondo"
-    tools:context="com.luckyecuador.app.bassaApp.MenuActivity">
+    tools:context="com.tesis.michelle.pin.MenuActivity">
 
     <!-- Toolbar -->
     <androidx.appcompat.widget.Toolbar xmlns:app="http://schemas.android.com/apk/res-auto"

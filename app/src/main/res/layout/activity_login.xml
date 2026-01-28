@@ -7,7 +7,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg_bss"
-    tools:context="com.luckyecuador.app.bassaApp.LoginActivity">
+    tools:context="com.tesis.michelle.pin.LoginActivity">
 
     <!-- App Bar -->
     <!--<com.google.android.material.appbar.AppBarLayout

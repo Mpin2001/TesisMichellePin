@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "446065812009",
-    "project_id": "bassaapp-f0d35",
-    "storage_bucket": "bassaapp-f0d35.appspot.com"
+    "project_number": "1090538847347",
+    "project_id": "tesismichellepin",
+    "storage_bucket": "tesismichellepin.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:446065812009:android:e43f2d8e7c14880033b238",
+        "mobilesdk_app_id": "1:1090538847347:android:b31cb75eaf68d59446be06",
         "android_client_info": {
-          "package_name": "com.luckyecuador.app.bassaApp"
+          "package_name": "com.tesis.michelle.pin"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBijI9veJ8W4RdGPJWhh6yszV7mwBFi6nE"
+          "current_key": "AIzaSyBCHJS0bPtakuLyk0NcnJ5gFjyFNJ8T3o0"
         }
       ],
       "services": {

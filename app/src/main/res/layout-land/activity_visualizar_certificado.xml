@@ -7,7 +7,7 @@
     android:id="@+id/coordinatorPos"
     android:orientation="vertical"
     android:background="@color/menu_back"
-    tools:context="com.luckyecuador.app.bassaApp.VisualizarCertificadoActivity">
+    tools:context="com.tesis.michelle.pin.VisualizarCertificadoActivity">
 
 
     <!-- Toolbar -->
