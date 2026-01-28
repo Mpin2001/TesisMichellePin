@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bassa App</string>
+    <string name="app_name">Iguanas App</string>
     <string name="title_activity_puntos">Punto de Venta</string>
     <string name="title_activity_precios">Ventas</string>
     <string name="title_activity_promo">Promoción</string>
@@ -379,7 +379,7 @@
     <string name="universo">Universo</string>
     <string name="distancia_al_pdv">Distancia al PDV:</string>
     <string name="cerrar">Cerrar</string>
-    <string name="visitas">Visitas</string>
+    <string name="visitas">Calendario</string>
     <string name="distancia">Distancia</string>
     <string name="nombre_pdv">Nombre PDV</string>
     <string name="marca_propia">Bassa</string>

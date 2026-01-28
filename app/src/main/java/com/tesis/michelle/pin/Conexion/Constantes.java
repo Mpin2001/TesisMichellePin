@@ -15,96 +15,96 @@ public class Constantes {
     private static final String IP = "https://webecuador-desarrollo.azurewebsites.net";
 
     //OBTENER TODOS LOS PUNTOVENTAS, PRODUCTOs
-    public static final String LOGIN = URL + "/App/AppBassa/Web/login.php";
-    public static final String GET_PUNTOVENTAS = URL + "/App/AppBassa/Web/get_locales_rutero.php";
-    public static final String GET_USER = URL + "/App/AppBassa/Web/get_usuarios.php";
-    public static final String GET_FLOORING = URL + "/App/AppBassa/Web/get_productos2021.php";
-    public static final String GET_PRODUCTOS_SECUNDARIOS = URL + "/App/AppBassa/Web/get_productos_onpacks.php";
-    public static final String GET_LINK_ONEDRIVE = URL + "/App/AppBassa/Web/get_links.php";
-    public static final String GET_JUSTIFICACION = URL + "/App/AppBassa/Web/get_justificacion.php";
-    public static final String GET_TIPO_INVENTARIO = URL + "/App/AppBassa/Web/get_tipo_inventario.php";
-    public static final String GET_PREGUNTAS = URL + "/App/AppBassa/Web/get_preguntas.php";
-    public static final String GET_CAMPOS_X_MODULOS = URL + "/App/AppBassa/Web/get_campos_x_modulos.php";
-    public static final String GET_PROMOCIONAL_VENTAS = URL + "/App/AppBassa/Web/get_promocional_ventas.php";
+    public static final String LOGIN = URL + "/App/AppTesis/Web/login.php";
+    public static final String GET_PUNTOVENTAS = URL + "/App/AppTesis/Web/get_locales_rutero.php";
+    public static final String GET_USER = URL + "/App/AppTesis/Web/get_usuarios.php";
+    public static final String GET_FLOORING = URL + "/App/AppTesis/Web/get_productos2021.php";
+    public static final String GET_PRODUCTOS_SECUNDARIOS = URL + "/App/AppTesis/Web/get_productos_onpacks.php";
+    public static final String GET_LINK_ONEDRIVE = URL + "/App/AppTesis/Web/get_links.php";
+    public static final String GET_JUSTIFICACION = URL + "/App/AppTesis/Web/get_justificacion.php";
+    public static final String GET_TIPO_INVENTARIO = URL + "/App/AppTesis/Web/get_tipo_inventario.php";
+    public static final String GET_PREGUNTAS = URL + "/App/AppTesis/Web/get_preguntas.php";
+    public static final String GET_CAMPOS_X_MODULOS = URL + "/App/AppTesis/Web/get_campos_x_modulos.php";
+    public static final String GET_PROMOCIONAL_VENTAS = URL + "/App/AppTesis/Web/get_promocional_ventas.php";
 
 
-    public static final String GET_TESTS = URL + "/App/AppBassa/Web/get_tests.php";
+    public static final String GET_TESTS = URL + "/App/AppTesis/Web/get_tests.php";
 
-    public static final String GET_TIPO_EXH = URL + "/App/AppBassa/Web/get_tipo_exhibiciones.php";
+    public static final String GET_TIPO_EXH = URL + "/App/AppTesis/Web/get_tipo_exhibiciones.php";
 
-    public static final String GET_CATEGORIA_TIPO = URL + "/App/AppBassa/Web/get_categoria_tipo.php";
+    public static final String GET_CATEGORIA_TIPO = URL + "/App/AppTesis/Web/get_categoria_tipo.php";
 
-    public static final String GET_MOTIVOS_SUGERIDO = URL + "/App/AppBassa/Web/get_motivos_sugerido.php";
-    public static final String GET_PROMOCIONES = URL + "/App/AppBassa/Web/get_promociones.php";
-    public static final String GET_TIPO_VENTAS = URL + "/App/AppBassa/Web/get_tipo_ventas.php"; //MPIN
-    public static final String GET_TIPO_IMPLEMENTACIONES = URL + "/App/AppBassa/Web/get_tipo_implementaciones.php"; //NEW mpin novedades
-    public static final String GET_TIPO_ACTIVIDADES = URL + "/App/AppBassa/Web/get_tipo_actividades.php"; //NEW mpin  para modulo muestras medicas modificar
-    public static final String GET_TIPO_UNIDADES = URL + "/App/AppBassa/Web/get_tipo_unidades.php"; //NEW mpin CAMBIAR - cambiado
-    public static final String GET_TIPO_REGISTRO = URL + "/App/AppBassa/Web/get_tipo_registro.php"; //NEW mpin CAMBIAR -cambiado
-    public static final String GET_MODULO_ROLES = URL + "/App/AppBassa/Web/get_modulo_roles.php"; //NEW mpin CAMBIAR -
-    public static final String GET_ROTACION = URL + "/App/AppBassa/Web/get_rotacion.php";
-    public static final String GET_TAREAS = URL + "/App/AppBassa/Web/get_tareas.php";
-    public static final String GET_POPSUGERIDO = URL + "/App/AppBassa/Web/get_pop_sugerido.php";
-    public static final String GET_PRIORITARIO = URL + "/App/AppBassa/Web/get_prioritario.php";
-    public static final String GET_COMBO_CANJES = URL + "/App/AppBassa/Web/get_combos_canjes.php";
-    public static final String GET_CAUSALES_MCI = URL + "/App/AppBassa/Web/get_causales_mci.php";
-    public static final String GET_CAUSALES_OSA = URL + "/App/AppBassa/Web/get_causales_osa.php";
-    public static final String GET_MATERIALES_ALERTAS = URL + "/App/AppBassa/Web/get_materiales_alertas.php";
-    public static final String GET_PDI = URL + "/App/AppBassa/Web/get_pdi.php";
-    public static final String GET_TRACKING = URL + "/App/AppBassa/Web/get_tracking.php";
-    public static final String GET_CONVENIOS = URL + "/App/AppBassa/Web/get_convenios.php";
+    public static final String GET_MOTIVOS_SUGERIDO = URL + "/App/AppTesis/Web/get_motivos_sugerido.php";
+    public static final String GET_PROMOCIONES = URL + "/App/AppTesis/Web/get_promociones.php";
+    public static final String GET_TIPO_VENTAS = URL + "/App/AppTesis/Web/get_tipo_ventas.php"; //MPIN
+    public static final String GET_TIPO_IMPLEMENTACIONES = URL + "/App/AppTesis/Web/get_tipo_implementaciones.php"; //NEW mpin novedades
+    public static final String GET_TIPO_ACTIVIDADES = URL + "/App/AppTesis/Web/get_tipo_actividades.php"; //NEW mpin  para modulo muestras medicas modificar
+    public static final String GET_TIPO_UNIDADES = URL + "/App/AppTesis/Web/get_tipo_unidades.php"; //NEW mpin CAMBIAR - cambiado
+    public static final String GET_TIPO_REGISTRO = URL + "/App/AppTesis/Web/get_tipo_registro.php"; //NEW mpin CAMBIAR -cambiado
+    public static final String GET_MODULO_ROLES = URL + "/App/AppTesis/Web/get_modulo_roles.php"; //NEW mpin CAMBIAR -
+    public static final String GET_ROTACION = URL + "/App/AppTesis/Web/get_rotacion.php";
+    public static final String GET_TAREAS = URL + "/App/AppTesis/Web/get_tareas.php";
+    public static final String GET_POPSUGERIDO = URL + "/App/AppTesis/Web/get_pop_sugerido.php";
+    public static final String GET_PRIORITARIO = URL + "/App/AppTesis/Web/get_prioritario.php";
+    public static final String GET_COMBO_CANJES = URL + "/App/AppTesis/Web/get_combos_canjes.php";
+    public static final String GET_CAUSALES_MCI = URL + "/App/AppTesis/Web/get_causales_mci.php";
+    public static final String GET_CAUSALES_OSA = URL + "/App/AppTesis/Web/get_causales_osa.php";
+    public static final String GET_MATERIALES_ALERTAS = URL + "/App/AppTesis/Web/get_materiales_alertas.php";
+    public static final String GET_PDI = URL + "/App/AppTesis/Web/get_pdi.php";
+    public static final String GET_TRACKING = URL + "/App/AppTesis/Web/get_tracking.php";
+    public static final String GET_CONVENIOS = URL + "/App/AppTesis/Web/get_convenios.php";
 
     //INSERTS
-    public static final String INSERTAR_FLOORING = URL + "/App/AppBassa/Inserts/insert_inventario062025.php";
-    public static final String INSERTAR_PRECIO = URL + "/App/AppBassa/Inserts/insert_precios122025.php"; //mpin new
-    public static final String INSERTAR_MUESTRAS = URL + "/App/AppBassa/Inserts/insert_muestras.php"; //mpin new --- PARA MUESTRAS MEDICAS
-    public static final String INSERTAR_PROBADORES = URL + "/App/AppBassa/Inserts/insert_probadores.php"; //mpin new --- PARA PROBADORES
-    public static final String INSERTAR_EXH = URL + "/App/AppBassa/Inserts/insert_exhibicion112025.php"; //modificacion
-    public static final String INSERTAR_VENTA = URL + "/App/AppBassa/Inserts/insert_ventampin.php";
-    public static final String INSERTAR_VENTAS2 = URL + "/App/AppBassa/Inserts/insert_ventas2.php";
-    public static final String INSERTAR_PROMO = URL + "/App/AppBassa/Inserts/insert_promocion022023.php";
-    public static final String INSERTAR_SHARE = URL + "/App/AppBassa/Inserts/insert_share042024.php";
-    public static final String INSERTAR_PDI = URL + "/App/AppBassa/Inserts/insert_pdi022023.php";
-    public static final String INSERTAR_VALORES = URL + "/App/AppBassa/Inserts/insert_codificados022023.php";
-    public static final String INSERTAR_GEO = URL + "/App/AppBassa/Inserts/insert_rastreo.php";
-    public static final String INSERTAR_INICIAL = URL + "/App/AppBassa/Inserts/insert_inicial2018.php";
-    public static final String INSERTAR_GPS = URL + "/App/AppBassa/Inserts/insert_registro08_2022.php";
-    public static final String INSERTAR_IMPLEM = URL + "/App/AppBassa/Inserts/insert_implementacion.php";
-    public static final String INSERTAR_AGOTADOS = URL + "/App/AppBassa/Inserts/insert_agotados2018.php";
-    public static final String INSERTAR_ROTACION = URL + "/App/AppBassa/Inserts/insert_rotacion.php";
-        public static final String INSERTAR_FOTOGRAFICO = URL + "/App/AppBassa/Inserts/insert_fotografico042024.php";
+    public static final String INSERTAR_FLOORING = URL + "/App/AppTesis/Web//insert_inventario062025.php";
+    public static final String INSERTAR_PRECIO = URL + "/App/AppTesis/Web//insert_precios122025.php"; //mpin new
+    public static final String INSERTAR_MUESTRAS = URL + "/App/AppTesis/Web//insert_muestras.php"; //mpin new --- PARA MUESTRAS MEDICAS
+    public static final String INSERTAR_PROBADORES = URL + "/App/AppTesis/Web//insert_probadores.php"; //mpin new --- PARA PROBADORES
+    public static final String INSERTAR_EXH = URL + "/App/AppTesis/Web//insert_exhibicion112025.php"; //modificacion
+    public static final String INSERTAR_VENTA = URL + "/App/AppTesis/Web//insert_ventampin.php";
+    public static final String INSERTAR_VENTAS2 = URL + "/App/AppTesis/Web//insert_ventas2.php";
+    public static final String INSERTAR_PROMO = URL + "/App/AppTesis/Web//insert_promocion022023.php";
+    public static final String INSERTAR_SHARE = URL + "/App/AppTesis/Web//insert_share042024.php";
+    public static final String INSERTAR_PDI = URL + "/App/AppTesis/Web//insert_pdi022023.php";
+    public static final String INSERTAR_VALORES = URL + "/App/AppTesis/Web//insert_codificados022023.php";
+    public static final String INSERTAR_GEO = URL + "/App/AppTesis/Web//insert_rastreo.php";
+    public static final String INSERTAR_INICIAL = URL + "/App/AppTesis/Web//insert_inicial2018.php";
+    public static final String INSERTAR_GPS = URL + "/App/AppTesis/Web//insert_registro08_2022.php";
+    public static final String INSERTAR_IMPLEM = URL + "/App/AppTesis/Web//insert_implementacion.php";
+    public static final String INSERTAR_AGOTADOS = URL + "/App/AppTesis/Web//insert_agotados2018.php";
+    public static final String INSERTAR_ROTACION = URL + "/App/AppTesis/Web//insert_rotacion.php";
+        public static final String INSERTAR_FOTOGRAFICO = URL + "/App/AppTesis/Web//insert_fotografico042024.php";
 
-    public static final String INSERTAR_EVIDENCIA = URL + "/App/AppBassa/Inserts/insert_evidencias_10_2025.php";
-    public static final String INSERTAR_PREGUNTAS = URL + "/App/AppBassa/Inserts/insert_preguntas112022.php";
-    public static final String INSERTAR_TRACKING = URL + "/App/AppBassa/Inserts/insert_tracking.php";
+    public static final String INSERTAR_EVIDENCIA = URL + "/App/AppTesis/Web//insert_evidencias_10_2025.php";
+    public static final String INSERTAR_PREGUNTAS = URL + "/App/AppTesis/Web//insert_preguntas112022.php";
+    public static final String INSERTAR_TRACKING = URL + "/App/AppTesis/Web//insert_tracking.php";
 
-    public static final String INSERTAR_RESULTADO_PREGUNTAS = URL + "/App/AppBassa/Inserts/insert_resultado_preguntas.php";
+    public static final String INSERTAR_RESULTADO_PREGUNTAS = URL + "/App/AppTesis/Web//insert_resultado_preguntas.php";
 
-    public static final String INSERTAR_PROD_CAD = URL + "/App/AppBassa/Inserts/insert_prod_caducar.php";
-    public static final String INSERTAR_PACKS = URL + "/App/AppBassa/Inserts/insert_packs052023.php";
-    public static final String INSERTAR_IMPULSO = URL + "/App/AppBassa/Inserts/insert_impulso022023.php";
-    public static final String INSERTAR_TAREAS = URL + "/App/AppBassa/Inserts/insert_tareas.php";
-    public static final String INSERTAR_SUGERIDOS = URL + "/App/AppBassa/Inserts/insert_sugeridos_2022.php";
-    public static final String INSERTAR_CANJES = URL + "/App/AppBassa/Inserts/insert_canjes_022023.php";
-    public static final String INSERTAR_MCI = URL + "/App/AppBassa/Inserts/insert_mci.php";
-    public static final String INSERTAR_MATERIALES_RECIBIDOS = URL + "/App/AppBassa/Inserts/insert_materiales_recibidos.php";
-    public static final String INSERTAR_EJECUCION_MATERIALES = URL + "/App/AppBassa/Inserts/insert_ejecucion_materiales.php";
-    public static final String INSERTAR_CODIFICADOS = URL + "/App/AppBassa/Inserts/insert_codificados26092023.php";
-    public static final String INSERTAR_CONVENIOS = URL + "/App/AppBassa/Inserts/insert_convenios.php";
-    public static final String INSERTAR_NOTIFICACION = URL + "/App/AppBassa/Inserts/insert_notificacion0622.php";
-    public static final String INSERTAR_LOG = URL + "/App/AppBassa/Inserts/insert_log.php";
-    public static final String INSERTAR_EVIDENCIAS = URL + "/App/AppBassa/Inserts/insert_evidencias.php";
+    public static final String INSERTAR_PROD_CAD = URL + "/App/AppTesis/Web//insert_prod_caducar.php";
+    public static final String INSERTAR_PACKS = URL + "/App/AppTesis/Web//insert_packs052023.php";
+    public static final String INSERTAR_IMPULSO = URL + "/App/AppTesis/Web//insert_impulso022023.php";
+    public static final String INSERTAR_TAREAS = URL + "/App/AppTesis/Web//insert_tareas.php";
+    public static final String INSERTAR_SUGERIDOS = URL + "/App/AppTesis/Web//insert_sugeridos_2022.php";
+    public static final String INSERTAR_CANJES = URL + "/App/AppTesis/Web//insert_canjes_022023.php";
+    public static final String INSERTAR_MCI = URL + "/App/AppTesis/Web//insert_mci.php";
+    public static final String INSERTAR_MATERIALES_RECIBIDOS = URL + "/App/AppTesis/Web//insert_materiales_recibidos.php";
+    public static final String INSERTAR_EJECUCION_MATERIALES = URL + "/App/AppTesis/Web//insert_ejecucion_materiales.php";
+    public static final String INSERTAR_CODIFICADOS = URL + "/App/AppTesis/Web//insert_codificados26092023.php";
+    public static final String INSERTAR_CONVENIOS = URL + "/App/AppTesis/Web//insert_convenios.php";
+    public static final String INSERTAR_NOTIFICACION = URL + "/App/AppTesis/Web//insert_notificacion0622.php";
+    public static final String INSERTAR_LOG = URL + "/App/AppTesis/Web//insert_log.php";
+    public static final String INSERTAR_EVIDENCIAS = URL + "/App/AppTesis/Web//insert_evidencias.php";
 
     //MODIFICAR
     public static final String GET_PRECIOS = URL + "/App/CtaEpson/AppEpson/Web/epson_obtenerprecios.php";
     public static final String INSERTAR_PDV = URL + "/App/CtaEpson/AppEpson/Inserts/insert_noti.php";
 
     //PVC
-    public static final String GET_PRODUCTOS_PVC = URL + "/App/AppBassa/Web/get_productos_pvc.php";
+    public static final String GET_PRODUCTOS_PVC = URL + "/App/AppTesis/Web/get_productos_pvc.php";
 //    public static final String GET_CARAS_MARCA = URL + "/App/AppVilaseca/Web/get_caras_marca.php";
     public static final String GET_CARAS_MARCA = "localhost/control_asistencia_pdv/pruebaAndroid.php";
 
-    public static final String UPDATE_COORDENADAS_PDV = URL + "/App/AppBassa/Inserts/update_coordenadas_pdv.php";
+    public static final String UPDATE_COORDENADAS_PDV = URL + "/App/AppTesis/Web//update_coordenadas_pdv.php";
 
 
     /**
@@ -324,8 +324,8 @@ public class Constantes {
      * new basa consts
      */
     public static final String EVALUACION_PROMOTOR_RESULT = "evaluacion_promotor";
-    public static final String GET_EVALUACION_PROMOTOR = URL + "/App/AppBassa/Web/get_evaluacion_promotor092024.php";  //agregar web services
-    public static final String INSERTAR_EVALUACION_ENCUESTA = URL + "/App/AppBassa/Inserts/insert_evaluacion_encuesta_102024.php";
+    public static final String GET_EVALUACION_PROMOTOR = URL + "/App/AppTesis/Web/get_evaluacion_promotor092024.php";  //agregar web services
+    public static final String INSERTAR_EVALUACION_ENCUESTA = URL + "/App/AppTesis/Web//insert_evaluacion_encuesta_102024.php";
 
 
     public static final String bajar_Precio = "bajarPre";
@@ -339,8 +339,8 @@ public class Constantes {
 
     public static final String insertExhBassa = "insertexhbassa";
 
-    public static final String INSERTAR_EXHIBICION_BASSA = URL + "/App/AppBassa/Inserts/insert_exhibicion_colgate042024.php";
-    public static final String INSERTAR_EXHIBICION = URL + "/App/AppBassa/Inserts/insert_exhibicion042024.php";
+    public static final String INSERTAR_EXHIBICION_BASSA = URL + "/App/AppTesis/Web//insert_exhibicion_colgate042024.php";
+    public static final String INSERTAR_EXHIBICION = URL + "/App/AppTesis/Web//insert_exhibicion042024.php";
 
 
     public static final String ID_EXH_SUPERVISORES = "idExhColgate";
@@ -349,7 +349,7 @@ public class Constantes {
     public static final String bajar_Exh_Supervisor = "bajarExhSupervisor";
     public static final String TYPERESULT = "typeresult";
 
-    public static final String GET_EXHIBITION_SUPERVISOR = URL + "/App/AppBassa/Web/get_exhibiciones_supervisor_new.php";
+    public static final String GET_EXHIBITION_SUPERVISOR = URL + "/App/AppTesis/Web/get_exhibiciones_supervisor_new.php";
 
     public final static String CIUDAD = "city";
     public final static String VAFOTO = "foto";
@@ -363,12 +363,12 @@ public class Constantes {
     public static final String FABRICANTE ="fabricante";
 
     public static final String insertNovedades="insertNovedades";
-    public static final String GET_TIPO_NOVEDADES = URL + "/App/AppBassa/Web/get_tipo_novedades.php"; //TODO REVISARRR
-    public static final String GET_CANALES_FOTOS = URL + "/App/AppBassa/Web/get_canales_fotos.php"; //CREAR
-    public static final String CONSULTAR_NOVEDADES_DIARIO = URL + "/App/AppBassa/Web/consultar_novedades_diario.php";
+    public static final String GET_TIPO_NOVEDADES = URL + "/App/AppTesis/Web/get_tipo_novedades.php"; //TODO REVISARRR
+    public static final String GET_CANALES_FOTOS = URL + "/App/AppTesis/Web/get_canales_fotos.php"; //CREAR
+    public static final String CONSULTAR_NOVEDADES_DIARIO = URL + "/App/AppTesis/Web/consultar_novedades_diario.php";
     public static final String TIPONOVEDADESRESULT ="tipo_novedades";
     public static final String bajar_tipo_novedades ="tipo_novedades";
-    public static final String INSERTAR_NOVEDADES = URL + "/App/AppBassa/Inserts/insert_novedades112025.php"; //mpin
+    public static final String INSERTAR_NOVEDADES = URL + "/App/AppTesis/Web//insert_novedades112025.php"; //mpin
     public static final String PROMOCIONALVENTASESRESULT ="promocional_ventas";
 
 
