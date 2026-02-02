@@ -6,7 +6,7 @@
     android:id="@+id/coordinatorLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_bss"
+    android:background="@drawable/fondo_opcion2"
     tools:context="com.tesis.michelle.pin.LoginActivity">
 
     <!-- App Bar -->
@@ -47,7 +47,7 @@
                 android:id="@+id/imgExample"
                 android:layout_width="250dp"
                 android:layout_height="280dp"
-                android:src="@drawable/logo_xplora" />
+                android:src="@drawable/mp_tesis" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -71,12 +71,12 @@
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/edittext_login_background"
                     android:ellipsize="start"
-                    android:ems="10"
+                    android:ems="11"
                     android:fontFamily="@font/roboto_light"
                     android:gravity="center"
                     android:hint="Nombre de Usuario"
                     android:inputType="text"
-                    android:textColor="@color/blanco"
+                    android:textColor="@color/negro"
                     android:textColorHint="@color/blanco"
                     android:theme="@style/AppTheme" />
 
@@ -101,12 +101,12 @@
                     android:layout_marginBottom="20dp"
                     android:background="@drawable/edittext_login_background"
                     android:ellipsize="start"
-                    android:ems="10"
+                    android:ems="11"
                     android:fontFamily="@font/roboto_light"
                     android:gravity="center"
                     android:hint="Clave"
                     android:inputType="textPassword"
-                    android:textColor="@color/blanco"
+                    android:textColor="@color/negro"
                     android:textColorHint="@color/blanco"
                     android:theme="@style/AppTheme" />
 

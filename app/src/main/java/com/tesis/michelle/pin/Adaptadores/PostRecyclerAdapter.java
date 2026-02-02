@@ -19,6 +19,7 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.text.Html;
 import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -272,10 +273,10 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
             textViewTitle.setText(item.getPos_id());
             id.setText(item.getId());
-            textViewDescription.setText("Local: "+ item.getPos_name());
-            textViewFormato.setText("Canal: " + item.getChannel());
-            textViewNombreComercial.setText("Dirección: " + item.getAddress());
-            textViewProvincia.setText("Ciudad: " + item.getCity());
+            textViewDescription.setText(Html.fromHtml("<b>Barrio:</b> " + item.getPos_name()));
+            textViewFormato.setText(Html.fromHtml("<b>Nivel:</b> " + item.getChannel()));
+            textViewNombreComercial.setText(Html.fromHtml("<b>Dirección:</b> " + item.getAddress()));
+            textViewProvincia.setText(Html.fromHtml("<b>Ciudad:</b> " + item.getCity()));
             codigo = item.getPos_id();
             pos_name = item.getPos_name();
             modulo = item.getModulo();

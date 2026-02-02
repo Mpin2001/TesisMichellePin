@@ -16,7 +16,7 @@
         <item
             android:id="@+id/nav_evidencias"
             android:icon="@drawable/ic_assignment"
-            android:title="@string/menu_gestion" />
+            android:title="@string/menu_evidencias_fotograficas" />
         <item
             android:id="@+id/nav_novedades"
             android:icon="@drawable/ic_assignment"
@@ -74,7 +74,7 @@
         <item
             android:id="@+id/nav_logros"
             android:icon="@drawable/ic_assignment"
-            android:title="@string/menu_gestion"
+            android:title="@string/menu_evidencias_fotograficas"
             android:visible="false"/>
 
         <item

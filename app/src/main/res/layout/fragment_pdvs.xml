@@ -137,7 +137,7 @@
                 android:background="@drawable/edit_text_background"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="Codigo"
+                android:hint="Pulse aquí para buscar"
                 android:importantForAutofill="no"
                 android:inputType="textPersonName"
                 android:padding="7dp"

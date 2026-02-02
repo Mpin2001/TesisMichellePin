@@ -207,7 +207,7 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
     }
 
     public void filtrarCategoria() {
-        List<String> operadores = handler.getCategoriaEvidencia(fabricante);
+        List<String> operadores = handler.getCategoriaEvidencia();
         if (operadores.size()==2) {
             operadores.remove(0);
         }
@@ -254,8 +254,8 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
         Bitmap scaledDespues = Bitmap.createScaledBitmap(watermarkDespues, 1024, mheightDespues, true);
 
 
-        String foto_antes = getStringImage(scaledAntes);
-        String foto_despues = getStringImage(scaledDespues);
+      //  String foto_antes = getStringImage(scaledAntes);
+       // String foto_despues = getStringImage(scaledDespues);
 
         Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT-5"));
         Date currentLocalTime = cal.getTime();
@@ -277,8 +277,8 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
         values.put(ContractInsertEvidencias.Columnas.CATEGORIA,categoria);
        // values.put(ContractInsertEvidencias.Columnas.SUBCATEGORIA,subCategoria);
         values.put(ContractInsertEvidencias.Columnas.COMENTARIO, comentario);
-        values.put(ContractInsertEvidencias.Columnas.FOTO_ANTES, foto_antes);
-        values.put(ContractInsertEvidencias.Columnas.FOTO_DESPUES, foto_despues);
+     //   values.put(ContractInsertEvidencias.Columnas.FOTO_ANTES, foto_antes);
+       // values.put(ContractInsertEvidencias.Columnas.FOTO_DESPUES, foto_despues);
         values.put(ContractInsertEvidencias.Columnas.FECHA, fechaser);//Extra
         values.put(ContractInsertEvidencias.Columnas.HORA, horaser);//Extra
         values.put(Constantes.PENDIENTE_INSERCION, 1);

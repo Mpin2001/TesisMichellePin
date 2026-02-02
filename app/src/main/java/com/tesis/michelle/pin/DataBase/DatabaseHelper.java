@@ -8686,32 +8686,45 @@ public String getPresentacionVentas(String sku) {
 
 // CAMBIO PARA ELEJIR POR MARCA PARA GESTION PDV mpin
 
-    public List<String> getCategoriaEvidencia(String fabricante){
-        List<String> operadores = new ArrayList<String>();
+    public List<String> getCategoriaEvidencia() {
+        List<String> categorias = new ArrayList<>();
+        Cursor cursor = null;
+        SQLiteDatabase db = null;
 
-        Cursor cursor;
-        String selectQuery = "";
+        try {
+            String selectQuery = "SELECT DISTINCT " + ContractConvenios.Columnas.MARCA +
+                    " FROM " + ContractConvenios.CONVENIOS +
+                    " WHERE " + ContractConvenios.Columnas.MARCA + " IS NOT NULL AND " +
+                    " TRIM(" + ContractConvenios.Columnas.MARCA + ") != '' " +
+                    " ORDER BY " + ContractConvenios.Columnas.MARCA + " COLLATE NOCASE ASC";
 
-        selectQuery = "SELECT DISTINCT " + ContractPortafolioProductos.Columnas.MARCA + " FROM " + ContractPortafolioProductos.PORTAFOLIOPRODUCTOS + " WHERE " + ContractPortafolioProductos.Columnas.MARCA + " IS NOT NULL AND " +
-                ContractPortafolioProductos.Columnas.MARCA + " !='' AND " +
-                ContractPortafolioProductos.Columnas.FABRICANTE + " LIKE ? ORDER BY " + ContractPortafolioProductos.Columnas.MARCA + " ASC";
-        db = this.getReadableDatabase();
-        cursor = db.rawQuery(selectQuery, new String[]{"%" + fabricante + "%"});
+            db = this.getReadableDatabase();
+            cursor = db.rawQuery(selectQuery, null);
 
-        operadores.add("Seleccione");
-        // looping through all rows and adding to list
-        if (cursor.moveToFirst()) {
-            do {
-                operadores.add(cursor.getString(cursor.getColumnIndexOrThrow(ContractPortafolioProductos.Columnas.MARCA)));
-            } while (cursor.moveToNext());
+            categorias.add("Seleccione");
+
+            if (cursor.moveToFirst()) {
+                do {
+                    String marca = cursor.getString(cursor.getColumnIndex(ContractConvenios.Columnas.MARCA));
+                    if (marca != null && !marca.trim().isEmpty()) {
+                        categorias.add(marca);
+                    }
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            categorias.add("Seleccione");
+        } finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+            if (db != null && db.isOpen()) {
+                db.close();
+            }
         }
-        // closing connection
-        cursor.close();
-        db.close();
-        // returning lables
-        return operadores;
-    }
 
+        return categorias;
+    }
     public List<String> getSubCategoriaEvidencia(String fabricante,String categoria){
         List<String> operadores = new ArrayList<String>();
 

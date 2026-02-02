@@ -3,7 +3,7 @@
     android:id="@+id/nav_header"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="@drawable/bg_bss"
+    android:background="@drawable/fonod_horizontal"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackgroundBorderless"
@@ -18,7 +18,7 @@
         android:layout_height="128dp"
         android:layout_gravity="center"
         android:contentDescription="@string/icono"
-        android:src="@drawable/logo_xplora" />
+        android:src="@drawable/pos_logo" />
 
     <TextView
         android:id="@+id/nav_header_textView"

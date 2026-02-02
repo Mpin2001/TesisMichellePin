@@ -6,9 +6,9 @@
 <!--                android:bottomLeftRadius="25dp"-->
 <!--                android:bottomRightRadius="25dp"></corners>-->
             <gradient
-                android:startColor="@color/azul1_bassa"
-                android:centerColor="@color/azul2_bassa"
-                android:endColor="@color/azul3_bassa"
+                android:startColor="@color/verde_alicorp"
+                android:centerColor="@color/verde_alicorp"
+                android:endColor="@color/verde_alicorp"
                 android:angle="90">
             </gradient>
         </shape>

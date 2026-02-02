@@ -50,7 +50,7 @@
     <fragment
         android:id="@+id/nav_logros"
         android:name="com.tesis.michelle.pin.ui.logros.FotograficoFragment"
-        android:label="@string/menu_gestion"
+        android:label="@string/menu_evidencias_fotograficas"
         tools:layout="@layout/fragment_fotografico" />
 
     <fragment
@@ -116,7 +116,7 @@
     <fragment
         android:id="@+id/nav_evidencias"
         android:name="com.tesis.michelle.pin.ui.evidencias.EvidenciasFragment"
-        android:label="@string/menu_gestion"
+        android:label="@string/menu_evidencias_fotograficas"
         tools:layout="@layout/fragment_evidencias" />
 
     <fragment

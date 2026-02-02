@@ -822,13 +822,13 @@ public class MenuNavigationActivity extends AppCompatActivity{
         if (distance >= distance_pdv) {
             contador = 0;
             causal_fuera_pdv = " - SALIDA FUERA DEL PERÍMETRO A " + distance + " MTS. DEL PDV";
-            textDistancia = "Fuera del rango del PDV: " + distance + " mts.";
+            textDistancia = "Fuera del rango del barrio: " + distance + " mts.";
             if (alert_marcacion!=null && alert_marcacion.isShowing() && !salida) {
                 alert_marcacion.dismiss();
             }
             tipo_relevo = "Externo";
         } else {
-            textDistancia = "Dentro del rango del PDV: " + distance + " mts.";
+            textDistancia = "Dentro del rango del barrio: " + distance + " mts.";
             causal_fuera_pdv = "";
             if (contador == 0 && modulo != null && modulo.equalsIgnoreCase(Constantes.MODULO_PUNTOS_PRINCIPAL)) {
                 entrada();

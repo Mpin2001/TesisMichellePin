@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Iguanas App</string>
+    <string name="app_name">Barrio App</string>
     <string name="title_activity_puntos">Punto de Venta</string>
     <string name="title_activity_precios">Ventas</string>
     <string name="title_activity_promo">Promoción</string>
@@ -343,7 +343,7 @@
     <string name="prodPrincipal">PRODUCTO PRINCIPAL</string>
     <string name="prodSecundario">PRODUCTO SECUNDARIO</string>
     <string name="menu_logros">Logros</string>
-    <string name="menu_gestion">Gestion en PDV</string>
+    <string name="menu_evidencias_fotograficas">Evidencia Fotográfica</string>
     <string name="menu_sms">SMS</string>
     <string name="menu_tareas">Tareas</string>
     <string name="menu_inventario">Inventario+Sugerido</string>

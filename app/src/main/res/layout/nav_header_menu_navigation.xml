@@ -3,7 +3,7 @@
     android:id="@+id/nav_header_menu_navigation"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="@drawable/bg_bss"
+    android:background="@drawable/fonod_horizontal"
     android:clickable="true"
     android:focusable="true"
     android:foreground="?attr/selectableItemBackgroundBorderless"
@@ -16,9 +16,9 @@
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:layout_weight="5"
-        android:src="@drawable/logo_xplora"
+        android:layout_height="31dp"
+        android:layout_weight="8"
+        android:src="@drawable/mp_tesis"
         android:layout_gravity="center"
         android:contentDescription="@string/nav_header_desc"/>
 

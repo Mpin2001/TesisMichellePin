@@ -74,7 +74,7 @@ public class Constantes {
     public static final String INSERTAR_ROTACION = URL + "/App/AppTesis/Web//insert_rotacion.php";
         public static final String INSERTAR_FOTOGRAFICO = URL + "/App/AppTesis/Web//insert_fotografico042024.php";
 
-    public static final String INSERTAR_EVIDENCIA = URL + "/App/AppTesis/Web//insert_evidencias_10_2025.php";
+    public static final String INSERTAR_EVIDENCIA = URL + "/App/AppTesis/Inserts/insert_evidencias_10_2025.php";
     public static final String INSERTAR_PREGUNTAS = URL + "/App/AppTesis/Web//insert_preguntas112022.php";
     public static final String INSERTAR_TRACKING = URL + "/App/AppTesis/Web//insert_tracking.php";
 
@@ -93,7 +93,7 @@ public class Constantes {
     public static final String INSERTAR_CONVENIOS = URL + "/App/AppTesis/Web//insert_convenios.php";
     public static final String INSERTAR_NOTIFICACION = URL + "/App/AppTesis/Web//insert_notificacion0622.php";
     public static final String INSERTAR_LOG = URL + "/App/AppTesis/Web//insert_log.php";
-    public static final String INSERTAR_EVIDENCIAS = URL + "/App/AppTesis/Web//insert_evidencias.php";
+    public static final String INSERTAR_EVIDENCIAS = URL + "/App/AppTesis/Web/insert_evidencias.php";
 
     //MODIFICAR
     public static final String GET_PRECIOS = URL + "/App/CtaEpson/AppEpson/Web/epson_obtenerprecios.php";
