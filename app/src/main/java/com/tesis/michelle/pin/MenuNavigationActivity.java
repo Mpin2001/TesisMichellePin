@@ -306,7 +306,7 @@ public class MenuNavigationActivity extends AppCompatActivity{
         lDistancia = (TextView) headerLayout.findViewById(R.id.nav_header_distancia);
 
         tvCodigo.setText("Código: " + codigo_pdv);
-        tvPdv.setText("Punto de Venta: " + punto_venta);
+        tvPdv.setText("Nombre del Barrio: " + punto_venta);
 
         //Verificar los permisos
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -740,8 +740,8 @@ public class MenuNavigationActivity extends AppCompatActivity{
                 // Toast.makeText(this, "prueba", Toast.LENGTH_SHORT).show();
              //   setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
                 progressDialog = new ProgressDialog(MenuNavigationActivity.this, R.style.MyAlertDialogStyle);
-                progressDialog.setTitle("Distancia PDV");
-                progressDialog.setMessage("Validando distancia al PDV");
+                progressDialog.setTitle("INFORMATIVO");
+                progressDialog.setMessage("Cargando información");
                 progressDialog.setCancelable(false);
                 progressDialog.show();
             }

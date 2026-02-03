@@ -449,7 +449,7 @@ private void asignarReferencias(ViewGroup rootView) {
         Log.d("MARCAS_DEBUG", "fabricante: " + fabricante);
         Log.d("MARCAS_DEBUG", "canal: " + canal);
         Log.d("MARCAS_DEBUG", "subcanal: " + subcanal);
-        List<String> operadores = databaseHelper.getMarcasDirectasVentas(fabricante, canal, subcanal);
+        List<String> operadores = databaseHelper.getCategoriaEvidencia();
         Log.d("MARCAS_DEBUG", "Número de marcas obtenidas: " + operadores.size());
         Log.d("MARCAS_DEBUG", "Marcas: " + operadores.toString());
         if (operadores.size() == 2) {
@@ -1184,15 +1184,15 @@ private void asignarReferencias(ViewGroup rootView) {
 
         // Validaciones especificas según el tipo de novedad
         switch (tipoNovedad) {
-            case "PRODUCTO CADUCADO":
+            case "Cortes de servicios":
                 if (txtLote.getText().toString().trim().isEmpty()) {
                     Toast.makeText(getContext(), "El lote no puede estar vacío", Toast.LENGTH_LONG).show();
                     return false;
                 }
-                if (spMarca.getSelectedItem().toString().equals("Seleccione")) {
-                    Toast.makeText(getContext(), "Debe seleccionar una marca", Toast.LENGTH_LONG).show();
-                    return false;
-                }
+//                if (spMarca.getSelectedItem().toString().equals("Seleccione")) {
+//                    Toast.makeText(getContext(), "Debe seleccionar una marca", Toast.LENGTH_LONG).show();
+//                    return false;
+//                }
                 if (spProducto.getSelectedItem().toString().equals("Seleccione")) {
                     Toast.makeText(getContext(), "Debe seleccionar un sku", Toast.LENGTH_LONG).show();
                     return false;
@@ -1217,55 +1217,55 @@ private void asignarReferencias(ViewGroup rootView) {
 //                    Toast.makeText(getContext(),"No tomó la foto de la factura",Toast.LENGTH_LONG).show();
 //                    return false;
 //                }
-                if (!esFotoTomada(ivFotoSku.getDrawable())) {
-                    Toast.makeText(getContext(),"No tomó la foto del Sku ",Toast.LENGTH_LONG).show();
-                    return false;
-                }
+//                if (!esFotoTomada(ivFotoSku.getDrawable())) {
+//                    Toast.makeText(getContext(),"No tomó la foto del Sku ",Toast.LENGTH_LONG).show();
+//                    return false;
+//                }
 
 
                 break;
 
-            case "PRODUCTO EN MAL ESTADO":
-                if (txtLote.getText().toString().trim().isEmpty()) {
-                    Toast.makeText(getContext(), "El lote no puede estar vacío", Toast.LENGTH_LONG).show();
-                    return false;
-                }
-                if (spMarca.getSelectedItem().toString().equals("Seleccione")) {
-                    Toast.makeText(getContext(), "Debe seleccionar una marca", Toast.LENGTH_LONG).show();
-                    return false;
-                }
-                if (spProducto.getSelectedItem().toString().equals("Seleccione")) {
-                    Toast.makeText(getContext(), "Debe seleccionar un sku", Toast.LENGTH_LONG).show();
-                    return false;
-                }
+            case "Luz pública dañada":
+//                if (txtLote.getText().toString().trim().isEmpty()) {
+////                    Toast.makeText(getContext(), "El lote no puede estar vacío", Toast.LENGTH_LONG).show();
+////                    return false;
+//                }
+//                if (spMarca.getSelectedItem().toString().equals("Seleccione")) {
+//                    Toast.makeText(getContext(), "Debe seleccionar una marca", Toast.LENGTH_LONG).show();
+//                    return false;
+//                }
+//                if (spProducto.getSelectedItem().toString().equals("Seleccione")) {
+//                    Toast.makeText(getContext(), "Debe seleccionar un sku", Toast.LENGTH_LONG).show();
+//                    return false;
+//                }
                 if (txtCantidad.getText().toString().trim().isEmpty()) {
                     Toast.makeText(getContext(), "La cantidad no puede estar vacía", Toast.LENGTH_LONG).show();
                     return false;
                 }
-                if (spTipo.getSelectedItem().toString().equals("Seleccione")) {
-                    Toast.makeText(getContext(), "Debe escoger un tipo de sku ", Toast.LENGTH_LONG).show();
-                    return false;
-                }
+//                if (spTipo.getSelectedItem().toString().equals("Seleccione")) {
+//                    Toast.makeText(getContext(), "Debe escoger un tipo de sku ", Toast.LENGTH_LONG).show();
+//                    return false;
+//                }
                 if (txtFecha.getText().toString().trim().isEmpty()) {
                     Toast.makeText(getContext(), "Debe escoger una fecha ", Toast.LENGTH_LONG).show();
                     return false;
                 }
-                if (txt_factura.getText().toString().trim().isEmpty()) {
-                    Toast.makeText(getContext(), "Debe ingresar el numero de factura", Toast.LENGTH_LONG).show();
-                    return false;
-                }
-                if (!esFotoTomada(ivFotoLote.getDrawable())) {
-                    Toast.makeText(getContext(),"No tomó la foto del Lote",Toast.LENGTH_LONG).show();
-                    return false;
-                }
+//              //  if (txt_factura.getText().toString().trim().isEmpty()) {
+//                    Toast.makeText(getContext(), "Debe ingresar el numero de factura", Toast.LENGTH_LONG).show();
+//                    return false;
+//                }
+//                if (!esFotoTomada(ivFotoLote.getDrawable())) {
+//                    Toast.makeText(getContext(),"No tomó la foto del Lote",Toast.LENGTH_LONG).show();
+//                    return false;
+//                }
 //                if (!esFotoTomada(ivFotoFactura.getDrawable())) {
 //                    Toast.makeText(getContext(),"No tomó la foto de la factura",Toast.LENGTH_LONG).show();
 //                    return false;
 //                }
-                if (!esFotoTomada(ivFotoSku.getDrawable())) {
-                    Toast.makeText(getContext(),"No tomó la foto del Sku ",Toast.LENGTH_LONG).show();
-                    return false;
-                }
+//                if (!esFotoTomada(ivFotoSku.getDrawable())) {
+//                    Toast.makeText(getContext(),"No tomó la foto del Sku ",Toast.LENGTH_LONG).show();
+//                    return false;
+//                }
                 break;
 
                 case "OTROS":
@@ -1310,10 +1310,10 @@ private void asignarReferencias(ViewGroup rootView) {
 //                    Toast.makeText(getContext(), "Debe ", Toast.LENGTH_LONG).show();
 //                    return false;
 //                }
-                if (spMarca.getSelectedItem().toString().equals("Seleccione")) {
-                    Toast.makeText(getContext(), "Debe seleccionar una marca", Toast.LENGTH_LONG).show();
-                    return false;
-                }
+//                if (spMarca.getSelectedItem().toString().equals("Seleccione")) {
+//                    Toast.makeText(getContext(), "Debe seleccionar una marca", Toast.LENGTH_LONG).show();
+//                    return false;
+//                }
                 if (spProducto.getSelectedItem().toString().equals("Seleccione")) {
                     Toast.makeText(getContext(), "Debe seleccionar un sku", Toast.LENGTH_LONG).show();
                     return false;
@@ -1521,21 +1521,21 @@ private void asignarReferencias(ViewGroup rootView) {
 
         // Mostrar elementos según el tipo de novedad
         switch (tipoNovedad) {
-            case "PRODUCTO CADUCADO":
-                mostrarElementosCaducados();
+            case "Cortes de servicios":
+                mostrarElementosCortesdeservicios();
 
                 break;
-            case "PRODUCTO EN MAL ESTADO":
-                mostrarElementosEnMalEstado();
+            case "Luz pública dañada":
+                mostrarElementosLuzpublicadaada();
                 break;
-            case "OTROS":
-                mostrarElementosOtros();
+            case "Personas sospechosas en el sector":
+                mostrarElementosSospechosos();
                 break;
-            case "BLOQUEO DE SKU": //PARA PREUBAS, YA QUE SERA USADO PARA MOSTRAR 'IMPLEMENTACIONES'
-                mostrarElementosImplementaciones();
+            case "Ruido excesivo / escándalo": //PARA PREUBAS, YA QUE SERA USADO PARA MOSTRAR 'IMPLEMENTACIONES'
+                mostrarElementosescandalo();
                 break;
             // Agrega más casos según tus necesidades
-            case "PROMOCIONES NO AUTORIZADAS":
+            case "Consumo de drogas en espacios públicos":
                 promocionesNoAutorizadas();
                 break;
         }
@@ -1560,7 +1560,7 @@ private void asignarReferencias(ViewGroup rootView) {
         }
     }
 
-    private void mostrarElementosCaducados() {
+    private void mostrarElementosCortesdeservicios() {
         // Mostrar elementos  para caducados
         mostrarLayout(R.id.llProducto);
         mostrarLayout(R.id.llCantidad);
@@ -1586,40 +1586,40 @@ private void asignarReferencias(ViewGroup rootView) {
 
     }
 
-    private void mostrarElementosEnMalEstado() {
+    private void mostrarElementosLuzpublicadaada() {
     filtrarTipoUnidades();
         // Mostrar elementos específicos para rotura
-        mostrarLayout(R.id.llProducto);
+     //  mostrarLayout(R.id.llProducto);
         mostrarLayout(R.id.llCantidad);
-        mostrarLayout(R.id.llLote);
-        mostrarLayout(R.id.llTipo);
+      //  mostrarLayout(R.id.llLote);
+      //  mostrarLayout(R.id.llTipo);
         mostrarLayout(R.id.llFechaVenta);
-        mostrarLayout(R.id.llMarca);
-        mostrarLayout(R.id.llFotoLote); // Foto SKU
-        mostrarLayout(R.id.lblFotoLote); // Foto SKU
-        mostrarLayout(R.id.llFotoFactura); // Foto SKU
-        mostrarLayout(R.id.llFotoSku); // Foto SKU
-        mostrarLayout(R.id.llFactura); // Foto SKU
-        mostrarLayout(R.id.lblfactura); // Foto SKU
-        mostrarLayout(R.id.txt_factura); // Foto SKU
+       // mostrarLayout(R.id.llMarca);
+        //mostrarLayout(R.id.llFotoLote); // Foto SKU
+      //  mostrarLayout(R.id.lblFotoLote); // Foto SKU
+      //  mostrarLayout(R.id.llFotoFactura); // Foto SKU
+     //   mostrarLayout(R.id.llFotoSku); // Foto SKU
+        //mostrarLayout(R.id.llFactura); // Foto SKU
+        //mostrarLayout(R.id.lblfactura); // Foto SKU
+        //mostrarLayout(R.id.txt_factura); // Foto SKU
        // mostrarLayout(R.id.lblFotoFactura);
         mostrarLayout(R.id.lblFotoSku);
-        mostrarLayout(R.id.txtComentarioLote);
+       // mostrarLayout(R.id.txtComentarioLote);
       //  mostrarLayout(R.id.txtComentarioFactura);
         mostrarLayout(R.id.txtComentarioSku);
 
     }
 
-    private void mostrarElementosOtros() {
+    private void mostrarElementosSospechosos() {
         // Mostrar elementos específicos para falta de producto
        // mostrarLayout(R.id.llProducto);
-        mostrarLayout(R.id.llFotoLote);
+       // mostrarLayout(R.id.llFotoLote);
         mostrarLayout(R.id.llObservacion);
         mostrarLayout(R.id.llFotoFactura);
-        mostrarLayout(R.id.llFotoSku);
-        mostrarLayout(R.id.btnCameraLote); // Foto evidencia
+        //mostrarLayout(R.id.llFotoSku);
+        //mostrarLayout(R.id.btnCameraLote); // Foto evidencia
         mostrarLayout(R.id.btnCameraFactura); // Foto evidencia
-        mostrarLayout(R.id.btnCameraSku); // Foto evidencia
+       // mostrarLayout(R.id.btnCameraSku); // Foto evidencia
 
         //centrarContenido();
         ocultarLayout(R.id.txtComentarioLote);
@@ -1630,26 +1630,26 @@ private void asignarReferencias(ViewGroup rootView) {
         ocultarLayout(R.id.lblFotoLote);
     }
 
-    private void mostrarElementosImplementaciones() {
-        filtrarTipoImplementacion();
+    private void mostrarElementosescandalo() {
+      //  filtrarTipoImplementacion();
         // Para implementaciones
-        mostrarLayout(R.id.llTipoImplementacion);
+      //  mostrarLayout(R.id.llTipoImplementacion);
 
         mostrarLayout(R.id.llFotoFactura);
-        mostrarLayout(R.id.llFotoSku);
-        mostrarLayout(R.id.llFotoLote);
-        mostrarLayout(R.id.btnCameraLote); // Foto evidencia
+     //   mostrarLayout(R.id.llFotoSku);
+     //   mostrarLayout(R.id.llFotoLote);
+       // mostrarLayout(R.id.btnCameraLote); // Foto evidencia
         mostrarLayout(R.id.btnCameraFactura); // Foto evidencia
-        mostrarLayout(R.id.btnCameraSku); // Foto evidencia
+     //   mostrarLayout(R.id.btnCameraSku); // Foto evidencia
         mostrarLayout(R.id.llObservacion);
 
         //centrarContenido();
-        ocultarLayout(R.id.txtComentarioLote);
+        //ocultarLayout(R.id.txtComentarioLote);
         ocultarLayout(R.id.txtComentarioFactura);
-        ocultarLayout(R.id.txtComentarioSku);
+       // ocultarLayout(R.id.txtComentarioSku);
         ocultarLayout(R.id.lblFotoFactura);
-        ocultarLayout(R.id.lblFotoSku);
-        ocultarLayout(R.id.lblFotoLote);
+      //  ocultarLayout(R.id.lblFotoSku);
+       // ocultarLayout(R.id.lblFotoLote);
 
 
     }

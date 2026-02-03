@@ -664,7 +664,7 @@
                     android:gravity="center_vertical"
                     android:text="@string/cantidadNovedades"
                     android:textColor="@color/blanco"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <FrameLayout
@@ -852,9 +852,9 @@
                     android:layout_weight=".7"
                     android:fontFamily="@font/roboto_medium_italic"
                     android:gravity="center_vertical"
-                    android:hint="Fecha de vencimiento"
+                    android:hint="Fecha que observo la novedad"
                     android:textColorHint="@color/blanco"
-                    android:textSize="14sp"
+                    android:textSize="12sp"
                     android:textStyle="bold" />
 
                 <FrameLayout
@@ -1448,7 +1448,7 @@
                 android:id="@+id/lblFotoSku"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Foto Sku       "
+                android:text="Foto Adjunta"
                 android:textStyle="bold"
                 android:gravity="center_vertical"
                 android:paddingEnd="16dp"
@@ -1522,12 +1522,12 @@
                 android:id="@+id/btnGuardar"
                 android:layout_width="140dp"
                 android:layout_height="50dp"
-                android:layout_margin="5dp"
-                android:background="@drawable/button_active"
-                android:fontFamily="@font/roboto_medium_italic"
-
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
+                android:layout_margin="5dp"
+
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/roboto_medium_italic"
                 android:text="@string/save"
                 android:textAllCaps="false"
                 android:textColor="#fff"

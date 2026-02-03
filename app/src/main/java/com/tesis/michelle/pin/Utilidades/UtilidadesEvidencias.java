@@ -24,6 +24,10 @@ public class UtilidadesEvidencias {
     public static final int COLUMNA_FOTO_DESPUES = 10;
     public static final int COLUMNA_FECHA = 11;
     public static final int COLUMNA_HORA = 12;
+    public static final int COLUMNA_ES_ANONIMO = 13;
+    public static final int COLUMNA_NOMBRES = 14;
+    public static final int COLUMNA_CEDULA = 15;
+    public static final int COLUMNA_CELULAR = 16;
 
     /**
      * Determina si la aplicación corre en versiones superiores o iguales
@@ -56,6 +60,11 @@ public class UtilidadesEvidencias {
         String foto_despues;
         String fecha;
         String hora;
+        String es_anonimo;
+        String nombres;
+        String cedula;
+        String celular;
+
 
         pharma_id = c.getString(COLUMNA_PHARMA_ID);
         codigo = c.getString(COLUMNA_CODIGO);
@@ -68,6 +77,10 @@ public class UtilidadesEvidencias {
         foto_despues = c.getString(COLUMNA_FOTO_DESPUES);
         fecha = c.getString(COLUMNA_FECHA);
         hora = c.getString(COLUMNA_HORA);
+        es_anonimo = c.getString(COLUMNA_ES_ANONIMO);
+        nombres = c.getString(COLUMNA_NOMBRES);
+        cedula = c.getString(COLUMNA_CEDULA);
+        celular = c.getString(COLUMNA_CELULAR);
 
         try {
             jObject.put(ContractInsertEvidencias.Columnas.PHARMA_ID, pharma_id);
@@ -81,6 +94,10 @@ public class UtilidadesEvidencias {
             jObject.put(ContractInsertEvidencias.Columnas.FOTO_DESPUES, foto_despues);
             jObject.put(ContractInsertEvidencias.Columnas.FECHA, fecha);
             jObject.put(ContractInsertEvidencias.Columnas.HORA, hora);
+            jObject.put(ContractInsertEvidencias.Columnas.NOMBRES, es_anonimo);
+            jObject.put(ContractInsertEvidencias.Columnas.NOMBRES, nombres);
+            jObject.put(ContractInsertEvidencias.Columnas.CEDULA, cedula);
+            jObject.put(ContractInsertEvidencias.Columnas.CELULAR, celular);
 
         } catch (JSONException e) {
             e.printStackTrace();

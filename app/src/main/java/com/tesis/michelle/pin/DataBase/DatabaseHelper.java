@@ -1842,6 +1842,10 @@ private void createTableTipoActividades(SQLiteDatabase database) {
                 ContractInsertEvidencias.Columnas.FOTO_DESPUES + " TEXT, " +
                 ContractInsertEvidencias.Columnas.FECHA + " TEXT, " +
                 ContractInsertEvidencias.Columnas.HORA + " TEXT, " +
+                ContractInsertEvidencias.Columnas.ES_ANONIMO + " TEXT, " +
+                ContractInsertEvidencias.Columnas.NOMBRES + " TEXT, " +
+                ContractInsertEvidencias.Columnas.CEDULA + " TEXT, " +
+                ContractInsertEvidencias.Columnas.CELULAR + " TEXT, " +
                 Constantes.ID_REMOTA + " TEXT UNIQUE," +
                 Constantes.ESTADO + " INTEGER NOT NULL DEFAULT "+ Constantes.ESTADO_OK+"," +
                 Constantes.PENDIENTE_INSERCION + " INTEGER NOT NULL DEFAULT 0)";

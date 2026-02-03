@@ -76,6 +76,10 @@ public class ContractInsertEvidencias {
         public final static String FOTO_DESPUES = "foto_despues";
         public final static String FECHA = "fecha";
         public final static String HORA = "hora";
+        public final static String ES_ANONIMO = "es_anonimo";
+        public final static String NOMBRES = "nombres";
+        public final static String CEDULA = "cedula";
+        public final static String CELULAR = "celular";
 
     }
 

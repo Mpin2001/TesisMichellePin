@@ -711,10 +711,10 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
             String supervisor = handler.getSupervisorByCodigo(codigo); //Celular Asignado (del Vendedor para el SMS)
             String channel_segment = handler.getChannelSegmentPdv2(codigo);
 
-            boolean vaFoto = handler.validarCanales(subcanal);
+      //      boolean vaFoto = handler.validarCanales(subcanal);
 
             //se cae sin pos_id
-            SaveData(idpdv, codigo, usuarioCursor, cliente, format, tipo, subcanal, rol, vendedor, celular, channel, id_ruta, supervisor,ciudad,vaFoto,channel_segment);
+            SaveData(idpdv, codigo, usuarioCursor, cliente, format, tipo, subcanal, rol, vendedor, celular, channel, id_ruta, supervisor,ciudad,channel_segment);
             insertData(idpdv, codigo, tipo, cliente, formato, direccion, cliente, zona);
 
             Intent in = new Intent(context, MenuNavigationActivity.class);
@@ -899,7 +899,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
 
         private void SaveData(String idpdv, String codigo, String user, String cliente, String format,
                               String tipo, String subcanal, String rol,String vendedor, String celular, String canal,
-                              String id_ruta, String supervisor, String ciudad, Boolean vaFoto, String channel_segment) {
+                              String id_ruta, String supervisor, String ciudad, String channel_segment) {
             try {
                 obtenerFecha();
                 String pharma_id = idpdv;
@@ -926,7 +926,7 @@ public class PostRecyclerAdapter extends RecyclerView.Adapter<BaseViewHolder> {
                     editor.putString(Constantes.ID_RUTA, id_ruta);
                     editor.putBoolean(Constantes.FALTA_SALIDA, false);
                     editor.putString(Constantes.CIUDAD, ciudad);
-                    editor.putBoolean(Constantes.VAFOTO, vaFoto);
+                 //   editor.putBoolean(Constantes.VAFOTO, vaFoto);
                     editor.putString(Constantes.CHANNEL_SEGMENT, channel_segment);
                     editor.commit();
 

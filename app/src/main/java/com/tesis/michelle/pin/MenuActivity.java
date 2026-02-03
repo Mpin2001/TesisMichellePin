@@ -500,8 +500,8 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
 
     public void validadorPDV() {
         progressDialog = new ProgressDialog(MenuActivity.this,R.style.MyAlertDialogStyle);
-        progressDialog.setTitle("Distancia PDV");
-        progressDialog.setMessage("Validando distancia al PDV");
+        progressDialog.setTitle("INFORMATIVO");
+        progressDialog.setMessage("Validando información");
         progressDialog.setCancelable(false);
         progressDialog.show();
     }

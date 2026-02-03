@@ -105,7 +105,7 @@ public class Provider extends ContentProvider {
      * Nombre de la base de datos
      */
     //public static final String DATABASE_NAME = "colgate_transf.db";
-    public static final String DATABASE_NAME = "BassaV1.47db";
+    public static final String DATABASE_NAME = "BassaV1.49db";
     /**
      * Versión actual de la base de datos
      */

@@ -536,7 +536,11 @@ public class Projection {
             ContractInsertEvidencias.Columnas.FOTO_ANTES,
             ContractInsertEvidencias.Columnas.FOTO_DESPUES,
             ContractInsertEvidencias.Columnas.FECHA,
-            ContractInsertEvidencias.Columnas.HORA
+            ContractInsertEvidencias.Columnas.HORA,
+            ContractInsertEvidencias.Columnas.ES_ANONIMO,
+            ContractInsertEvidencias.Columnas.NOMBRES,
+            ContractInsertEvidencias.Columnas.CEDULA,
+            ContractInsertEvidencias.Columnas.CELULAR
     };
     //mpin - PARA EL REPOSITORIO DE PROBADORES
     public static final String[] PROJECTION_TIPO_REGISTRO = new String[]{

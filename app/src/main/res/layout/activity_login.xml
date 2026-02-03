@@ -6,7 +6,7 @@
     android:id="@+id/coordinatorLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_opcion2"
+    android:background="@drawable/fondo_oficial"
     tools:context="com.tesis.michelle.pin.LoginActivity">
 
     <!-- App Bar -->

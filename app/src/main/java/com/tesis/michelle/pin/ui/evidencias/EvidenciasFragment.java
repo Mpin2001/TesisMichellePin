@@ -34,9 +34,12 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -87,8 +90,14 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
     final int COD_FOTO=20;
 
     private Spinner spCategoria;
-
     private Spinner spSubCategoria;
+
+    // Nuevos elementos agregados
+    private CheckBox cbAnonimo;
+    private EditText etNombres;
+    private EditText etCedula;
+    private EditText etCelular;
+    private LinearLayout layoutInfoPersonal;
 
     private final String CARPETA_RAIZ="bassaApp/";
     private final String RUTA_IMAGEN=CARPETA_RAIZ+"Evidencias";
@@ -106,6 +115,12 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
     String codigo, punto_venta,canal,subcanal,format ,comentario;
     private boolean vaFoto;
 
+    // Variables para los nuevos campos
+    private String nombres = "";
+    private String cedula = "";
+    private String celular = "";
+    private boolean esAnonimo = false;
+
     ViewGroup rootView;
 
     @Override
@@ -120,33 +135,95 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
         RequestPermissions requestPermissions = new RequestPermissions(getContext(), getActivity());
         requestPermissions.showPermissionDialog();
 
-        //startService(new Intent(getContext(), LocationService.class));
-
-        spCategoria = (Spinner) rootView.findViewById(R.id.spCategoria);// cambios mpin
-        spSubCategoria = (Spinner) rootView.findViewById(R.id.spSubCategoria);  // cambios mpin
+        spCategoria = (Spinner) rootView.findViewById(R.id.spCategoria);
+        spSubCategoria = (Spinner) rootView.findViewById(R.id.spSubCategoria);
         ivAntes = (ImageView) rootView.findViewById(R.id.imageViewAntes);
         ivDespues = (ImageView) rootView.findViewById(R.id.imageViewDespues);
         btnCameraAntes = (ImageButton) rootView.findViewById(R.id.btnCameraLocalAntes);
         btnCameraDespues = (ImageButton) rootView.findViewById(R.id.btnCameraLocalDespues);
-        btnSave= (Button) rootView.findViewById(R.id.btnSave);
+        btnSave = (Button) rootView.findViewById(R.id.btnSave);
 
-        //txtCodigo = (EditText) findViewById(R.id.txtCodigo);
+        // Inicializar nuevos elementos
+        cbAnonimo = (CheckBox) rootView.findViewById(R.id.cbAnonimo);
+        etNombres = (EditText) rootView.findViewById(R.id.etNombres);
+        etCedula = (EditText) rootView.findViewById(R.id.etCedula);
+        etCelular = (EditText) rootView.findViewById(R.id.etCelular);
+        layoutInfoPersonal = (LinearLayout) rootView.findViewById(R.id.layoutInfoPersonal);
+
         txtComentario = (EditText) rootView.findViewById(R.id.txtComentario);
 
-        txtComentario.setSingleLine(false);  //add this
+        txtComentario.setSingleLine(false);
         txtComentario.setLines(4);
         txtComentario.setMaxLines(5);
         txtComentario.setGravity(Gravity.LEFT | Gravity.TOP);
-        txtComentario.setHorizontalScrollBarEnabled(false); //this
+        txtComentario.setHorizontalScrollBarEnabled(false);
 
         btnCameraAntes.setOnClickListener(this);
         btnCameraDespues.setOnClickListener(this);
         btnSave.setOnClickListener(this);
 
+        // Configurar listener para el CheckBox
+        cbAnonimo.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                esAnonimo = isChecked;
+                if (isChecked) {
+                    // Ocultar campos de información personal
+                    layoutInfoPersonal.setVisibility(View.GONE);
+                    // Limpiar campos cuando es anónimo
+                    etNombres.setText("");
+                    etCedula.setText("");
+                    etCelular.setText("");
+                } else {
+                    // Mostrar campos de información personal
+                    layoutInfoPersonal.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+
+        // Agregar TextWatchers para capturar los datos en tiempo real
+        etNombres.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                nombres = s.toString().trim();
+            }
+        });
+
+        etCedula.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                cedula = s.toString().trim();
+            }
+        });
+
+        etCelular.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                celular = s.toString().trim();
+            }
+        });
+
         filtrarCategoria();
 
         return rootView;
-
     }
 
     private void cargarDialogoRecomendacion() {
@@ -161,13 +238,11 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
                 requestPermissions(new String[]{WRITE_EXTERNAL_STORAGE,CAMERA,ACCESS_COARSE_LOCATION,ACCESS_FINE_LOCATION,INTERNET},100);
             }
         });
-        dialogo.show();}
+        dialogo.show();
+    }
 
     @Override
     public void onClick(View view) {
-        /*if (view == btnGallery) {
-            showFileChooser();
-        }*/
         if (view == btnCameraAntes) {
             this.antes = true;
             this.despues = false;
@@ -217,21 +292,9 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
         spCategoria.setOnItemSelectedListener(this);
     }
 
-//    public void filtrarSubCategoria(String fabricante,String categoria) {
-//        List<String> operadores = handler.getSubCategoriaEvidencia(fabricante,categoria);
-//        if (operadores.size()==2) {
-//            operadores.remove(0);
-//        }
-//        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, operadores);
-//        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spSubCategoria.setAdapter(dataAdapter);
-//        spSubCategoria.setOnItemSelectedListener(this);
-//    }
-
-    /**/
     public void enviarDatos() {
-
-      //  obtenerFecha();
+        // Obtener los valores de los nuevos campos
+        obtenerValoresCamposPersonales();
 
         // Marca de Agua
         String ciudad = "Ciudad: " + handler.getCityPdv(codigo);
@@ -240,6 +303,12 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
         String fechaHoraAntes = "Fecha y hora: " + fecha + " " + hora_antes;
         String fechaHoraDespues = "Fecha y hora: " + fecha + " " + hora_despues;
 
+        // Agregar información de anonimato si aplica
+        String infoAnonimo = esAnonimo ? "ANÓNIMO: SI" : "ANÓNIMO: NO";
+        if (!esAnonimo && !nombres.isEmpty()) {
+            infoAnonimo += "\nNOMBRES: " + nombres;
+        }
+
         ImageMark im = new ImageMark();
 
         Bitmap temporalAntes = ((BitmapDrawable) ivAntes.getDrawable()).getBitmap();
@@ -247,15 +316,13 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
         int mheightAntes = (int) (watermarkAntes.getHeight() * (1024.0 / watermarkAntes.getWidth()) );
         Bitmap scaledAntes = Bitmap.createScaledBitmap(watermarkAntes, 1024, mheightAntes, true);
 
-
         Bitmap temporalDespues = ((BitmapDrawable) ivDespues.getDrawable()).getBitmap();
         Bitmap watermarkDespues = im.mark(temporalDespues, ciudad, local, usuario, fechaHoraDespues, Color.YELLOW, 100, 85, false);
         int mheightDespues = (int) (watermarkDespues.getHeight() * (1024.0 / watermarkDespues.getWidth()) );
         Bitmap scaledDespues = Bitmap.createScaledBitmap(watermarkDespues, 1024, mheightDespues, true);
 
-
-      //  String foto_antes = getStringImage(scaledAntes);
-       // String foto_despues = getStringImage(scaledDespues);
+        String foto_antes = getStringImage(scaledAntes);
+        String foto_despues = getStringImage(scaledDespues);
 
         Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT-5"));
         Date currentLocalTime = cal.getTime();
@@ -274,13 +341,30 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
         values.put(ContractInsertEvidencias.Columnas.POS_NAME, punto_venta);
         values.put(ContractInsertEvidencias.Columnas.USUARIO, user);
         values.put(ContractInsertEvidencias.Columnas.MARCA, marca);
-        values.put(ContractInsertEvidencias.Columnas.CATEGORIA,categoria);
-       // values.put(ContractInsertEvidencias.Columnas.SUBCATEGORIA,subCategoria);
+        values.put(ContractInsertEvidencias.Columnas.CATEGORIA, categoria);
         values.put(ContractInsertEvidencias.Columnas.COMENTARIO, comentario);
-     //   values.put(ContractInsertEvidencias.Columnas.FOTO_ANTES, foto_antes);
-       // values.put(ContractInsertEvidencias.Columnas.FOTO_DESPUES, foto_despues);
-        values.put(ContractInsertEvidencias.Columnas.FECHA, fechaser);//Extra
-        values.put(ContractInsertEvidencias.Columnas.HORA, horaser);//Extra
+
+        // Agregar los nuevos campos a la base de datos usando las constantes del Contract
+        // Si es anónimo, guardar "SI", si no, guardar "N/A"
+        String valorAnonimo = esAnonimo ? "SI" : "N/A";
+        values.put(ContractInsertEvidencias.Columnas.ES_ANONIMO, valorAnonimo);
+
+        if (!esAnonimo) {
+            // Si NO es anónimo, guardar los valores reales
+            values.put(ContractInsertEvidencias.Columnas.NOMBRES, nombres);
+            values.put(ContractInsertEvidencias.Columnas.CEDULA, cedula);
+            values.put(ContractInsertEvidencias.Columnas.CELULAR, celular);
+        } else {
+            // Si ES anónimo, guardar "N/A" en los campos
+            values.put(ContractInsertEvidencias.Columnas.NOMBRES, "N/A");
+            values.put(ContractInsertEvidencias.Columnas.CEDULA, "N/A");
+            values.put(ContractInsertEvidencias.Columnas.CELULAR, "N/A");
+        }
+
+        values.put(ContractInsertEvidencias.Columnas.FOTO_ANTES, foto_antes);
+        values.put(ContractInsertEvidencias.Columnas.FOTO_DESPUES, foto_despues);
+        values.put(ContractInsertEvidencias.Columnas.FECHA, fechaser);
+        values.put(ContractInsertEvidencias.Columnas.HORA, horaser);
         values.put(Constantes.PENDIENTE_INSERCION, 1);
 
         getContext().getContentResolver().insert(ContractInsertEvidencias.CONTENT_URI, values);
@@ -293,26 +377,18 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
         }
         vaciarCampos();
     }
-
     private boolean esFormularioValido() {
-
         if (spCategoria.getSelectedItem().toString().equalsIgnoreCase("Seleccione")) {
-            Toast.makeText(getContext(), "Debe seleccionar una marca", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Debe seleccionar una denuncia", Toast.LENGTH_SHORT).show();
             return false;
         }
 
-//        if (spSubCategoria.getSelectedItem().toString().equalsIgnoreCase("Seleccione")) {
-//            Toast.makeText(getContext(), "Debe seleccionar una subcategoria", Toast.LENGTH_SHORT).show();
-//            return false;
-//        }
-
-
         if (ivAntes.getDrawable() == null) {
-            Toast.makeText(getContext(), "Por favor tomar una foto de antes", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Por favor tomar la primera foto", Toast.LENGTH_SHORT).show();
             return false;
         }
         if (ivDespues.getDrawable() == null) {
-            Toast.makeText(getContext(), "Por favor tomar una foto de después", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Por favor tomar la segunda evidencia", Toast.LENGTH_SHORT).show();
             return false;
         }
         if (txtComentario.getText().toString().trim().isEmpty()) {
@@ -320,32 +396,62 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
             return false;
         }
 
+        // Validar campos personales si NO es anónimo
+        if (!esAnonimo) {
+            if (nombres.isEmpty()) {
+                Toast.makeText(getContext(), "Debe ingresar los nombres", Toast.LENGTH_SHORT).show();
+                etNombres.requestFocus();
+                return false;
+            }
+
+            if (cedula.isEmpty()) {
+                Toast.makeText(getContext(), "Debe ingresar la cédula", Toast.LENGTH_SHORT).show();
+                etCedula.requestFocus();
+                return false;
+            }
+
+            if (celular.isEmpty()) {
+                Toast.makeText(getContext(), "Debe ingresar el celular", Toast.LENGTH_SHORT).show();
+                etCelular.requestFocus();
+                return false;
+            }
+        }
+
         return true;
     }
 
-    /**/
     public void vaciarCampos(){
-        //txtCodigo.setText("");
         spCategoria.setSelection(0);
-      //  spSubCategoria.setSelection(0);
         txtComentario.setText("");
         ivAntes.setImageResource(0);
         ivDespues.setImageResource(0);
+
+        // Limpiar los nuevos campos
+        cbAnonimo.setChecked(false);
+        etNombres.setText("");
+        etCedula.setText("");
+        etCelular.setText("");
+        layoutInfoPersonal.setVisibility(View.VISIBLE);
     }
 
     public void obtenervaloresseleccinados(){
         comentario = txtComentario.getText().toString();
     }
 
+    // Método para obtener los valores de los campos personales
+    public void obtenerValoresCamposPersonales() {
+        nombres = etNombres.getText().toString().trim();
+        cedula = etCedula.getText().toString().trim();
+        celular = etCelular.getText().toString().trim();
+        esAnonimo = cbAnonimo.isChecked();
+    }
+
     //************METODOS PARA TAKE-PHOTO Y UPLOAD
     private void cargarImagen(String tipo) {
-//        final CharSequence[] opciones={"Tomar Foto","Cancelar"};
         final CharSequence[] opciones;
         if (vaFoto) {
-            // Si vaFoto es true, excluir "Cargar Imagen"
             opciones = new CharSequence[]{"Tomar Foto", "Cancelar"};
         } else {
-            // Si vaFoto es false, incluir todas las opciones
             opciones = new CharSequence[]{"Tomar Foto", "Cargar Imagen", "Cancelar"};
         }
         final AlertDialog.Builder alertOpciones=new AlertDialog.Builder(getContext());
@@ -354,7 +460,6 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (opciones[i].equals("Tomar Foto")){
-                 //   tomarFotografia();
                     Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT-5"));
                     Date currentLocalTime = cal.getTime();
                     DateFormat hour = new SimpleDateFormat("HH:mm:ss");
@@ -362,7 +467,7 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
                     if(tipo.equalsIgnoreCase("antes")) {
                         hora_antes = hour.format(currentLocalTime);
                     }else if(tipo.equalsIgnoreCase("despues")){
-                       hora_despues = hour.format(currentLocalTime);
+                        hora_despues = hour.format(currentLocalTime);
                     }
 
                     Intent n = new Intent(getContext(), CameraActivity.class);
@@ -372,9 +477,6 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
 
                 } else {
                     if (opciones[i].equals("Cargar Imagen")) {
-//                        Intent intent=new Intent(Intent.ACTION_GET_CONTENT, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-//                        intent.setType("image/");
-//                        startActivityForResult(intent.createChooser(intent,"Seleccione la Aplicación"),COD_SELECCIONA);
                         openGallery();
                     } else {
                         dialogInterface.dismiss();
@@ -430,12 +532,9 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
 
             switch (requestCode){
                 case COD_SELECCIONA:
-//                    Uri miPath=data.getData();
-//                    imageViewAntes.setImageURI(miPath);
                     Uri filePath = data.getData();
                     try {
                         bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), filePath);
-                        //Setear el ImageView con el Bitmap
                         scaleImage(bitmap);
                     }catch (IOException e) {
                         e.printStackTrace();
@@ -459,13 +558,11 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
     //Permite hacer la imagen mas pequeña para mostrarla en el ImageView
     public void scaleImage(Bitmap bitmap){
         try{
-
             Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT-5"));
             Date currentLocalTime = cal.getTime();
             DateFormat hour = new SimpleDateFormat("HH:mm:ss");
             hour.setTimeZone(TimeZone.getTimeZone("GMT-5"));
             String horaser = hour.format(currentLocalTime);
-
 
             int mheight = (int) ( bitmap.getHeight() * (1024.0 / bitmap.getWidth()) );
             Bitmap scaled = Bitmap.createScaledBitmap(bitmap, 1024, mheight, true);
@@ -488,13 +585,11 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
         }
     }
 
-
     //Metodo que sube la imagen al servidor
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     public String getStringImage(Bitmap bmp){
         String encodedImage;
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        //Comprime la Imagen tipo, calidad y outputstream
         bmp.compress(Bitmap.CompressFormat.JPEG, 30, baos);
         byte[] imageBytes = baos.toByteArray();
         encodedImage = Base64.encodeToString(imageBytes, Base64.DEFAULT);
@@ -516,14 +611,6 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
         Log.i("USER FOTO ACTIVITY:",user);
     }
 
-
-
-
-
-
-
-
-
     public void obtenerFecha(){
         Calendar cal = Calendar.getInstance(TimeZone.getTimeZone("GMT-5"));
         Date currentLocalTime = cal.getTime();
@@ -534,7 +621,6 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
         DateFormat hour = new SimpleDateFormat("HH:mm:ss");
         hour.setTimeZone(TimeZone.getTimeZone("GMT-5"));
         hora = hour.format(currentLocalTime);
-//            return localTime;
     }
 
     @Override
@@ -545,26 +631,17 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
 
     @Override
     public void afterTextChanged(Editable editable) {}
+
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long id) {
         if (adapterView== spCategoria) {
             try{
                 marca = adapterView.getItemAtPosition(i).toString();
-               // filtrarSubCategoria(fabricante,categoria);
             }catch (Exception e) {
                 Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
                 e.printStackTrace();
             }
         }
-
-//        if (adapterView== spSubCategoria) {
-//            try{
-//                subCategoria = adapterView.getItemAtPosition(i).toString();
-//            }catch (Exception e) {
-//                Toast.makeText(getContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
-//                e.printStackTrace();
-//            }
-//        }
     }
 
     @Override

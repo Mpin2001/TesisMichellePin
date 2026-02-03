@@ -7,9 +7,9 @@
 
     <stroke
         android:width="0.5dip"
-        android:color="@color/azul_lucky" />
+        android:color="@color/amarillo_button" />
 
-    <solid android:color="@color/azul_lucky" />
+    <solid android:color="@color/amarillo_button" />
 
 </shape>
 

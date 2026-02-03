@@ -163,8 +163,8 @@
     <string name="numero">Numero</string>
     <string name="producto">Producto</string>
     <string name="sku">Sku</string>
-    <string name="lote">Lote</string>
-    <string name="cantidadNovedades">Cantidad</string>
+    <string name="lote"></string>
+    <string name="cantidadNovedades">Cantidad de veces  observada en el mes</string>
     <string name="LoteProbadores">Lote</string>
     <string name="numeroFactura">#  de Factura</string>
     <string name="numeroMecanica">Mecánica</string>
@@ -384,11 +384,13 @@
     <string name="nombre_pdv">Nombre PDV</string>
     <string name="marca_propia">Bassa</string>
     <string name="competencia">Competencia</string>
-    <string name="marca">Marca</string>
+    <string name="marca">Denuncia</string>
     <string name="malla_codificados">Malla Codificados</string>
     <string name="relevo_tardio">Relevo tardío</string>
     <string name="termometro">Termómetro</string>
     <string name="antes">Antes</string>
+    <string name="foto1">Foto 1</string>
+    <string name="foto2">Foto 2</string>
     <string name="despues">Después</string>
     <string name="observacion">Observación</string>
     <string name="status_general">Status General</string>
@@ -397,7 +399,7 @@
     <string name="subcategoria">Subcategoria</string>
     <string name="menu_encuesta">Encuesta App</string>
     <string name="menu_ventas">Ventas</string>
-    <string name="menu_muestras_medicas">Muestras Médicas</string>
+    <string name="menu_muestras_medicas">EVIDENCIAS</string>
     <string name="menu_probadores">Probadores</string>
     <string name="menu_novedades">Novedades</string>
 

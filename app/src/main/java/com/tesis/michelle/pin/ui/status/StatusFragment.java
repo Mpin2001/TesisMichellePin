@@ -18,6 +18,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.location.LocationProvider;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -26,6 +27,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
@@ -75,7 +77,7 @@ public class StatusFragment extends Fragment implements View.OnClickListener {
 
 
     String ACTION_FILTER = "versiones.luckyec.com.cronometro";
-    String GET_INFORMATIVO_PDV = "https://webecuador.azurewebsites.net/App/XploraEcuador/informativo_pdv_bassa/vista_por_pdv.php";
+    String GET_INFORMATIVO_PDV = "https://webecuador-desarrollo.azurewebsites.net/App/XploraEcuador/informativo_pdv_mp/vista_por_pdv.php";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -92,14 +94,25 @@ public class StatusFragment extends Fragment implements View.OnClickListener {
         btnSalidaJornada = (Button) rootView.findViewById(R.id.btnSalidaJornada);
 
         wvMedidor.getSettings().setJavaScriptEnabled(true);
+        wvMedidor.getSettings().setDomStorageEnabled(true);
         wvMedidor.setWebViewClient(new WebViewClient() {
             @Override
-            public void onPageStarted(WebView view, String url, Bitmap favicon) {
-                super.onPageStarted(view, url, favicon);
-            }
-            @Override
-            public void onPageFinished(WebView view, String url) {
-                super.onPageFinished(view, url);
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                String url = request.getUrl().toString();
+
+                // Permitir URLs de WhatsApp
+                if (url.startsWith("whatsapp://") ||
+                        url.contains("api.whatsapp.com") ||
+                        url.startsWith("https://wa.me/")) {
+
+                    Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(intent);
+                    return true;
+                }
+
+                // Cargar otras URLs en el WebView
+                view.loadUrl(url);
+                return true;
             }
         });
 

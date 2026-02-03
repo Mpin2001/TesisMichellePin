@@ -66,7 +66,7 @@ public class Constantes {
     public static final String INSERTAR_SHARE = URL + "/App/AppTesis/Web//insert_share042024.php";
     public static final String INSERTAR_PDI = URL + "/App/AppTesis/Web//insert_pdi022023.php";
     public static final String INSERTAR_VALORES = URL + "/App/AppTesis/Web//insert_codificados022023.php";
-    public static final String INSERTAR_GEO = URL + "/App/AppTesis/Web//insert_rastreo.php";
+    public static final String INSERTAR_GEO = URL + "/App/AppTesis/Inserts/insert_rastreo.php";
     public static final String INSERTAR_INICIAL = URL + "/App/AppTesis/Web//insert_inicial2018.php";
     public static final String INSERTAR_GPS = URL + "/App/AppTesis/Web//insert_registro08_2022.php";
     public static final String INSERTAR_IMPLEM = URL + "/App/AppTesis/Web//insert_implementacion.php";
@@ -92,7 +92,7 @@ public class Constantes {
     public static final String INSERTAR_CODIFICADOS = URL + "/App/AppTesis/Web//insert_codificados26092023.php";
     public static final String INSERTAR_CONVENIOS = URL + "/App/AppTesis/Web//insert_convenios.php";
     public static final String INSERTAR_NOTIFICACION = URL + "/App/AppTesis/Web//insert_notificacion0622.php";
-    public static final String INSERTAR_LOG = URL + "/App/AppTesis/Web//insert_log.php";
+    public static final String INSERTAR_LOG = URL + "/App/AppTesis/Inserts/insert_log.php";
     public static final String INSERTAR_EVIDENCIAS = URL + "/App/AppTesis/Web/insert_evidencias.php";
 
     //MODIFICAR
@@ -340,7 +340,7 @@ public class Constantes {
     public static final String insertExhBassa = "insertexhbassa";
 
     public static final String INSERTAR_EXHIBICION_BASSA = URL + "/App/AppTesis/Web//insert_exhibicion_colgate042024.php";
-    public static final String INSERTAR_EXHIBICION = URL + "/App/AppTesis/Web//insert_exhibicion042024.php";
+    public static final String INSERTAR_EXHIBICION = URL + "/App/AppTesis/Inserts/insert_exhibicion112025.php";
 
 
     public static final String ID_EXH_SUPERVISORES = "idExhColgate";
@@ -368,7 +368,7 @@ public class Constantes {
     public static final String CONSULTAR_NOVEDADES_DIARIO = URL + "/App/AppTesis/Web/consultar_novedades_diario.php";
     public static final String TIPONOVEDADESRESULT ="tipo_novedades";
     public static final String bajar_tipo_novedades ="tipo_novedades";
-    public static final String INSERTAR_NOVEDADES = URL + "/App/AppTesis/Web//insert_novedades112025.php"; //mpin
+    public static final String INSERTAR_NOVEDADES = URL + "/App/AppTesis/Inserts/insert_novedades112025.php"; //mpin
     public static final String PROMOCIONALVENTASESRESULT ="promocional_ventas";
 
 
