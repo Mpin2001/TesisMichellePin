@@ -1,5 +1,7 @@
 package com.tesis.michelle.pin;
 
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -14,12 +16,12 @@ import com.tesis.michelle.pin.ui.puntos.PdvsFragment;
 public class PagerAdapter extends FragmentPagerAdapter {
 
     private int tabsNumber;
-    FloatingActionButton fab;
+   // FloatingActionButton fab;
 
-    public PagerAdapter(@NonNull FragmentManager fm, int behavior, int tabs, FloatingActionButton fab) {
+    public PagerAdapter(@NonNull FragmentManager fm, int behavior, int tabs) {
         super(fm, behavior);
         this.tabsNumber = tabs;
-        this.fab = fab;
+     //   this.fab = fab;
     }
 
     @NonNull
@@ -29,10 +31,12 @@ public class PagerAdapter extends FragmentPagerAdapter {
             case 0:
                 String modulo = Constantes.MODULO_PUNTOS_PRINCIPAL;
                 return new PdvsFragment(modulo);
+//            case 1:
+//                return new CalendarFragment();
             case 1:
-                return new CalendarFragment();
-            case 2:
-                return new MapsFragment(fab);
+                //fab.setVisibility(View.GONE);
+                return new MapsFragment();
+
             default: return null;
         }
     }

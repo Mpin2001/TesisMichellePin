@@ -63,7 +63,10 @@
         android:id="@+id/mRelevoTardio"
         android:orderInCategory="100"
         android:icon="@drawable/ic_baseline_timer_off_24"
-        android:title="@string/relevo_tardio"/>
+        android:title="@string/relevo_tardio"
+        android:visible="false"
+       />
+
 
     <item
         android:id="@+id/mDescargar"

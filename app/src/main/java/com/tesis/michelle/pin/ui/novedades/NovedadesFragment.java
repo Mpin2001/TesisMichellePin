@@ -734,7 +734,7 @@ private void asignarReferencias(ViewGroup rootView) {
             // Obtener valores de campos específicos
             String lote = txtLote.getText().toString();
             String marca = spMarca.getSelectedItem().toString();
-            String producto = spProducto.getSelectedItem().toString();
+        //    String producto = spProducto.getSelectedItem().toString();
             String cantidad = txtCantidad.getText().toString();
             String factura = txt_factura.getText().toString();
             String mecanica = txt_mecanica.getText().toString(); //new
@@ -851,7 +851,7 @@ private void asignarReferencias(ViewGroup rootView) {
                     fechaElaboracion= "N/A";
                     mecanica= "N/A";
                     stock = "N/A";
-                    if (producto.equals("Seleccione")) producto = "N/A";
+                   // if (producto.equals("Seleccione")) producto = "N/A";
                     if (tipo1.equals("Seleccione")) tipo1 = "N/A";
                     if (marca.equals("Seleccione")) marca = "N/A";
                     if (tipoImplementacion.equals("Seleccione")) tipoImplementacion = "N/A";
@@ -860,7 +860,7 @@ private void asignarReferencias(ViewGroup rootView) {
 
                 case "OTROS":
                     // Para OTROS, solo observación es requerido, los demás son "N/A"
-                    producto = "N/A";
+                   // producto = "N/A";
                     fecha_inicio = "N/A";
                     mecanica = "N/A";
                     cantidad = "N/A";
@@ -878,7 +878,7 @@ private void asignarReferencias(ViewGroup rootView) {
                     break;
                 case "BLOQUEO DE SKU":
                     // Para OTROS, solo observación es requerido, los demás son "N/A"
-                    producto = "N/A";
+                  //  producto = "N/A";
                     cantidad = "N/A";
                     tipo1 = "N/A";
                     stock = "N/A";
@@ -915,7 +915,7 @@ private void asignarReferencias(ViewGroup rootView) {
             values.put(ContractInsertNovedades.Columnas.TIPO_NOVEDAD, tipoNovedad);
             values.put(ContractInsertNovedades.Columnas.MARCA, marca);
             values.put(ContractInsertNovedades.Columnas.LOTE, lote);
-            values.put(ContractInsertNovedades.Columnas.SKU, producto);
+           // values.put(ContractInsertNovedades.Columnas.SKU, producto);
            values.put(ContractInsertNovedades.Columnas.TIPO, tipo1);
           values.put(ContractInsertNovedades.Columnas.TIPO_IMPLEMENTACION, tipoImplementacion);
           values.put(ContractInsertNovedades.Columnas.MECANICA, mecanica);

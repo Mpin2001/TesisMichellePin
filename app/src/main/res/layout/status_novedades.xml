@@ -79,7 +79,7 @@
                     android:background="@null"
                     android:ems="5"
                     android:padding="5dp"
-                    android:text="Marca"
+                    android:text="Hora"
                     android:textColor="#000000" />
                 <TextView
                     android:id="@+id/txtSku"
@@ -249,7 +249,7 @@
                     android:background="@null"
                     android:padding="5dp"
                     android:textColor="#676666"
-                    android:text="@string/marca" />
+                    android:text="@string/hora_new" />
 
                 <TextView
                     android:id="@+id/lblNombrePdv"
@@ -269,7 +269,8 @@
                     android:background="@null"
                     android:padding="5dp"
                     android:textColor="#676666"
-                    android:text="@string/tipo"/>
+                    android:text="@string/tipo"
+                    android:visibility="gone"/>
 
                 <TextView
                     android:id="@+id/lblTipoNovedad"
@@ -290,8 +291,9 @@
                     android:background="@null"
                     android:ems="5"
                     android:padding="5dp"
-                    android:text="@string/marca"
+                    android:text="@string/hora_new"
                     android:textColor="#676666"
+                    android:visibility="gone"
                     />
                 <TextView
                     android:id="@+id/lblSku"
@@ -354,7 +356,8 @@
                     android:ems="5"
                     android:padding="5dp"
                     android:text="@string/tipo"
-                    android:textColor="#676666" />
+                    android:textColor="#676666"
+                    android:visibility="gone"/>
 
                 <TextView
                     android:id="@+id/lblFechavencimento"

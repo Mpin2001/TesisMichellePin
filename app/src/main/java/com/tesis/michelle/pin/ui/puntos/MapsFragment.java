@@ -72,14 +72,14 @@ public class MapsFragment extends Fragment implements OnMapReadyCallback, TaskLo
     public void onResume() {
         super.onResume();
         Log.i("MAP VISIBLE", "MAP VISIBLE");
-        fab.setVisibility(View.GONE);
+   //     fab.setVisibility(View.GONE);
     }
 
     @Override
     public void onPause() {
         super.onPause();
         Log.i("MAP INVISIBLE", "MAP INVISIBLE");
-        fab.setVisibility(View.VISIBLE);
+      //  fab.setVisibility(View.VISIBLE);
     }
 
     /**

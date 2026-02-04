@@ -11842,7 +11842,7 @@ public ArrayList<Precio> filtrarProductosPorMarca(String brand, String fabricant
     public List<String> filtrarPdvsHistorial(String tabla_insert, String columna_pdv) {
         List<String> operadores = new ArrayList<String>();
 
-        operadores.add("PDV");
+        operadores.add("BARRIO");
 
         if (!tabla_insert.isEmpty() && !columna_pdv.isEmpty()){
             // Select All Query

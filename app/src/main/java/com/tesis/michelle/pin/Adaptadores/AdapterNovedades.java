@@ -222,7 +222,7 @@ public class AdapterNovedades extends RecyclerView.Adapter<AdapterNovedades.View
         viewHolder.txtTipoNovedad.setText(tipo_novedad);
         // Mostrar campos específicos según el tipo
         switch(tipo_novedad.toUpperCase()) {
-            case "PRODUCTO CADUCADO":
+            case "Luz pública dañada":
                 viewHolder.txtMarca.setText(marca);
                 viewHolder.txtSku.setText(sku);
                 viewHolder.txtLote.setText(lote);
@@ -239,14 +239,14 @@ public class AdapterNovedades extends RecyclerView.Adapter<AdapterNovedades.View
                 viewHolder.lblObservacion3.setText(fechaVencimiento);
                 break;
 
-            case "PRODUCTO EN MAL ESTADO":
+            case "Ruido excesivo / escándalo":
                 viewHolder.txtMarca.setText(marca);
                 viewHolder.txtSku.setText(sku);
                 viewHolder.txtObservacion1.setText(observacion);
                 viewHolder.txtCantidad.setText(cantidad);
                 break;
 
-            case "BLOQUEO DE SKU":
+            case "Personas sospechosas en el sector": //bliqueo de sku
                 viewHolder.txtSku.setText(sku);
                 viewHolder.txtObservacion1.setText(observacion);
                 break;
@@ -318,7 +318,7 @@ public class AdapterNovedades extends RecyclerView.Adapter<AdapterNovedades.View
         viewHolder.lblTipoNovedad.setVisibility(View.VISIBLE);
 
         switch(tipoNovedad.toUpperCase()) {
-            case "PRODUCTO CADUCADO":
+            case "Luz pública dañada":
                 viewHolder.txtMarca.setVisibility(View.VISIBLE);
                 viewHolder.txtSku.setVisibility(View.VISIBLE);
                 viewHolder.txtLote.setVisibility(View.VISIBLE);
@@ -338,7 +338,7 @@ public class AdapterNovedades extends RecyclerView.Adapter<AdapterNovedades.View
                 viewHolder.lblFechavencimento.setVisibility(View.VISIBLE);
                 break;
 
-            case "PRODUCTO EN MAL ESTADO":
+            case "Ruido excesivo / escándalo": //mal estado
                 viewHolder.txtMarca.setVisibility(View.VISIBLE);
                 viewHolder.txtSku.setVisibility(View.VISIBLE);
                 viewHolder.txtObservacion1.setVisibility(View.VISIBLE);
@@ -350,7 +350,7 @@ public class AdapterNovedades extends RecyclerView.Adapter<AdapterNovedades.View
                 viewHolder.lblCantidad.setVisibility(View.VISIBLE);
                 break;
 
-            case "BLOQUEO DE SKU":
+            case "Personas sospechosas en el sector": //bloqueo de sku
                 viewHolder.txtSku.setVisibility(View.VISIBLE);
                 viewHolder.txtObservacion1.setVisibility(View.VISIBLE);
 

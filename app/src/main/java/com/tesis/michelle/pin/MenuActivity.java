@@ -695,7 +695,7 @@ public class MenuActivity extends AppCompatActivity implements View.OnClickListe
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setIcon(android.R.drawable.ic_dialog_alert);
         builder.setTitle("Salir PDV");
-        builder.setMessage("¿Desea salir PDV?");
+        builder.setMessage("¿Desea salir del Barrio?");
         builder.setPositiveButton("SI", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {

@@ -78,7 +78,7 @@
     <string name="precio_descuento">Precio Descuento</string>
     <string name="codigo">Codigo</string>
     <string name="usuario">Usuario</string>
-    <string name="categoria">Categoría</string>
+    <string name="categoria">Barrio</string>
     <string name="tareass">Tareas</string>
     <string name="ejecutada">Ejecutada</string>
     <string name="subcat">Subcategoría</string>
@@ -87,7 +87,7 @@
     <string name="carasyganchos">Caras/Ganchos</string>
     <string name="filtro">Filtro</string>
     <string name="search">Buscar</string>
-    <string name="tipo">Tipo</string>
+    <string name="tipo">Tipo de usuario</string>
     <string name="tipo_logro">Tipo Logro</string>
     <string name="local">Local</string>
     <string name="codigo_fabril">Código Fabril</string>
@@ -95,7 +95,7 @@
     <string name="tipoim">Implementación</string>
     <string name="modo">Modo Foto</string>
     <string name="promo">Promoción</string>
-    <string name="productos">Productos</string>
+    <string name="productos">Tipo de Denuncia</string>
     <string name="tipof">Foto Exhibición</string>
     <string name="njefe">Nombre Jefe Almacen</string>
     <string name="obsv">Comentario:</string>
@@ -171,7 +171,7 @@
     <string name="precioAnterior">Precio Anterior</string>
     <string name="precioPromocion">Precio Promocion</string>
     <string name="fecha_vencimiento">Fecha vencimiento</string>
-    <string name="fecha_inicio">Fecha inicio</string>
+    <string name="fecha_inicio">Fecha de registro</string>
     <string name="preciocredito">Precio Crédito</string>
     <string name="estadovisita">Estado de Visita</string>
     <string name="notificacion">Notificacion</string>
@@ -217,13 +217,13 @@
     <!--Menu-->
     <string name="action_sync">Cargar información retenida</string>
     <string name="action_bajada">SyncBajada</string>
-    <string name="action_log">Status Enviado/No Enviado</string>
+    <string name="action_log">Revisar envío de información</string>
     <string name="action_registro">Registro</string>
     <string name="action_version">Version App</string>
     <string name="action_popup">Información</string>
     <string name="descarga">Descargar Nueva Version</string>
     <string name="action_test">Test</string>
-    <string name="version">Aplicación Actualizada : 16/08/2025</string>
+    <string name="version">Aplicación Actualizada : 01/02/2026</string>
 
     <string name="account_type">com.tesis.michelle.pin.account</string>
     <string name="provider_authority">com.tesis.michelle.pin</string>
@@ -311,7 +311,7 @@
     <string name="test">Test</string>
     <string name="otras">OTRAS</string>
     <string name="title_activity_maps">Map</string>
-    <string name="pdvs">PDVs</string>
+    <string name="pdvs">BARRIOS</string>
     <string name="mapa">Mapa</string>
     <string name="title_activity_puntos_list">PuntosListActivity</string>
     <string name="open">open</string>
@@ -319,13 +319,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="cerrar_sesion">Cerrar Sesión</string>
-    <string name="actualizar_pdvs_productos">Actualizar PDVs/Productos</string>
+    <string name="actualizar_pdvs_productos">Actualizar Información</string>
     <string name="subir_info">Subir Información</string>
     <string name="icono">icono</string>
     <string name="notificaciones">Notificaciones</string>
     <string name="portafolio_pdf">Portafolio PDF</string>
-    <string name="status_enviados_no_enviados">Status Enviados/No Enviados</string>
-    <string name="linea_de_tiempo">Línea de Tiempo</string>
+    <string name="status_enviados_no_enviados">Hitorial de enviados</string>
+    <string name="linea_de_tiempo">Historial de recorrido BarrioApp</string>
     <string name="materiales_recibidos">Materiales Recibidos</string>
     <string name="title_activity_menu_status">MenuStatusActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -385,8 +385,10 @@
     <string name="marca_propia">Bassa</string>
     <string name="competencia">Competencia</string>
     <string name="marca">Denuncia</string>
+    <string name="hora_new">Hora</string>
     <string name="malla_codificados">Malla Codificados</string>
-    <string name="relevo_tardio">Relevo tardío</string>
+    <string name="relevo_tardio">Noticias</string>
+    <string name="Noticia">Noticias</string>
     <string name="termometro">Termómetro</string>
     <string name="antes">Antes</string>
     <string name="foto1">Foto 1</string>

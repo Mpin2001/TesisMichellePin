@@ -276,7 +276,7 @@ public class PuntosActivity extends AppCompatActivity implements View.OnClickLis
                     if (size_list > 0) {
                         mAdapter.addAll(items);
                     } else {
-                        Toast.makeText(getApplicationContext(), "No hay PDVs a mostrar", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "No hay barrios para mostrar", Toast.LENGTH_LONG).show();
                     }
                 }catch (Exception e) {
                     Log.i("Exception Add", e.getMessage());

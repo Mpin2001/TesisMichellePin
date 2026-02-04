@@ -162,7 +162,8 @@ public class PuntosListActivity extends AppCompatActivity implements NavigationV
             editor.commit();
         }
 
-        fab = findViewById(R.id.fab);
+      //  fab = findViewById(R.id.fab);
+
 
         navigationView.setNavigationItemSelectedListener(this);
 
@@ -174,7 +175,7 @@ public class PuntosListActivity extends AppCompatActivity implements NavigationV
         toggle.setDrawerIndicatorEnabled(true);
         toggle.syncState();
 
-        adapter = new PagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mTabLayout.getTabCount(), fab);
+        adapter = new PagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mTabLayout.getTabCount());
         pager.setAdapter(adapter);
 
         showPermissionDialog();
@@ -465,16 +466,15 @@ public class PuntosListActivity extends AppCompatActivity implements NavigationV
         };
 
 //        new AlertChangeTime(PuntosListActivity.this);
-
-        fab.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), ImplementacionActivity.class);
-                startActivity(intent);
-
-//                Intent intent = new Intent(getApplicationContext(), ImageActivity.class);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getApplicationContext(), ImplementacionActivity.class);
 //                startActivity(intent);
-            }
-        });
+//
+////                Intent intent = new Intent(getApplicationContext(), ImageActivity.class);
+////                startActivity(intent);
+//            }
+//        });
 
         //Verificar los permisos
     /*    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
@@ -714,7 +714,7 @@ public class PuntosListActivity extends AppCompatActivity implements NavigationV
             Intent intent = new Intent(PuntosListActivity.this, StatusGeneral.class);
             startActivity(intent);
         }
-        if (item.getItemId() == R.id.mRelevoTardio) {
+        if (item.getItemId() == R.id.mRelevoTardio) { //aquo¿iii mpin
             Intent intent = new Intent(PuntosListActivity.this, RelevoTardioActivity.class);
             startActivity(intent);
         }

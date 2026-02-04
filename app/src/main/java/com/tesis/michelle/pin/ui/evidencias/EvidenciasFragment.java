@@ -13,6 +13,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -64,6 +66,7 @@ import com.tesis.michelle.pin.Utils.RequestPermissions;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -78,7 +81,7 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
 
     private boolean antes = false;
     private boolean despues = false;
-
+    private final String WHATSAPP_NUMBER = "+593969415195";
     //Photo Camera
     public static ImageView ivAntes = null;
     public static ImageView ivDespues = null;
@@ -226,6 +229,18 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
         return rootView;
     }
 
+    public void filtrarCategoria() {
+        List<String> operadores = handler.getCategoriaEvidencia();
+        if (operadores.size()==2) {
+            operadores.remove(0);
+        }
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, operadores);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spCategoria.setAdapter(dataAdapter);
+        spCategoria.setOnItemSelectedListener(this);
+    }
+
+
     private void cargarDialogoRecomendacion() {
         AlertDialog.Builder dialogo=new AlertDialog.Builder(getContext());
         dialogo.setTitle("Permisos Desactivados");
@@ -260,41 +275,127 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
                 android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
                 builder.setIcon(android.R.drawable.ic_dialog_alert);
                 builder.setTitle("Confirmación");
-                builder.setMessage("¿Desea guardar la información?");
+                builder.setMessage("¿Desea guardar la información y enviar notificación por WhatsApp?");
                 builder.setPositiveButton("SI", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        enviarDatos();
-                    }
-                });
+                        // 1. Obtener valores de los campos personales
+                        String nombresTemp = etNombres.getText().toString().trim();
+                        String cedulaTemp = etCedula.getText().toString().trim();
+                        String celularTemp = etCelular.getText().toString().trim();
 
-                builder.setNeutralButton("NO", new DialogInterface.OnClickListener() {
+                        // 2. Verificar si están completos
+                        boolean datosCompletos = !nombresTemp.isEmpty() &&
+                                !cedulaTemp.isEmpty() &&
+                                !celularTemp.isEmpty();
+
+                        // 3. SI están completos → Enviar WhatsApp PRIMERO
+                        if (datosCompletos) {
+                            Log.d("WhatsAppDebug", "Datos completos - Enviando WhatsApp");
+                            enviarWhatsAppConDatos(nombresTemp, cedulaTemp, celularTemp);
+                        }
+
+                        // 4. LUEGO guardar en BD (siempre)
+                        enviarDatos();
+
+                        // 5. Mensaje al usuario
+                        if (!datosCompletos) {
+                            Toast.makeText(getContext(),
+                                    "Guardado sin WhatsApp (datos personales incompletos)",
+                                    Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });                builder.setNeutralButton("NO", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
+                        // Solo guardar sin enviar WhatsApp
+                        enviarDatos();
+                        Toast.makeText(getContext(),
+                                "Información guardada sin enviar WhatsApp.",
+                                Toast.LENGTH_SHORT).show();
                     }
                 });
 
                 android.app.AlertDialog ad = builder.create();
                 ad.show();
             }
+        }    }
+
+    // Agrega este método para enviar el mensaje por WhatsApp
+// Agrega este método para enviar el mensaje por WhatsApp
+    private void enviarWhatsAppConDatos(String nombres, String cedula, String celular) {
+        try {
+            Log.d("WhatsAppDebug", "=== ENVIANDO WHATSAPP ===");
+
+            // 1. Obtener OBSERVACIÓN del EditText
+            String observacion = "";
+            if (txtComentario != null) {
+                observacion = txtComentario.getText().toString().trim();
+            }
+
+            // 2. Obtener TIPO DE DENUNCIA del Spinner
+            String tipoDenuncia = "No especificada";
+            if (spCategoria != null && spCategoria.getSelectedItem() != null) {
+                tipoDenuncia = spCategoria.getSelectedItem().toString();
+                if (tipoDenuncia.equalsIgnoreCase("Seleccione")) {
+                    tipoDenuncia = "No especificada";
+                }
+            }
+
+            // 3. Asegurar que LoadData() esté actualizado
+            LoadData();
+
+            Log.d("WhatsAppDebug", "Datos para WhatsApp:");
+            Log.d("WhatsAppDebug", "- Nombres: " + nombres);
+            Log.d("WhatsAppDebug", "- Cédula: " + cedula);
+            Log.d("WhatsAppDebug", "- Celular: " + celular);
+            Log.d("WhatsAppDebug", "- Observación: " + observacion);
+            Log.d("WhatsAppDebug", "- Tipo: " + tipoDenuncia);
+            Log.d("WhatsAppDebug", "- Local: " + punto_venta);
+
+            // 4. Construir mensaje
+            String mensaje = "📋 *NUEVA DENUNCIA REGISTRADA* \n\n" +
+                    "👤 *INFORMACIÓN DEL DENUNCIANTE:*\n" +
+                    "• *Nombres:* " + nombres + "\n" +
+                    "• *Cédula:* " + cedula + "\n" +
+                    "• *Celular:* " + celular + "\n\n" +
+                    "⚠️ *INFORMACIÓN DE LA DENUNCIA:*\n" +
+                    "• *Tipo de denuncia:* " + tipoDenuncia + "\n" +
+                    "• *Observación:* " + (observacion.isEmpty() ? "Sin observación" : observacion) + "\n\n" +
+                    "📍 *INFORMACIÓN ADICIONAL:*\n" +
+                    "• *Lugar:* " + punto_venta + "\n" +
+                    "• *Código:* " + codigo + "\n" +
+                    "• *Usuario registrador:* " + user + "\n" +
+                    "• *Fecha:* " + fecha + "\n\n" +
+                    "🚨 *Este mensaje fue enviado automáticamente desde Barrio App*";
+
+            // 5. Enviar por WhatsApp
+            String mensajeCodificado = URLEncoder.encode(mensaje, "UTF-8");
+            String url = "https://api.whatsapp.com/send?phone=" + WHATSAPP_NUMBER + "&text=" + mensajeCodificado;
+
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+
+            if (intent.resolveActivity(getContext().getPackageManager()) != null) {
+                startActivity(intent);
+            } else {
+                Toast.makeText(getContext(), "WhatsApp no instalado", Toast.LENGTH_SHORT).show();
+            }
+
+        } catch (Exception e) {
+            Log.e("WhatsAppDebug", "Error: " + e.getMessage(), e);
+            Toast.makeText(getContext(), "Error al enviar WhatsApp", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void filtrarCategoria() {
-        List<String> operadores = handler.getCategoriaEvidencia();
-        if (operadores.size()==2) {
-            operadores.remove(0);
-        }
-        ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(getContext(), android.R.layout.simple_spinner_item, operadores);
-        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spCategoria.setAdapter(dataAdapter);
-        spCategoria.setOnItemSelectedListener(this);
-    }
 
     public void enviarDatos() {
         // Obtener los valores de los nuevos campos
         obtenerValoresCamposPersonales();
+        // Verificar si los campos personales están completos
+        boolean camposPersonalesCompletos = !nombres.isEmpty() &&
+                !cedula.isEmpty() &&
+                !celular.isEmpty();
+
 
         // Marca de Agua
         String ciudad = "Ciudad: " + handler.getCityPdv(codigo);
@@ -440,10 +541,19 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
 
     // Método para obtener los valores de los campos personales
     public void obtenerValoresCamposPersonales() {
+        // Obtener valores directamente de los EditText
         nombres = etNombres.getText().toString().trim();
         cedula = etCedula.getText().toString().trim();
         celular = etCelular.getText().toString().trim();
+
+        // El CheckBox ya no afecta la decisión de enviar WhatsApp
         esAnonimo = cbAnonimo.isChecked();
+
+        Log.d("WhatsAppDebug", "Obteniendo valores:");
+        Log.d("WhatsAppDebug", "- Nombres: '" + nombres + "'");
+        Log.d("WhatsAppDebug", "- Cédula: '" + cedula + "'");
+        Log.d("WhatsAppDebug", "- Celular: '" + celular + "'");
+        Log.d("WhatsAppDebug", "- Anónimo: " + esAnonimo);
     }
 
     //************METODOS PARA TAKE-PHOTO Y UPLOAD

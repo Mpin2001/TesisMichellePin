@@ -451,7 +451,7 @@ public class PdvsFragment extends Fragment implements View.OnClickListener, Swip
                     if (size_list > 0) {
                         mAdapter.addAll(items);
                     } else {
-                        Toast.makeText(getContext(), "No hay PDVs a mostrar", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getContext(), "No hay barrios para mostrar", Toast.LENGTH_LONG).show();
                     }
                 }catch (Exception e) {
                     Log.i("Exception Add", e.getMessage());

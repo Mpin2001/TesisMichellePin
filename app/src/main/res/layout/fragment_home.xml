@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingBottom="5dp"
-    android:background="@color/purple_200">
+    android:background="@color/verde_edittext">
 
     <TextView
         android:id="@+id/textView"
@@ -15,7 +15,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:text="@string/linea_de_tiempo"
-        android:textColor="@color/azul_kucky"
+        android:textColor="@color/blanco"
         android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,6 +28,7 @@
         android:layout_marginStart="32dp"
         android:text="20"
         android:textSize="39dp"
+        android:textColor="@color/blanco"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -39,6 +40,7 @@
         android:layout_marginStart="8dp"
         android:text="Día"
         android:textSize="39sp"
+        android:textColor="@color/blanco"
         app:layout_constraintStart_toEndOf="@+id/tvDia"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -49,6 +51,8 @@
         android:layout_marginStart="32dp"
         android:text="Mes"
         android:textSize="22sp"
+        android:textColor="@color/blanco"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDia" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDia"
+        />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,11 +10,11 @@
     </string-array>
     <string-array name="tipos_novedad">
         <item>TIPO DE NOVEDAD</item>
-        <item>PRODUCTO CADUCADO</item>
-        <item>PRODUCTO EN MAL ESTADO</item>
-        <item>BLOQUEO DE SKU</item>
-        <item>PROMOCIONES NO AUTORIZADAS</item>
-        <item>OTROS</item>
+        <item>Luz pública dañada</item>
+        <item>Ruido excesivo / escándalo</item>
+        <item>Personas sospechosas en el sector</item>
+<!--        <item>PROMOCIONES NO AUTORIZADAS</item>-->
+<!--        <item>OTROS</item>-->
     </string-array>
 
 
@@ -66,32 +66,32 @@
     <string-array name="modR">
         <item>Módulo</item>
 <!--        <item>OSA</item>-->
-        <item>INVENTARIO+SUGERIDO</item>
-        <item>PRECIOS</item>
-        <item>MUESTRAS MEDICAS</item>
-        <item>PROBADORES</item>
+<!--        <item>INVENTARIO+SUGERIDO</item>-->
+<!--        <item>PRECIOS</item>-->
+<!--        <item>MUESTRAS MEDICAS</item>-->
+<!--        <item>PROBADORES</item>-->
 <!--        <item>SOS</item>-->
-        <item>SOD</item>
-        <item>PROMOCIONES</item>
-        <item>EXHIBICIONES</item>
-<!--        <item>ON PACKS</item>-->
-<!--        <item>PDI</item>-->
-<!--        <item>MCI</item>-->
-        <item>NUEVO PDV</item>
-<!--        <item>CANJES</item>-->
-<!--        <item>IMPULSO</item>-->
-<!--        <item>SMS</item>-->
-        <item>LOGROS</item> <!--NUEVO LOGROS-->
-<!--        <item>ROTACION</item>-->
-<!--        <item>VENTA - FACTURA</item>-->
-<!--        <item>LOGROS</item>-->
-        <!--        <item>TEST</item>-->
-                <item>REGISTRO</item>
-               <item>CODIFICADOS</item>
-<!--               <item>TRACKING</item>-->
-               <item>ENCUESTA APP</item>
-               <item>CONVENIOS</item>
-               <item>VENTAS</item>
+<!--        <item>SOD</item>-->
+<!--        <item>PROMOCIONES</item>-->
+<!--        <item>EXHIBICIONES</item>-->
+<!--&lt;!&ndash;        <item>ON PACKS</item>&ndash;&gt;-->
+<!--&lt;!&ndash;        <item>PDI</item>&ndash;&gt;-->
+<!--&lt;!&ndash;        <item>MCI</item>&ndash;&gt;-->
+<!--        <item>NUEVO PDV</item>-->
+<!--&lt;!&ndash;        <item>CANJES</item>&ndash;&gt;-->
+<!--&lt;!&ndash;        <item>IMPULSO</item>&ndash;&gt;-->
+<!--&lt;!&ndash;        <item>SMS</item>&ndash;&gt;-->
+<!--        <item>LOGROS</item> &lt;!&ndash;NUEVO LOGROS&ndash;&gt;-->
+<!--&lt;!&ndash;        <item>ROTACION</item>&ndash;&gt;-->
+<!--&lt;!&ndash;        <item>VENTA - FACTURA</item>&ndash;&gt;-->
+<!--&lt;!&ndash;        <item>LOGROS</item>&ndash;&gt;-->
+<!--        &lt;!&ndash;        <item>TEST</item>&ndash;&gt;-->
+<!--                <item>REGISTRO</item>-->
+<!--               <item>CODIFICADOS</item>-->
+<!--&lt;!&ndash;               <item>TRACKING</item>&ndash;&gt;-->
+<!--               <item>ENCUESTA APP</item>-->
+<!--               <item>CONVENIOS</item>-->
+<!--               <item>VENTAS</item>-->
                <item>NOVEDADES</item>
 <!--        <item>MATERIALES RECIBIDOS</item>-->
 <!--        <item>EJECUCION DE MATERIALES</item>-->
