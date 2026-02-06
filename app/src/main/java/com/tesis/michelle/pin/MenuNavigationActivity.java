@@ -622,9 +622,9 @@ public class MenuNavigationActivity extends AppCompatActivity{
 //            tipo_relevo = "Interno";
 //        }
 
-        if (modulo != null && modulo.equalsIgnoreCase(Constantes.MODULO_PUNTOS_PRINCIPAL)) {
-            validadorPDV();
-        }
+//        if (modulo != null && modulo.equalsIgnoreCase(Constantes.MODULO_PUNTOS_PRINCIPAL)) {
+//            validadorPDV();
+//        }
 
         fusedLocationClient.getLastLocation().addOnSuccessListener(this, new OnSuccessListener<Location>() {
             @Override
@@ -635,7 +635,7 @@ public class MenuNavigationActivity extends AppCompatActivity{
                     latitud = location.getLatitude();
                     longitud = location.getLongitude();
                     if (modulo != null && modulo.equalsIgnoreCase(Constantes.MODULO_PUNTOS_PRINCIPAL)) {
-                        distancia(latitud, longitud);
+                     //   distancia(latitud, longitud);
                     }
                 }
             }
@@ -674,12 +674,12 @@ public class MenuNavigationActivity extends AppCompatActivity{
         builder.setPositiveButton("SI", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                Log.i("FALTA SALIDA", String.valueOf(falta_salida));
-                if (falta_salida) {
-                    alertDialog("Salida");
-                } else {
+//                Log.i("FALTA SALIDA", String.valueOf(falta_salida));
+//                if (falta_salida) {
+//                    alertDialog("Salida");
+//                } else {
                     closeActivity();
-                }
+               // }
             }
         });
 
@@ -733,22 +733,22 @@ public class MenuNavigationActivity extends AppCompatActivity{
         return Settings.Secure.getString(context.getContentResolver(), Settings.Secure.ANDROID_ID);
     }
 
-    public void validadorPDV() {
-        try {
-            if (!tiene_entrada) {
-
-                // Toast.makeText(this, "prueba", Toast.LENGTH_SHORT).show();
-             //   setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-                progressDialog = new ProgressDialog(MenuNavigationActivity.this, R.style.MyAlertDialogStyle);
-                progressDialog.setTitle("INFORMATIVO");
-                progressDialog.setMessage("Cargando información");
-                progressDialog.setCancelable(false);
-                progressDialog.show();
-            }
-        } catch (Exception e) {
-            Log.e("Exception", e.getMessage());
-        }
-    }
+//    public void validadorPDV() {
+//        try {
+//            if (!tiene_entrada) {
+//
+//                // Toast.makeText(this, "prueba", Toast.LENGTH_SHORT).show();
+//             //   setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+//                progressDialog = new ProgressDialog(MenuNavigationActivity.this, R.style.MyAlertDialogStyle);
+//                progressDialog.setTitle("INFORMATIVO");
+//                progressDialog.setMessage("Cargando información");
+//                progressDialog.setCancelable(false);
+//                progressDialog.show();
+//            }
+//        } catch (Exception e) {
+//            Log.e("Exception", e.getMessage());
+//        }
+//    }
 
     public String getDeviceName() {
         String manufacturer = Build.MANUFACTURER;
@@ -801,51 +801,51 @@ public class MenuNavigationActivity extends AppCompatActivity{
             if(intent.hasExtra(Constantes.LATITUD)){
                 latitud = intent.getDoubleExtra(Constantes.LATITUD, 0);
                 longitud = intent.getDoubleExtra(Constantes.LONGITUD, 0);
-                distancia(latitud, longitud);
+             //   distancia(latitud, longitud);
             }
         }
     };
 
-    private void distancia(double latitud, double longitud) {
-        pdv = handler.getPdv(codigo_pdv);
-        distance_pdv = Double.parseDouble(pdv.getDistancia());
-        latitud_pdv = Double.parseDouble(pdv.getLatitud());
-        longitud_pdv = Double.parseDouble(pdv.getLongitud());
-
-        MarkerOptions place1 = new MarkerOptions().position(new LatLng(latitud_pdv, longitud_pdv)).title("Posicion actual");
-        MarkerOptions place2 = new MarkerOptions().position(new LatLng(latitud, longitud)).title("Posicion PDV");
-
-        distance = SphericalUtil.computeDistanceBetween(place1.getPosition(), place2.getPosition());
-        distance = (int)Math.round(distance);
-
-        String textDistancia = "";
-        if (distance >= distance_pdv) {
-            contador = 0;
-            causal_fuera_pdv = " - SALIDA FUERA DEL PERÍMETRO A " + distance + " MTS. DEL PDV";
-            textDistancia = "Fuera del rango del barrio: " + distance + " mts.";
-            if (alert_marcacion!=null && alert_marcacion.isShowing() && !salida) {
-                alert_marcacion.dismiss();
-            }
-            tipo_relevo = "Externo";
-        } else {
-            textDistancia = "Dentro del rango del barrio: " + distance + " mts.";
-            causal_fuera_pdv = "";
-            if (contador == 0 && modulo != null && modulo.equalsIgnoreCase(Constantes.MODULO_PUNTOS_PRINCIPAL)) {
-                entrada();
-            }
-            tipo_relevo = "Interno";
-            contador++;
-        }
-        lDistancia.setText(textDistancia);
-        try {
-            Thread.sleep(2000);
-            if (progressDialog!=null && progressDialog.isShowing()) {
-                progressDialog.dismiss();
-            }
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+//    private void distancia(double latitud, double longitud) {
+//        pdv = handler.getPdv(codigo_pdv);
+//        distance_pdv = Double.parseDouble(pdv.getDistancia());
+//        latitud_pdv = Double.parseDouble(pdv.getLatitud());
+//        longitud_pdv = Double.parseDouble(pdv.getLongitud());
+//
+//        MarkerOptions place1 = new MarkerOptions().position(new LatLng(latitud_pdv, longitud_pdv)).title("Posicion actual");
+//        MarkerOptions place2 = new MarkerOptions().position(new LatLng(latitud, longitud)).title("Posicion PDV");
+//
+//        distance = SphericalUtil.computeDistanceBetween(place1.getPosition(), place2.getPosition());
+//        distance = (int)Math.round(distance);
+//
+//        String textDistancia = "";
+//        if (distance >= distance_pdv) {
+//            contador = 0;
+//            causal_fuera_pdv = " - SALIDA FUERA DEL PERÍMETRO A " + distance + " MTS. DEL PDV";
+//            textDistancia = "Fuera del rango del barrio: " + distance + " mts.";
+//            if (alert_marcacion!=null && alert_marcacion.isShowing() && !salida) {
+//                alert_marcacion.dismiss();
+//            }
+//            tipo_relevo = "Externo";
+//        } else {
+//            textDistancia = "Dentro del rango del barrio: " + distance + " mts.";
+//            causal_fuera_pdv = "";
+//            if (contador == 0 && modulo != null && modulo.equalsIgnoreCase(Constantes.MODULO_PUNTOS_PRINCIPAL)) {
+//                entrada();
+//            }
+//            tipo_relevo = "Interno";
+//            contador++;
+//        }
+//        lDistancia.setText(textDistancia);
+//        try {
+//            Thread.sleep(2000);
+//            if (progressDialog!=null && progressDialog.isShowing()) {
+//                progressDialog.dismiss();
+//            }
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     private boolean isMyServiceRunning(Class<?> serviceClass) {
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
@@ -1390,31 +1390,31 @@ public class MenuNavigationActivity extends AppCompatActivity{
 
         tittle.setText(tipo_registro.toUpperCase());
 
-        builder.setPositiveButton(R.string.save,
-                new android.content.DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int arg1) {
-                        if (esFormularioValido()) {
-                            int selectedId = radioGroup.getCheckedRadioButtonId();
-                            RadioButton radioButton = (RadioButton) dialogView.findViewById(selectedId);
-                            causal = radioButton.getText().toString();
-                            insertDataRegistro(latitud, longitud, causal);
-                        }
-                    }
-                }
-        );
+//        builder.setPositiveButton(R.string.save,
+//                new android.content.DialogInterface.OnClickListener() {
+//                    public void onClick(DialogInterface dialog, int arg1) {
+////                        if (esFormularioValido()) {
+////                            int selectedId = radioGroup.getCheckedRadioButtonId();
+////                            RadioButton radioButton = (RadioButton) dialogView.findViewById(selectedId);
+////                            causal = radioButton.getText().toString();
+////                            insertDataRegistro(latitud, longitud, causal);
+////                        }
+//                    }
+//                }
+//        );
 
-        builder.setNeutralButton(R.string.cancel, new android.content.DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int arg1) {
-                if (tipo_registro.equalsIgnoreCase("ENTRADA")) {
-                    Log.i("PRESIONASTE CANCELAR","SALIENDO");
-                    Intent intent = new Intent(MenuNavigationActivity.this, PuntosListActivity.class);
-                    startActivity(intent);
-                    //Stop the activity
-                    finish();
-
-                }
-            }
-        });
+//        builder.setNeutralButton(R.string.cancel, new android.content.DialogInterface.OnClickListener() {
+//            public void onClick(DialogInterface dialog, int arg1) {
+//                if (tipo_registro.equalsIgnoreCase("ENTRADA")) {
+//                    Log.i("PRESIONASTE CANCELAR","SALIENDO");
+//                    Intent intent = new Intent(MenuNavigationActivity.this, PuntosListActivity.class);
+//                    startActivity(intent);
+//                    //Stop the activity
+//                    finish();
+//
+//                }
+//            }
+//        });
 
         builder.setView(dialogView);
         alert_marcacion = builder.create();
@@ -1479,19 +1479,19 @@ public class MenuNavigationActivity extends AppCompatActivity{
 
         @Override
         public void onClick(View v) {
-            if (esFormularioValido()) {
-                int selectedId = radioGroup.getCheckedRadioButtonId();
-                RadioButton radioButton = (RadioButton) dialogView.findViewById(selectedId);
-                causal = radioButton.getText().toString();
-                Log.i("NO SALE NADA","ENTRA10000");
-                if(insertDataRegistro(latitud, longitud, causal)){
-                    dialog.dismiss();
-
-                    if (tipo_registro.equalsIgnoreCase("SALIDA")) {
-                        closeActivity();
-                    }
-                }
-            }
+//            if (esFormularioValido()) {
+//                int selectedId = radioGroup.getCheckedRadioButtonId();
+//                RadioButton radioButton = (RadioButton) dialogView.findViewById(selectedId);
+//                causal = radioButton.getText().toString();
+//                Log.i("NO SALE NADA","ENTRA10000");
+//                if(insertDataRegistro(latitud, longitud, causal)){
+//                    dialog.dismiss();
+//
+//                    if (tipo_registro.equalsIgnoreCase("SALIDA")) {
+//                        closeActivity();
+//                    }
+//                }
+//            }
         }
     }
 

@@ -52,7 +52,7 @@ public class ClufActivity extends AppCompatActivity {
 //        wvCluf.getSettings().setMediaPlaybackRequiresUserGesture(false);
 //        wvCluf.loadUrl("https://webecuador.azurewebsites.net/App/XploraEcuador/ClufAlicorpApp.html");
         //Ruta para el html: assets/html/xxxx.html
-        wvCluf.loadUrl("file:///android_asset/html/clufapp.html");
+        wvCluf.loadUrl("https://webecuador-desarrollo.azurewebsites.net/App/ReporteBarrioApp/cluf.php");
 
         btnOk = (Button) findViewById(R.id.btnOk);
         btnNoAcepto = (Button) findViewById(R.id.btnNoAcepto);
