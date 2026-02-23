@@ -275,43 +275,49 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
                 android.app.AlertDialog.Builder builder = new android.app.AlertDialog.Builder(getContext());
                 builder.setIcon(android.R.drawable.ic_dialog_alert);
                 builder.setTitle("Confirmación");
-                builder.setMessage("¿Desea guardar la información y enviar notificación por WhatsApp?");
+                // Mensaje simplificado - SOLO pregunta por guardar
+                builder.setMessage("¿Desea guardar la información?");
                 builder.setPositiveButton("SI", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // 1. Obtener valores de los campos personales
                         String nombresTemp = etNombres.getText().toString().trim();
                         String cedulaTemp = etCedula.getText().toString().trim();
                         String celularTemp = etCelular.getText().toString().trim();
 
-                        // 2. Verificar si están completos
+                        // ✅ Capturar tipo de denuncia
+                        String tipoDenunciaTemp = "No especificada";
+                        if (spCategoria != null && spCategoria.getSelectedItem() != null) {
+                            String seleccion = spCategoria.getSelectedItem().toString();
+                            if (!seleccion.equalsIgnoreCase("Seleccione")) {
+                                tipoDenunciaTemp = seleccion;
+                            }
+                        }
+
+                        // ✅ Capturar comentario AQUÍ también, antes de vaciarCampos()
+                        String comentarioTemp = txtComentario.getText().toString().trim();
+
                         boolean datosCompletos = !nombresTemp.isEmpty() &&
                                 !cedulaTemp.isEmpty() &&
                                 !celularTemp.isEmpty();
 
-                        // 3. SI están completos → Enviar WhatsApp PRIMERO
+                        enviarDatos(); // <-- aquí se limpia todo
+
                         if (datosCompletos) {
-                            Log.d("WhatsAppDebug", "Datos completos - Enviando WhatsApp");
-                            enviarWhatsAppConDatos(nombresTemp, cedulaTemp, celularTemp);
-                        }
-
-                        // 4. LUEGO guardar en BD (siempre)
-                        enviarDatos();
-
-                        // 5. Mensaje al usuario
-                        if (!datosCompletos) {
-                            Toast.makeText(getContext(),
-                                    "Guardado sin WhatsApp (datos personales incompletos)",
-                                    Toast.LENGTH_SHORT).show();
+                            enviarWhatsAppConDatos(nombresTemp, cedulaTemp, celularTemp, tipoDenunciaTemp, comentarioTemp);
+                        } else {
+                            Toast.makeText(getContext(), "Información guardada correctamente", Toast.LENGTH_SHORT).show();
                         }
                     }
-                });                builder.setNeutralButton("NO", new DialogInterface.OnClickListener() {
+                });
+
+                builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        // Solo guardar sin enviar WhatsApp
-                        enviarDatos();
+                        // SOLO cierra el diálogo, NO guarda nada
+                        dialog.dismiss();
+                        // Opcional: mensaje de que se canceló
                         Toast.makeText(getContext(),
-                                "Información guardada sin enviar WhatsApp.",
+                                "Operación cancelada",
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -321,26 +327,26 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
             }
         }    }
 
-    // Agrega este método para enviar el mensaje por WhatsApp
+
 // Agrega este método para enviar el mensaje por WhatsApp
-    private void enviarWhatsAppConDatos(String nombres, String cedula, String celular) {
+    private void enviarWhatsAppConDatos(String nombres, String cedula, String celular, String tipoDenuncia, String observacion) {
         try {
             Log.d("WhatsAppDebug", "=== ENVIANDO WHATSAPP ===");
 
             // 1. Obtener OBSERVACIÓN del EditText
-            String observacion = "";
-            if (txtComentario != null) {
-                observacion = txtComentario.getText().toString().trim();
-            }
+//            String observacion = "";
+//            if (txtComentario != null) {
+//                observacion = txtComentario.getText().toString().trim();
+//            }
 
             // 2. Obtener TIPO DE DENUNCIA del Spinner
-            String tipoDenuncia = "No especificada";
-            if (spCategoria != null && spCategoria.getSelectedItem() != null) {
-                tipoDenuncia = spCategoria.getSelectedItem().toString();
-                if (tipoDenuncia.equalsIgnoreCase("Seleccione")) {
-                    tipoDenuncia = "No especificada";
-                }
-            }
+//            String tipoDenuncia = "No especificada";
+//            if (spCategoria != null && spCategoria.getSelectedItem() != null) {
+//                tipoDenuncia = spCategoria.getSelectedItem().toString();
+//                if (tipoDenuncia.equalsIgnoreCase("Seleccione")) {
+//                    tipoDenuncia = "No especificada";
+//                }
+//            }
 
             // 3. Asegurar que LoadData() esté actualizado
             LoadData();
@@ -364,8 +370,8 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
                     "• *Observación:* " + (observacion.isEmpty() ? "Sin observación" : observacion) + "\n\n" +
                     "📍 *INFORMACIÓN ADICIONAL:*\n" +
                     "• *Lugar:* " + punto_venta + "\n" +
-                    "• *Código:* " + codigo + "\n" +
-                    "• *Usuario registrador:* " + user + "\n" +
+                   // "• *Código:* " + codigo + "\n" +
+                   // "• *Usuario registrador:* " + user + "\n" +
                     "• *Fecha:* " + fecha + "\n\n" +
                     "🚨 *Este mensaje fue enviado automáticamente desde Barrio App*";
 
@@ -399,7 +405,7 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
 
         // Marca de Agua
         String ciudad = "Ciudad: " + handler.getCityPdv(codigo);
-        String local = "Local: " + punto_venta;
+        String local = "Barrio: " + punto_venta;
         String usuario = "Usuario: " + user;
         String fechaHoraAntes = "Fecha y hora: " + fecha + " " + hora_antes;
         String fechaHoraDespues = "Fecha y hora: " + fecha + " " + hora_despues;
@@ -438,7 +444,7 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
 
         ContentValues values = new ContentValues();
         values.put(ContractInsertEvidencias.Columnas.PHARMA_ID, id_pdv);
-        values.put(ContractInsertEvidencias.Columnas.CODIGO, codigo);
+        values.put(ContractInsertEvidencias.Columnas.CODIGO, punto_venta);
         values.put(ContractInsertEvidencias.Columnas.POS_NAME, punto_venta);
         values.put(ContractInsertEvidencias.Columnas.USUARIO, user);
         values.put(ContractInsertEvidencias.Columnas.MARCA, marca);
@@ -505,8 +511,22 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
                 return false;
             }
 
+            // Validación mejorada para cédula
             if (cedula.isEmpty()) {
                 Toast.makeText(getContext(), "Debe ingresar la cédula", Toast.LENGTH_SHORT).show();
+                etCedula.requestFocus();
+                return false;
+            }
+
+            if (cedula.length() != 10) {
+                Toast.makeText(getContext(), "La cédula debe tener exactamente 10 dígitos", Toast.LENGTH_SHORT).show();
+                etCedula.requestFocus();
+                return false;
+            }
+
+            // Validación adicional: que sean solo números
+            if (!cedula.matches("\\d+")) {
+                Toast.makeText(getContext(), "La cédula solo debe contener números", Toast.LENGTH_SHORT).show();
                 etCedula.requestFocus();
                 return false;
             }
@@ -516,11 +536,17 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
                 etCelular.requestFocus();
                 return false;
             }
+
+            // También podrías validar el celular (10 dígitos en Ecuador)
+            if (celular.length() != 10) {
+                Toast.makeText(getContext(), "El celular debe tener 10 dígitos", Toast.LENGTH_SHORT).show();
+                etCelular.requestFocus();
+                return false;
+            }
         }
 
         return true;
     }
-
     public void vaciarCampos(){
         spCategoria.setSelection(0);
         txtComentario.setText("");

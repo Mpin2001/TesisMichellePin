@@ -6,7 +6,7 @@
     android:id="@+id/coordinatorLogin"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_oficial"
+    android:background="@drawable/fondito_new"
     tools:context="com.tesis.michelle.pin.LoginActivity">
 
     <!-- App Bar -->
@@ -47,7 +47,7 @@
                 android:id="@+id/imgExample"
                 android:layout_width="250dp"
                 android:layout_height="280dp"
-                android:src="@drawable/mp_tesis" />
+                android:src="@drawable/mich_25" />
 
             <LinearLayout
                 android:layout_width="match_parent"

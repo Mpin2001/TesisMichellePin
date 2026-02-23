@@ -190,6 +190,7 @@
                             android:inputType="number"
                             android:maxLines="1"
                             android:padding="8dp"
+                            android:maxLength="10"
                             android:textColor="@color/blanco"
                             android:textColorHint="@color/blanco" />
 
@@ -230,6 +231,7 @@
                             android:inputType="phone"
                             android:maxLines="1"
                             android:padding="8dp"
+                            android:maxLength="10"
                             android:textColor="@color/blanco"
                             android:textColorHint="@color/blanco" />
 
