@@ -597,7 +597,7 @@ public class HistorialActivity extends AppCompatActivity implements
             case "CODIFICADOS":
                 getCodificados();
                 break;
-            case "LOGROS":
+            case "EVIDENCIAS":
                 getAntesDespues();
                 break;
             case "TRACKING":
@@ -1021,7 +1021,7 @@ public class HistorialActivity extends AppCompatActivity implements
                 columnaCategoria = ContractInsertCodificados.Columnas.SECTOR;
                 columnaSubcategoria = ContractInsertCodificados.Columnas.SUBCATEGORIA;
                 break;
-            case "LOGROS":
+            case "EVIDENCIAS":
                 tablaInsert = ContractInsertEvidencias.INSERT_EVIDENCIAS;
                 columnaPdv = ContractInsertEvidencias.Columnas.POS_NAME; // crear
                 columnaCategoria = ContractInsertEvidencias.Columnas.CATEGORIA;

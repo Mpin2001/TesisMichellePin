@@ -64,7 +64,7 @@
     </string-array>
 
     <string-array name="modR">
-        <item>Módulo</item>
+        <item>Elija</item>
 <!--        <item>OSA</item>-->
 <!--        <item>INVENTARIO+SUGERIDO</item>-->
 <!--        <item>PRECIOS</item>-->
@@ -93,7 +93,7 @@
 <!--               <item>CONVENIOS</item>-->
 <!--               <item>VENTAS</item>-->
                <item>NOVEDADES</item>
-<!--        <item>MATERIALES RECIBIDOS</item>-->
+        <item>EVIDENCIAS</item>
 <!--        <item>EJECUCION DE MATERIALES</item>-->
 <!--        <item>PRODUCTOS A CADUCAR</item>-->
 <!--        <item>ON PACKS</item>-->
