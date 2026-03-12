@@ -324,7 +324,7 @@
     <string name="icono">icono</string>
     <string name="notificaciones">Notificaciones</string>
     <string name="portafolio_pdf">Portafolio PDF</string>
-    <string name="status_enviados_no_enviados">Hitorial de enviados</string>
+    <string name="status_enviados_no_enviados">Historial de enviados</string>
     <string name="linea_de_tiempo">Historial de recorrido BarrioApp</string>
     <string name="materiales_recibidos">Materiales Recibidos</string>
     <string name="title_activity_menu_status">MenuStatusActivity</string>
