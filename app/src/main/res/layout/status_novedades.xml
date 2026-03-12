@@ -47,7 +47,7 @@
                     android:background="@null"
                     android:ems="5"
                     android:padding="5dp"
-                    android:text="Nombre PDV"
+                    android:text="Nombre Barrio"
                     android:textColor="#000000"
                     android:visibility="visible"/>
 
@@ -88,8 +88,9 @@
                     android:background="@null"
                     android:ems="5"
                     android:padding="5dp"
-                    android:text="Sku"
-                    android:textColor="#000000" />
+                    android:text="Observación"
+                    android:textColor="#000000"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/txtLote"
                     android:layout_width="100dp"
@@ -106,8 +107,9 @@
                     android:background="@null"
                     android:ems="5"
                     android:padding="5dp"
-                    android:text="Comentario 1"
-                    android:textColor="#000000" />
+                    android:text="Observación"
+                    android:textColor="#000000"
+                    android:visibility="gone"/>
                 <TextView
                     android:id="@+id/txtObservacion2"
                     android:layout_width="150dp"
@@ -304,6 +306,7 @@
                     android:padding="5dp"
                     android:text="@string/sku"
                     android:textColor="#676666"
+                    android:visibility="gone"
                     />
                 <TextView
                     android:id="@+id/lblLote"

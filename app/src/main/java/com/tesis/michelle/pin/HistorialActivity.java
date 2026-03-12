@@ -115,7 +115,7 @@ public class HistorialActivity extends AppCompatActivity implements
 
     private static final org.apache.commons.logging.Log log = LogFactory.getLog(HistorialActivity.class);
     DatabaseHelper handler;
-    Spinner spMod, spCategoria, spSubcategoria, spStatus; //spPdv,
+    Spinner spMod, spCategoria, spSubcategoria, spStatus;
 
     Spinner spPdv;
     Spinner spTipoNovedad;
@@ -123,12 +123,12 @@ public class HistorialActivity extends AppCompatActivity implements
 
     Spinner spFabricante;
     Spinner spMarca;
-    LinearLayout llCategoria, llSubcategoria, llMarca,llFabricante, llCategorias, llPdv, llTipoNovedad;
+    LinearLayout llCategoria, llSubcategoria, llMarca, llFabricante, llCategorias, llPdv, llTipoNovedad;
     ImageButton btnFinicio;
     ImageButton btnFfin;
     TextView txtFinicio;
     TextView txtFfin;
-    String tablaInsert, columnaPdv,columnaTipoNovedad, columnaMarca, columnaCategoria, columnaSubcategoria, columnaFabricante,columnaPrecioDescuento;
+    String tablaInsert, columnaPdv, columnaTipoNovedad, columnaMarca, columnaCategoria, columnaSubcategoria, columnaFabricante, columnaPrecioDescuento;
     SwipeRefreshLayout swipeRefresh;
 
     private RecyclerView recyclerView;
@@ -201,7 +201,7 @@ public class HistorialActivity extends AppCompatActivity implements
     private static int idVentas = 30;
     private static int idProbadores = 31;
     private static int idMuestras = 32;
-    String tipo, rol, modulo ="", pdv="", categoria="", subcategoria="", status="", fabricante="", marca="", columna = "";
+    String tipo, rol, modulo = "", pdv = "", categoria = "", subcategoria = "", status = "", fabricante = "", marca = "", columna = "";
     String fDesde = "", fHasta = "";
 
     @Override
@@ -211,24 +211,19 @@ public class HistorialActivity extends AppCompatActivity implements
         setToolbar();
 
         LoadData();
-        handler = new DatabaseHelper(this, Provider.DATABASE_NAME,null,1);
-
-        //startService(new Intent(getApplicationContext(), MyService.class));
+        handler = new DatabaseHelper(this, Provider.DATABASE_NAME, null, 1);
 
         swipeRefresh = (SwipeRefreshLayout) findViewById(R.id.swipeRefresh);
         spMod = (Spinner) findViewById(R.id.spModulo);
         spPdv = (Spinner) findViewById(R.id.spPdv);
-     //   spFabricante = (Spinner) findViewById(R.id.spFabricante); //nuevo
-        spMarca = (Spinner) findViewById(R.id.spMarca); //nuevo
+        spMarca = (Spinner) findViewById(R.id.spMarca);
         spCategoria = (Spinner) findViewById(R.id.spCategoria);
-        spTipoNovedad = findViewById(R.id.spTipoNovedad); // nuevo para tipo novedad
+        spTipoNovedad = (Spinner) findViewById(R.id.spTipoNovedad);
         spSubcategoria = (Spinner) findViewById(R.id.spSubcategoria);
         spStatus = (Spinner) findViewById(R.id.spStatus);
         llCategoria = (LinearLayout) findViewById(R.id.layout_categoria);
         llSubcategoria = (LinearLayout) findViewById(R.id.layout_subcategoria);
         llCategorias = (LinearLayout) findViewById(R.id.layout_categorias);
-        //llFabricante = (LinearLayout) findViewById(R.id.layout_fabricante);
-       // llMarca = (LinearLayout) findViewById(R.id.layout_marca);
         llPdv = (LinearLayout) findViewById(R.id.layout_pdv);
         llTipoNovedad = (LinearLayout) findViewById(R.id.layout_tipo_novedad);
         btnFinicio = (ImageButton) findViewById(R.id.btnFechaInicio);
@@ -248,14 +243,8 @@ public class HistorialActivity extends AppCompatActivity implements
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 tipoNovedadSeleccionada = parent.getItemAtPosition(position).toString();
-
                 Log.i("TipoNovedad", "Seleccionado: " + tipoNovedadSeleccionada);
-
-                // Solo filtrar si el módulo es NOVEDADES
                 if (modulo.equals("NOVEDADES")) {
-                    // No llamar directamente a filtrarHistorial aquí
-                    // Dejar que se active cuando se cambie el status
-                    // O podrías llamarlo si todos los campos están listos:
                     if (!tipoNovedadSeleccionada.equals("TIPO DE NOVEDAD") &&
                             !status.isEmpty() &&
                             !fDesde.isEmpty() &&
@@ -269,72 +258,24 @@ public class HistorialActivity extends AppCompatActivity implements
             @Override
             public void onNothingSelected(AdapterView<?> parent) {}
         });
-//        spTipoNovedad.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//
-//                tipoNovedadSeleccionada = parent.getItemAtPosition(position).toString();
-//
-//                // Recargar novedades con filtro
-//                Bundle args = new Bundle();
-//                args.putString("TIPO_NOVEDAD", tipoNovedadSeleccionada);
-//
-//                getSupportLoaderManager().restartLoader(idNovedades, args, HistorialActivity.this);
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {}
-//        });
 
-
-        ArrayAdapter adaptadorKeyword2 = ArrayAdapter.createFromResource(this,R.array.modR,android.R.layout.simple_spinner_item);
+        ArrayAdapter adaptadorKeyword2 = ArrayAdapter.createFromResource(this, R.array.modR, android.R.layout.simple_spinner_item);
         adaptadorKeyword2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spMod.setAdapter(adaptadorKeyword2);
         spMod.setOnItemSelectedListener(this);
         spStatus.setOnItemSelectedListener(this);
 
-        //filtrarPdv();
-
-//        if (tipo.equals("PROMOTOR R"))
-//        {
-//            ArrayAdapter adaptadorKeyword1 = ArrayAdapter.createFromResource(this,R.array.modR,android.R.layout.simple_spinner_item);
-//            adaptadorKeyword1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//            spMod.setAdapter(adaptadorKeyword1);
-//            spMod.setOnItemSelectedListener(this);
-//        }else if (tipo.equals("PROMOTOR C"))
-//        {
-//            ArrayAdapter adaptadorKeyword1 = ArrayAdapter.createFromResource(this,R.array.modC,android.R.layout.simple_spinner_item);
-//            adaptadorKeyword1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//            spMod.setAdapter(adaptadorKeyword1);
-//            spMod.setOnItemSelectedListener(this);
-//        }else if (tipo.equals("MERCADERISTA"))
-//        {
-//            ArrayAdapter adaptadorKeyword1 = ArrayAdapter.createFromResource(this,R.array.merca,android.R.layout.simple_spinner_item);
-//            adaptadorKeyword1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//            spMod.setAdapter(adaptadorKeyword1);
-//            spMod.setOnItemSelectedListener(this);
-//        }
-
         recyclerView = (RecyclerView) findViewById(R.id.reciclador);
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
         emptyView = (TextView) findViewById(R.id.recyclerview_data_empty);
-
-
-
-//        spPdv.setOnItemClickListener((parent, view, position, id) -> {
-//            String pdv = parent.getItemAtPosition(position).toString();
-//            filtrarCategoria(pdv);
-//            spStatus.setSelection(0); // Asegúrate de que spStatus sigue siendo un Spinner
-//        });
-
     }
 
 
     public void LoadData() {
         SharedPreferences sharedPreferences = getSharedPreferences(Constantes.SHARED_PREFERENCES, Context.MODE_PRIVATE);
-        tipo = sharedPreferences.getString(Constantes.TIPO,Constantes.NODATA);
-        rol = sharedPreferences.getString(Constantes.ROLNUEVO,Constantes.NODATA);
+        tipo = sharedPreferences.getString(Constantes.TIPO, Constantes.NODATA);
+        rol = sharedPreferences.getString(Constantes.ROLNUEVO, Constantes.NODATA);
     }
 
     private void setToolbar() {
@@ -344,7 +285,7 @@ public class HistorialActivity extends AppCompatActivity implements
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-        if(adapterView == spMod){
+        if (adapterView == spMod) {
             modulo = adapterView.getItemAtPosition(i).toString();
             setContractByModulo(modulo);
             hideItems(modulo);
@@ -352,91 +293,60 @@ public class HistorialActivity extends AppCompatActivity implements
             spStatus.setSelection(0);
         }
 
-        if(adapterView == spPdv){
+        if (adapterView == spPdv) {
             pdv = adapterView.getItemAtPosition(i).toString();
-           // filtrarCategoria(pdv);
-          //  filtrarFabricante(pdv);
             spStatus.setSelection(0);
         }
-//        if(adapterView == spFabricante){
-//            fabricante = adapterView.getItemAtPosition(i).toString();
-//            // filtrarCategoria(pdv);
-//            //filtrarFabricante(marca);
-//            filtrarMarca(pdv,fabricante);
-//            spStatus.setSelection(0);
-//        }
-//        if(adapterView == spMarca){
-//            marca = adapterView.getItemAtPosition(i).toString();
-//            // filtrarCategoria(pdv);
-//            //filtrarFabricante(marca);
-//           // filtrarMarca(pdv,fabricante);
-//            spStatus.setSelection(0);
-//        }
 
-//        if(adapterView == spCategoria){
-//            categoria = adapterView.getItemAtPosition(i).toString();
-//            filtrarSubcategoria(pdv, categoria);
-//            spStatus.setSelection(0);
-//        }
-
-//        if(adapterView == spSubcategoria){
-//            subcategoria = adapterView.getItemAtPosition(i).toString();
-//            spStatus.setSelection(0);
-//        }
-
-        if(adapterView == spStatus) {
-
+        if (adapterView == spStatus) {
             status = adapterView.getItemAtPosition(i).toString();
-            if(status.equals("NO ENVIADO")){
+            if (status.equals("NO ENVIADO")) {
                 status = "1";
             } else {
                 status = "0";
             }
 
-            if(camposValidados()){
+            if (camposValidados()) {
                 filtrarHistorial(modulo);
             }
-
-
         }
     }
 
-    public void hideItems(String modulo){
-
-        if(modulo.equalsIgnoreCase("REGISTRO")){
+    public void hideItems(String modulo) {
+        if (modulo.equalsIgnoreCase("REGISTRO")) {
             llCategorias.setVisibility(View.GONE);
             llPdv.setVisibility(View.VISIBLE);
             llSubcategoria.setVisibility(View.GONE);
-        }else if (modulo.equalsIgnoreCase("NUEVO PDV")){
+        } else if (modulo.equalsIgnoreCase("NUEVO PDV")) {
             llCategorias.setVisibility(View.GONE);
             llPdv.setVisibility(View.GONE);
             llSubcategoria.setVisibility(View.GONE);
-        }else if (modulo.equalsIgnoreCase("PRECIOS")){
+        } else if (modulo.equalsIgnoreCase("PRECIOS")) {
             llCategorias.setVisibility(View.GONE);
             llPdv.setVisibility(View.VISIBLE);
-           // llFabricante.setVisibility(View.GONE);
-           // llMarca.setVisibility(View.GONE);
             llSubcategoria.setVisibility(View.GONE);
-        }else if(modulo.equalsIgnoreCase("NOVEDADES")){
+        } else if (modulo.equalsIgnoreCase("NOVEDADES")) {
             llCategorias.setVisibility(View.GONE);
             llTipoNovedad.setVisibility(View.VISIBLE);
             llPdv.setVisibility(View.VISIBLE);
             llSubcategoria.setVisibility(View.GONE);
-        }else if (modulo.equalsIgnoreCase("LOGROS_OLD")){
+        } else if (modulo.equalsIgnoreCase("LOGROS_OLD")) {
             llCategorias.setVisibility(View.VISIBLE);
             llPdv.setVisibility(View.VISIBLE);
             llSubcategoria.setVisibility(View.GONE);
-
-        }
-        else if (modulo.equalsIgnoreCase("ENCUESTA APP")){
+        } else if (modulo.equalsIgnoreCase("ENCUESTA APP")) {
             llCategorias.setVisibility(View.GONE);
             llPdv.setVisibility(View.GONE);
             llSubcategoria.setVisibility(View.GONE);
-        }else if (modulo.equalsIgnoreCase("EXHIBICIONES")){
+        } else if (modulo.equalsIgnoreCase("EXHIBICIONES")) {
             llSubcategoria.setVisibility(View.GONE);
             llCategorias.setVisibility(View.GONE);
-
-        }else {
+        } else if (modulo.equalsIgnoreCase("EVIDENCIAS")) { // FIX: EVIDENCIAS solo necesita PDV
+            llCategorias.setVisibility(View.GONE);
+            llPdv.setVisibility(View.VISIBLE);
+            llSubcategoria.setVisibility(View.GONE);
+            llTipoNovedad.setVisibility(View.GONE);
+        } else {
             llCategorias.setVisibility(View.VISIBLE);
             llPdv.setVisibility(View.VISIBLE);
             llSubcategoria.setVisibility(View.VISIBLE);
@@ -444,67 +354,56 @@ public class HistorialActivity extends AppCompatActivity implements
         }
     }
 
-    public void filtrarPdv(){
-
+    public void filtrarPdv() {
         List<String> operadores = handler.filtrarPdvsHistorial(tablaInsert, columnaPdv);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, operadores);
-        dataAdapter
-                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spPdv.setAdapter(dataAdapter);
         spPdv.setOnItemSelectedListener(this);
-
     }
-    public void filtrarCategoria(String pdv){
 
+    public void filtrarCategoria(String pdv) {
         List<String> operadores = handler.filtrarCategoriasHistorial(tablaInsert, columnaPdv, columnaCategoria, pdv);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, operadores);
-        dataAdapter
-                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spCategoria.setAdapter(dataAdapter);
         spCategoria.setOnItemSelectedListener(this);
-
     }
+
     public void filtrarFabricante(String pdv) {
         List<String> operadores = handler.filtrarFabriHistorial(tablaInsert, columnaPdv, columnaFabricante, pdv);
-        if (operadores.size()==2) {
+        if (operadores.size() == 2) {
             operadores.remove(0);
         }
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
-       // dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 android.R.layout.simple_spinner_item, operadores);
         spFabricante.setAdapter(dataAdapter);
         spFabricante.setOnItemSelectedListener(this);
     }
 
-
-    public void filtrarSubcategoria(String pdv, String categoria){
-
+    public void filtrarSubcategoria(String pdv, String categoria) {
         List<String> operadores = handler.filtrarSubcategoriasHistorial(tablaInsert,
                 columnaPdv, columnaCategoria, columnaSubcategoria, pdv, categoria);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, operadores);
-        dataAdapter
-                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spSubcategoria.setAdapter(dataAdapter);
         spSubcategoria.setOnItemSelectedListener(this);
-
     }
 
-    public void filtrarMarca(String pdv, String fabricante){
-
+    public void filtrarMarca(String pdv, String fabricante) {
         List<String> operadores = handler.filtrarMarcaNewHistorial(tablaInsert,
                 columnaPdv, columnaFabricante, columnaMarca, pdv, fabricante);
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, operadores);
-        dataAdapter
-                .setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spMarca.setAdapter(dataAdapter);
         spMarca.setOnItemSelectedListener(this);
-
     }
-    public void filtrarHistorial(String modulo){
+
+    public void filtrarHistorial(String modulo) {
         Log.i("entra FA", "filtrar historia");
         switch (modulo) {
             case "PRECIOS":
@@ -608,23 +507,20 @@ public class HistorialActivity extends AppCompatActivity implements
                 break;
         }
     }
-    public boolean camposValidados(){
 
-        if (!modulo.equalsIgnoreCase("MÓDULO")){
-            if(fDesde.isEmpty() || fHasta.isEmpty()) {
+    public boolean camposValidados() {
+        if (!modulo.equalsIgnoreCase("MÓDULO")) {
+            if (fDesde.isEmpty() || fHasta.isEmpty()) {
                 Toast.makeText(this, "Elija fecha inicio y fin", Toast.LENGTH_SHORT).show();
                 spStatus.setSelection(0);
                 return false;
             }
         }
-//        if(pdv.equalsIgnoreCase("PDV")){
-//            Toast.makeText(this, "Elija un PDV", Toast.LENGTH_SHORT).show();
-//            spStatus.setSelection(0);
-//            return false;
-//        }
 
-        if (!modulo.equalsIgnoreCase("REGISTRO") && !modulo.equalsIgnoreCase("NUEVO PDV")  && !modulo.equalsIgnoreCase("ENCUESTA APP") && !modulo.equalsIgnoreCase("NOVEDADES") ){
-            if(categoria.equalsIgnoreCase("CATEGORIA")){
+        if (!modulo.equalsIgnoreCase("REGISTRO") && !modulo.equalsIgnoreCase("NUEVO PDV")
+                && !modulo.equalsIgnoreCase("ENCUESTA APP") && !modulo.equalsIgnoreCase("NOVEDADES")
+                && !modulo.equalsIgnoreCase("EVIDENCIAS")) { // FIX: EVIDENCIAS no requiere categoria
+            if (categoria.equalsIgnoreCase("CATEGORIA")) {
                 Toast.makeText(this, "Elija una categoría", Toast.LENGTH_SHORT).show();
                 spStatus.setSelection(0);
                 return false;
@@ -632,23 +528,21 @@ public class HistorialActivity extends AppCompatActivity implements
         }
 
         if (modulo.equalsIgnoreCase("NOVEDADES")) {
-            if(tipoNovedadSeleccionada.equals("TIPO DE NOVEDAD")){
+            if (tipoNovedadSeleccionada.equals("TIPO DE NOVEDAD")) {
                 Toast.makeText(this, "Elija un tipo de novedad", Toast.LENGTH_SHORT).show();
                 spStatus.setSelection(0);
                 return false;
             }
         }
 
-
         if (!modulo.equalsIgnoreCase("REGISTRO") && !modulo.equalsIgnoreCase("NUEVO PDV") &&
-                !modulo.equalsIgnoreCase("LOGROS_OLD") && !modulo.equalsIgnoreCase("ENCUESTA APP") && !modulo.equalsIgnoreCase("NOVEDADES")){
-
-            if(subcategoria.equalsIgnoreCase("SUBCATEGORIA") && !modulo.equalsIgnoreCase("EXHIBICIONES")){
+                !modulo.equalsIgnoreCase("LOGROS_OLD") && !modulo.equalsIgnoreCase("ENCUESTA APP") &&
+                !modulo.equalsIgnoreCase("NOVEDADES") && !modulo.equalsIgnoreCase("EVIDENCIAS")) { // FIX: EVIDENCIAS no requiere subcategoria
+            if (subcategoria.equalsIgnoreCase("SUBCATEGORIA") && !modulo.equalsIgnoreCase("EXHIBICIONES")) {
                 Toast.makeText(this, "Elija una subcategoría", Toast.LENGTH_SHORT).show();
                 spStatus.setSelection(0);
                 return false;
             }
-
         }
 
         return true;
@@ -661,232 +555,220 @@ public class HistorialActivity extends AppCompatActivity implements
         Log.i("precios loader", "getPrecios()");
         adapterPrecio = new AdapterPrecios(this);
         recyclerView.setAdapter(adapterPrecio);
-        //getSupportLoaderManager().initLoader(idPrecio, null,this); //funciona cuando no se envían parametros
-        getSupportLoaderManager().restartLoader(idPrecio, null, this); //vuelve a iniciar el loader con los nuevos paramtros de consulta
+        getSupportLoaderManager().restartLoader(idPrecio, null, this);
     }
+
     public void getVentas() {
         adapterVenta = new AdapterVenta(this);
         recyclerView.setAdapter(adapterVenta);
-        //getSupportLoaderManager().initLoader(idPrecio, null,this); //funciona cuando no se envían parametros
-        getSupportLoaderManager().restartLoader(idVentas, null, this); //vuelve a iniciar el loader con los nuevos paramtros de consulta
+        getSupportLoaderManager().restartLoader(idVentas, null, this);
     }
-
 
     public void getExh() {
         adapterExh = new AdapterExh(this);
         recyclerView.setAdapter(adapterExh);
-        getSupportLoaderManager().restartLoader(idExh, null,this);
+        getSupportLoaderManager().restartLoader(idExh, null, this);
     }
 
     public void getGps() {
         adapterGps = new AdapterGps(this);
         recyclerView.setAdapter(adapterGps);
-        getSupportLoaderManager().restartLoader(idGps, null,this);
+        getSupportLoaderManager().restartLoader(idGps, null, this);
     }
-    public void getNovedades(){
+
+    public void getNovedades() {
         adapterNovedades = new AdapterNovedades(this);
         recyclerView.setAdapter(adapterNovedades);
-        getSupportLoaderManager().restartLoader(idNovedades, null,this);
+        getSupportLoaderManager().restartLoader(idNovedades, null, this);
     }
- //   nuevos modulos mpin
-    public void getMuestrasMedicas(){
-        adapterMuestras= new AdapterMuestrasMedicas(this); //cambiar
+
+    public void getMuestrasMedicas() {
+        adapterMuestras = new AdapterMuestrasMedicas(this);
         recyclerView.setAdapter(adapterMuestras);
-        getSupportLoaderManager().restartLoader(idMuestras, null,this);
+        getSupportLoaderManager().restartLoader(idMuestras, null, this);
     }
-    public void getProbadores(){
-        adapterProbadores = new AdapterProbadores(this);//cambiar
+
+    public void getProbadores() {
+        adapterProbadores = new AdapterProbadores(this);
         recyclerView.setAdapter(adapterProbadores);
-        getSupportLoaderManager().restartLoader(idProbadores, null,this);
+        getSupportLoaderManager().restartLoader(idProbadores, null, this);
     }
 
     public void getFlooring() {
-        adapterFlooring= new AdapterFlooring(this);
+        adapterFlooring = new AdapterFlooring(this);
         recyclerView.setAdapter(adapterFlooring);
-        getSupportLoaderManager().restartLoader(idFlooring,null,this);
+        getSupportLoaderManager().restartLoader(idFlooring, null, this);
     }
 
     public void getPromocion() {
-        adapterPromo= new AdapterPromo(this);
+        adapterPromo = new AdapterPromo(this);
         recyclerView.setAdapter(adapterPromo);
-        getSupportLoaderManager().restartLoader(idPromo,null,this);
+        getSupportLoaderManager().restartLoader(idPromo, null, this);
     }
 
     public void getValores() {
-        adapterValores= new AdapterValores(this);
+        adapterValores = new AdapterValores(this);
         recyclerView.setAdapter(adapterValores);
-        getSupportLoaderManager().restartLoader(idValores,null,this);
+        getSupportLoaderManager().restartLoader(idValores, null, this);
     }
 
     public void getImplementacion() {
-        adapterImplementacion= new AdapterImplementacion(this);
+        adapterImplementacion = new AdapterImplementacion(this);
         recyclerView.setAdapter(adapterImplementacion);
-        getSupportLoaderManager().restartLoader(idImple,null,this);
+        getSupportLoaderManager().restartLoader(idImple, null, this);
     }
 
     public void getNotificacion() {
-        adapterPDV= new AdapterPDV(this);
+        adapterPDV = new AdapterPDV(this);
         recyclerView.setAdapter(adapterPDV);
-        getSupportLoaderManager().restartLoader(idNotificacion,null,this);
+        getSupportLoaderManager().restartLoader(idNotificacion, null, this);
     }
 
     public void getShare() {
-        adapterShare= new AdapterShare(this);
+        adapterShare = new AdapterShare(this);
         recyclerView.setAdapter(adapterShare);
-        getSupportLoaderManager().restartLoader(idShare,null,this);
+        getSupportLoaderManager().restartLoader(idShare, null, this);
     }
 
     public void getAgotados() {
-        adapterAgotados= new AdapterAgotados(this);
+        adapterAgotados = new AdapterAgotados(this);
         recyclerView.setAdapter(adapterAgotados);
-        getSupportLoaderManager().restartLoader(idAgotados,null,this);
+        getSupportLoaderManager().restartLoader(idAgotados, null, this);
     }
 
     public void getVenta() {
         adapterVenta = new AdapterVenta(this);
         recyclerView.setAdapter(adapterVenta);
-        getSupportLoaderManager().restartLoader(idVenta, null,this);
+        getSupportLoaderManager().restartLoader(idVenta, null, this);
     }
 
     public void getLogros() {
         adapterFotografico = new AdapterFotografico(this);
         recyclerView.setAdapter(adapterFotografico);
-        getSupportLoaderManager().restartLoader( idExhAntDes, null,this);
+        getSupportLoaderManager().restartLoader(idExhAntDes, null, this);
     }
 
     public void getTest() {
         adapterPreguntas = new AdapterPreguntas(this);
         recyclerView.setAdapter(adapterPreguntas);
-        getSupportLoaderManager().restartLoader(idPreg, null,this);
+        getSupportLoaderManager().restartLoader(idPreg, null, this);
     }
 
     public void getOnPacks() {
         adapterPacks = new AdapterPacks(this);
         recyclerView.setAdapter(adapterPacks);
-        getSupportLoaderManager().restartLoader(idPacks, null,this);
+        getSupportLoaderManager().restartLoader(idPacks, null, this);
     }
 
-
-    public void getEncuesta(){
-        Log.i("nombtes","entro 1");
+    public void getEncuesta() {
+        Log.i("nombtes", "entro 1");
         adapterEncuesta = new AdapterEncuesta(this);
         recyclerView.setAdapter(adapterEncuesta);
-        Log.i("nombtes","entro 2");
-        getSupportLoaderManager().restartLoader(idEncuestas, null,this);
+        Log.i("nombtes", "entro 2");
+        getSupportLoaderManager().restartLoader(idEncuestas, null, this);
     }
 
     public void getProdCad() {
         adapterProdCad = new AdapterProdCad(this);
         recyclerView.setAdapter(adapterProdCad);
-        getSupportLoaderManager().restartLoader(idProdCad, null,this);
+        getSupportLoaderManager().restartLoader(idProdCad, null, this);
     }
 
     public void getImpulso() {
         adapterImpulso = new AdapterImpulso(this);
         recyclerView.setAdapter(adapterImpulso);
-        getSupportLoaderManager().restartLoader(idImpul, null,this);
+        getSupportLoaderManager().restartLoader(idImpul, null, this);
     }
+
     public void getRotacion() {
         adapterRotacion = new AdapterRotacion(this);
         recyclerView.setAdapter(adapterRotacion);
-        getSupportLoaderManager().restartLoader(idRotacion, null,this);
+        getSupportLoaderManager().restartLoader(idRotacion, null, this);
     }
 
     public void getSugeridos() {
         adapterSugeridos = new SugeridosAdapter(this);
         recyclerView.setAdapter(adapterSugeridos);
-        getSupportLoaderManager().restartLoader(idSugeridos, null,this);
+        getSupportLoaderManager().restartLoader(idSugeridos, null, this);
     }
 
     public void getTareas() {
         adapterTareas = new AdapterTareas(this);
         recyclerView.setAdapter(adapterTareas);
-        getSupportLoaderManager().restartLoader(idTareas, null,this);
+        getSupportLoaderManager().restartLoader(idTareas, null, this);
     }
 
     public void getCanjes() {
         adapterCanjes = new AdapterCanjes(this);
         recyclerView.setAdapter(adapterCanjes);
-        getSupportLoaderManager().restartLoader(idCanjes, null,this);
+        getSupportLoaderManager().restartLoader(idCanjes, null, this);
     }
 
     public void getMCI() {
         adapterMCI = new AdapterMCI(this);
         recyclerView.setAdapter(adapterMCI);
-        getSupportLoaderManager().restartLoader(idMCI, null,this);
+        getSupportLoaderManager().restartLoader(idMCI, null, this);
     }
 
     public void getMaterialesRecibidos() {
         adapterMaterialesRecibidos = new AdapterMaterialesRecibidos(this);
         recyclerView.setAdapter(adapterMaterialesRecibidos);
-        getSupportLoaderManager().restartLoader(idMaterialesRecibidos, null,this);
+        getSupportLoaderManager().restartLoader(idMaterialesRecibidos, null, this);
     }
 
     public void getEjecucionMateriales() {
         adapterEjecucionMateriales = new AdapterEjecucionMateriales(this);
         recyclerView.setAdapter(adapterEjecucionMateriales);
-        getSupportLoaderManager().restartLoader(idEjecMateriales, null,this);
+        getSupportLoaderManager().restartLoader(idEjecMateriales, null, this);
     }
 
     public void getPDI() {
         adapterPDI = new AdapterPDI(this);
         recyclerView.setAdapter(adapterPDI);
-        getSupportLoaderManager().restartLoader(idPDI, null,this);
+        getSupportLoaderManager().restartLoader(idPDI, null, this);
     }
 
     public void getCodificados() {
         adapterCodificados = new AdapterCodificados(this);
         recyclerView.setAdapter(adapterCodificados);
-        getSupportLoaderManager().restartLoader(idCodificados, null,this);
+        getSupportLoaderManager().restartLoader(idCodificados, null, this);
     }
 
     public void getAntesDespues() {
         adapterEvidencias = new AdapterEvidencias(this);
         recyclerView.setAdapter(adapterEvidencias);
-        getSupportLoaderManager().restartLoader(idEvidencias, null,this);
+        getSupportLoaderManager().restartLoader(idEvidencias, null, this);
     }
 
     public void getTracking() {
         adapterTracking = new AdapterTracking(this);
         recyclerView.setAdapter(adapterTracking);
-        getSupportLoaderManager().restartLoader(idTracking, null,this);
+        getSupportLoaderManager().restartLoader(idTracking, null, this);
     }
 
     public void getConvenios() {
         adapterConvenios = new AdapterConvenios(this);
         recyclerView.setAdapter(adapterConvenios);
-        getSupportLoaderManager().restartLoader(idConvenios, null,this);
+        getSupportLoaderManager().restartLoader(idConvenios, null, this);
     }
 
-    public void setContractByModulo(String modulo){
-        //aqui se colocan los filtros que aplican para cada modulo y las respectivas tablas y columnas del contract
+    public void setContractByModulo(String modulo) {
         switch (modulo) {
             case "PRECIOS":
                 Log.i("Entra HA case", "precios");
                 tablaInsert = ContractInsertPrecios.INSERT_PRECIOS;
                 columnaPdv = ContractInsertPrecios.Columnas.POS_NAME;
-           //     columnaMarca = ContractInsertPrecios.Columnas.BRAND;
-           //    columnaCategoria = ContractInsertPrecios.Columnas.CATEGORIA;
-              //  columnaSubcategoria = ContractInsertPrecios.Columnas.SUBCATEGORIA;
-            //    columnaFabricante = ContractInsertPrecios.Columnas.FABRICANTE;
-             //   columnaPrecioDescuento = ContractInsertPrecios.Columnas.PRECIO_DESCUENTO;
                 break;
             case "NOVEDADES":
                 tablaInsert = ContractInsertNovedades.INSERT_NOVEDADES;
                 columnaPdv = ContractInsertNovedades.Columnas.POS_NAME;
                 columnaCategoria = "";
                 columnaSubcategoria = "";
-                // Agregar columna para tipo de novedad si la necesitas
                 break;
-
-
-                /// / nuevos campos
             case "PRODUCTO CADUCADO":
                 tablaInsert = ContractInsertNovedades.INSERT_NOVEDADES;
                 columnaPdv = ContractInsertNovedades.Columnas.POS_NAME;
-                columna = "PRODUCTO CADUCADO"; //NUEVO CAMPO MEJOR FILTRO
-               // columnaCategoria = "";
-                //columnaSubcategoria = "";
+                columna = "PRODUCTO CADUCADO";
                 break;
             case "VENTAS":
                 tablaInsert = ContractInsertVenta.INSERT_VENTA;
@@ -897,20 +779,14 @@ public class HistorialActivity extends AppCompatActivity implements
             case "EXHIBICIONES":
                 tablaInsert = ContractInsertExh.INSERT_EXH;
                 columnaPdv = ContractInsertExh.Columnas.POS_NAME;
-               // columnaCategoria = ContractInsertExh.Columnas.CATEGORIA;
-                //columnaSubcategoria = "";
                 break;
             case "PROBADORES":
                 tablaInsert = ContractInsertProbadores.INSERT_PROBADORES;
                 columnaPdv = ContractInsertProbadores.Columnas.SUPERVISOR;
-                // columnaCategoria = ContractInsertExh.Columnas.CATEGORIA;
-                //columnaSubcategoria = "";
                 break;
             case "MUESTRAS MEDICAS":
                 tablaInsert = ContractInsertMuestras.INSERT_MUESTRAS;
                 columnaPdv = ContractInsertMuestras.Columnas.SUPERVISOR;
-                // columnaCategoria = ContractInsertExh.Columnas.CATEGORIA;
-                //columnaSubcategoria = "";
                 break;
             case "REGISTRO":
                 tablaInsert = ContractInsertGps.INSERT_GPS;
@@ -921,22 +797,18 @@ public class HistorialActivity extends AppCompatActivity implements
             case "INVENTARIO+SUGERIDO":
                 tablaInsert = InsertFlooring.INSERT_FLOORING;
                 columnaPdv = InsertFlooring.Columnas.POS_NAME;
-                //columnaCategoria = InsertFlooring.Columnas.CATEGORIA;
-                //columnaSubcategoria = InsertFlooring.Columnas.SUBCATEGORIA;
                 break;
             case "PROMOCIONES":
                 tablaInsert = ContractInsertPromocion.INSERT_PROMO;
                 columnaPdv = ContractInsertPromocion.Columnas.POS_NAME;
-               // columnaCategoria = ContractInsertPromocion.Columnas.CATEGORIA;
-              //  columnaSubcategoria = ContractInsertPromocion.Columnas.SUBCATEGORIA;
                 break;
-            case "OSA": //no
+            case "OSA":
                 tablaInsert = ContractInsertValores.INSERT_VALORES;
                 columnaPdv = "";
                 columnaCategoria = "";
                 columnaSubcategoria = "";
                 break;
-            case "NOTIFICACION": //no
+            case "NOTIFICACION":
                 tablaInsert = ContractNotificacion.NOTIFICACION;
                 break;
             case "NUEVO PDV":
@@ -957,13 +829,13 @@ public class HistorialActivity extends AppCompatActivity implements
                 columnaCategoria = ContractInsertShare.Columnas.SECTOR;
                 columnaSubcategoria = ContractInsertShare.Columnas.CATEGORIA;
                 break;
-            case "TIEMPO GESTION": //no
+            case "TIEMPO GESTION":
                 tablaInsert = ContractInsertAgotados.INSERT_AGOTADOS;
                 columnaPdv = "";
                 columnaCategoria = "";
                 columnaSubcategoria = "";
                 break;
-            case "VENTA - FACTURA": //no
+            case "VENTA - FACTURA":
                 tablaInsert = ContractInsertVenta.INSERT_VENTA;
                 columnaPdv = "";
                 columnaCategoria = "";
@@ -974,7 +846,7 @@ public class HistorialActivity extends AppCompatActivity implements
                 columnaPdv = ContractInsertFotografico.Columnas.POS_NAME;
                 columnaCategoria = ContractInsertFotografico.Columnas.CATEGORIA;
                 break;
-            case "TEST": //no
+            case "TEST":
                 tablaInsert = ContractInsertPreguntas.INSERT_PREGUNTAS;
                 columnaPdv = "";
                 columnaCategoria = "";
@@ -985,34 +857,34 @@ public class HistorialActivity extends AppCompatActivity implements
                 columnaPdv = ContractInsertPacks2.Columnas.POS_NAME;
                 columnaCategoria = ContractInsertPacks2.Columnas.CATEGORIA;
                 break;
-            case "PRODUCTOS A CADUCAR": //no
+            case "PRODUCTOS A CADUCAR":
                 tablaInsert = ContractInsertProdCaducar.INSERT_PROD_CADUCAR;
                 break;
-            case "IMPULSO": //no
+            case "IMPULSO":
                 tablaInsert = ContractInsertImpulso.INSERT_IMPUSLO;
                 break;
-            case "ROTACION": //no
+            case "ROTACION":
                 tablaInsert = ContractInsertRotacion.INSERT_ROTACION;
                 break;
-            case "SMS": //no
+            case "SMS":
                 tablaInsert = ContractInsertSugeridos.INSERT_SUGERIDOS;
                 break;
-            case "TAREAS": //no
+            case "TAREAS":
                 tablaInsert = ContractInsertTareas.INSERT_TAREAS;
                 break;
-            case "CANJES": //no
+            case "CANJES":
                 tablaInsert = ContractInsertCanjes.INSERT_CANJES;
                 break;
-            case "MCI"://no
+            case "MCI":
                 tablaInsert = ContractInsertMCIPdv.INSERT_MCI;
                 break;
-            case "MATERIALES RECIBIDOS"://no
+            case "MATERIALES RECIBIDOS":
                 tablaInsert = ContractInsertMaterialesRecibidos.INSERT_MATERIALES_RECIBIDOS;
                 break;
-            case "EJECUCION DE MATERIALES"://no
+            case "EJECUCION DE MATERIALES":
                 tablaInsert = ContractInsertEjecucionMateriales.INSERT_EJECUCION_MATERIALES;
                 break;
-            case "PDI"://no
+            case "PDI":
                 tablaInsert = ContractInsertPDI.INSERT_PDI;
                 break;
             case "CODIFICADOS":
@@ -1021,21 +893,21 @@ public class HistorialActivity extends AppCompatActivity implements
                 columnaCategoria = ContractInsertCodificados.Columnas.SECTOR;
                 columnaSubcategoria = ContractInsertCodificados.Columnas.SUBCATEGORIA;
                 break;
-            case "EVIDENCIAS":
+            case "EVIDENCIAS": // FIX: columnaCategoria y columnaSubcategoria vacías
                 tablaInsert = ContractInsertEvidencias.INSERT_EVIDENCIAS;
-                columnaPdv = ContractInsertEvidencias.Columnas.POS_NAME; // crear
-                columnaCategoria = ContractInsertEvidencias.Columnas.CATEGORIA;
-                columnaSubcategoria = ContractInsertEvidencias.Columnas.SUBCATEGORIA;
+                columnaPdv = ContractInsertEvidencias.Columnas.POS_NAME;
+                columnaCategoria = "";
+                columnaSubcategoria = "";
                 break;
             case "TRACKING":
                 tablaInsert = ContractInsertTracking.INSERT_TRACKING;
                 columnaPdv = ContractInsertTracking.Columnas.LOCAL;
                 columnaCategoria = ContractInsertTracking.Columnas.CATEGORIA;
-                columnaSubcategoria = ContractInsertTracking.Columnas.CUENTA; //hacer que guarde en columna cuentas LA SUBCATEGORIA
+                columnaSubcategoria = ContractInsertTracking.Columnas.CUENTA;
                 break;
             case "CONVENIOS":
                 tablaInsert = ContractInsertConvenios.INSERT_CONVENIOS;
-                columnaPdv = ContractInsertConvenios.Columnas.POS_NAME; //ver por qué no guarda
+                columnaPdv = ContractInsertConvenios.Columnas.POS_NAME;
                 columnaCategoria = ContractInsertConvenios.Columnas.CATEGORIA;
                 columnaSubcategoria = ContractInsertConvenios.Columnas.FABRICANTE;
                 break;
@@ -1051,568 +923,468 @@ public class HistorialActivity extends AppCompatActivity implements
     public Loader<Cursor> onCreateLoader(int id, Bundle args) {
         emptyView.setText("Cargando datos...");
         CursorLoader loader = null;
-        // Consultar todos los registros
-        if (id==idPrecio) {
+
+        if (id == idPrecio) {
             Log.i("Entra HA", "precios");
-
-            Log.i("onCreateLoader","vars prec: " + pdv +","+status);
-
-
+            Log.i("onCreateLoader", "vars prec: " + pdv + "," + status);
             String selection = columnaPdv + "=? AND " + Constantes.PENDIENTE_INSERCION + "=? AND " +
                     "fecha BETWEEN ? AND ?";
             String[] selectArgs = {pdv, status, fDesde, fHasta};
-            loader= new CursorLoader(
-                    this,
-                    ContractInsertPrecios.CONTENT_URI,
+            loader = new CursorLoader(this, ContractInsertPrecios.CONTENT_URI,
                     null, selection, selectArgs, null);
-        }else
-        if (id==idVentas) {
-            Log.i("Entra HA", "precios");
-
-            Log.i("onCreateLoader","vars prec: " + pdv +","+categoria+","+subcategoria+","+status);
-
-
+        } else if (id == idVentas) {
+            Log.i("onCreateLoader", "vars ventas: " + pdv + "," + categoria + "," + subcategoria + "," + status);
             String selection = columnaPdv + "=? AND " + columnaCategoria + "=? AND " +
                     columnaSubcategoria + "=? AND " + Constantes.PENDIENTE_INSERCION + "=? AND " +
-                    "fecha BETWEEN ? AND ?; ";
+                    "fecha BETWEEN ? AND ?";
             String[] selectArgs = {pdv, categoria, subcategoria, status, fDesde, fHasta};
-            loader= new CursorLoader(
-                    this,
-                    ContractInsertVenta.CONTENT_URI,
+            loader = new CursorLoader(this, ContractInsertVenta.CONTENT_URI,
                     null, selection, selectArgs, null);
-        }else
-        if (id==idProbadores) {
+        } else if (id == idProbadores) {
             Log.i("Entra HA", "probadores");
-
-            Log.i("onCreateLoader","vars michin: " + pdv +","+status);
-
-
             String selection = columnaPdv + "=? AND " + Constantes.PENDIENTE_INSERCION + "=? AND " +
                     "fecha BETWEEN ? AND ?";
             String[] selectArgs = {pdv, status, fDesde, fHasta};
-            loader= new CursorLoader(
-                    this,
-                    ContractInsertProbadores.CONTENT_URI,
+            loader = new CursorLoader(this, ContractInsertProbadores.CONTENT_URI,
                     null, selection, selectArgs, null);
-        }else
-        if (id==idMuestras) {
+        } else if (id == idMuestras) {
             Log.i("Entra HA", "muestras");
-
-            Log.i("onCreateLoader","vars michin1: " + pdv +","+status);
-
-
             String selection = columnaPdv + "=? AND " + Constantes.PENDIENTE_INSERCION + "=? AND " +
                     "fecha BETWEEN ? AND ?";
             String[] selectArgs = {pdv, status, fDesde, fHasta};
-            loader= new CursorLoader(
-                    this,
-                    ContractInsertMuestras.CONTENT_URI,
+            loader = new CursorLoader(this, ContractInsertMuestras.CONTENT_URI,
                     null, selection, selectArgs, null);
-        }else
-
-        if (id==idExh) {
-            Log.i("onCreateLoader","vars exhibiciones: " + pdv +","+status);
-
-
+        } else if (id == idExh) {
+            Log.i("onCreateLoader", "vars exhibiciones: " + pdv + "," + status);
             String selection = columnaPdv + "=? AND " + Constantes.PENDIENTE_INSERCION + "=? AND " +
                     "fecha BETWEEN ? AND ?";
             String[] selectArgs = {pdv, status, fDesde, fHasta};
-            loader = new CursorLoader(
-                    this,
-                    ContractInsertExh.CONTENT_URI,
+            loader = new CursorLoader(this, ContractInsertExh.CONTENT_URI,
                     null, selection, selectArgs, null);
-        }else
-        if (id==idGps) {
+        } else if (id == idGps) {
             String selection = columnaPdv + "=? AND " + Constantes.PENDIENTE_INSERCION + "=? AND " +
-                    "fecha BETWEEN ? AND ?; ";
+                    "fecha BETWEEN ? AND ?";
             String[] selectArgs = {pdv, status, fDesde, fHasta};
-            loader = new CursorLoader(
-                    this,
-                    ContractInsertGps.CONTENT_URI,
+            loader = new CursorLoader(this, ContractInsertGps.CONTENT_URI,
                     null, selection, selectArgs, null);
-        }else
-        if (id==idNovedades) {
+        } else if (id == idNovedades) {
             Log.i("onCreateLoader", "=== FILTRO NOVEDADES ===");
-            Log.i("onCreateLoader", "pdv: " + pdv);
-            Log.i("onCreateLoader", "tipoNovedad: " + tipoNovedadSeleccionada);
-            Log.i("onCreateLoader", "status: " + status);
-            Log.i("onCreateLoader", "fDesde: " + fDesde);
-            Log.i("onCreateLoader", "fHasta: " + fHasta);
-            Log.i("onCreateLoader","vars novedades: pdv=" + pdv + ",tipo=" + tipoNovedadSeleccionada + ",status=" + status + ",fDesde=" + fDesde + ",fHasta=" + fHasta);
-
+            Log.i("onCreateLoader", "pdv: " + pdv + ", tipo: " + tipoNovedadSeleccionada + ", status: " + status);
             String selection;
             String[] selectArgs;
-
             if (!tipoNovedadSeleccionada.equals("TIPO DE NOVEDAD")) {
-                // Con tipo de novedad específico
                 selection = columnaPdv + "=? AND " +
                         ContractInsertNovedades.Columnas.TIPO_NOVEDAD + "=? AND " +
                         Constantes.PENDIENTE_INSERCION + "=? AND " +
                         "fecha BETWEEN ? AND ?";
                 selectArgs = new String[]{pdv, tipoNovedadSeleccionada, status, fDesde, fHasta};
             } else {
-                // Sin tipo de novedad específico
                 selection = columnaPdv + "=? AND " +
                         Constantes.PENDIENTE_INSERCION + "=? AND " +
                         "fecha BETWEEN ? AND ?";
                 selectArgs = new String[]{pdv, status, fDesde, fHasta};
             }
-
-            Log.i("onCreateLoader","selection: " + selection);
-
-            loader = new CursorLoader(
-                    this,
-                    ContractInsertNovedades.CONTENT_URI,
+            loader = new CursorLoader(this, ContractInsertNovedades.CONTENT_URI,
                     null, selection, selectArgs, null);
-        }else
-
-        if (id==idFlooring) {
-            Log.i("onCreateLoader","vars FLORING: " + pdv +","+status);
-
-
+        } else if (id == idFlooring) {
+            Log.i("onCreateLoader", "vars FLOORING: " + pdv + "," + status);
             String selection = columnaPdv + "=? AND " + Constantes.PENDIENTE_INSERCION + "=? AND " +
                     "fecha BETWEEN ? AND ?";
             String[] selectArgs = {pdv, status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    InsertFlooring.CONTENT_URI,
-                    null,selection,selectArgs,null);
-
-        }else
-        if (id==idPromo) {
-            Log.i("onCreateLoader","vars promo: " + pdv +","+status);
-
-
+            loader = new CursorLoader(this, InsertFlooring.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idPromo) {
+            Log.i("onCreateLoader", "vars promo: " + pdv + "," + status);
             String selection = columnaPdv + "=? AND " + Constantes.PENDIENTE_INSERCION + "=? AND " +
                     "fecha BETWEEN ? AND ?";
             String[] selectArgs = {pdv, status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertPromocion.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idValores) {
-            String selection = columnaPdv + "=? AND " + columnaCategoria + "=? AND " +
-                    Constantes.PENDIENTE_INSERCION + "=? AND "+
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {pdv, categoria, status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertValores.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idImple) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND "+
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertImplementacion.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else if (id==idEncuestas) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND "+
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertEvaluacionEncuesta.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idNotificacion) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND "+
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractNotificacion.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idShare) {
-            String selection = columnaPdv + "=? AND " + columnaCategoria + "=? AND " +
-                    columnaSubcategoria + "=? AND " + Constantes.PENDIENTE_INSERCION + "=? AND " +
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {pdv, categoria, subcategoria, status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertShare.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idAgotados) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND "+
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertAgotados.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idVenta) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND "+
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertVenta.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idExhAntDes) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND "+
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertFotografico.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idPreg) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND "+
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertPreguntas.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idPacks) {
-            String selection = columnaPdv + "=? AND " + columnaCategoria + "=? " +
-                    " AND " + Constantes.PENDIENTE_INSERCION + "=? AND " +
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {pdv, categoria, status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertPacks.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idProdCad) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertProdCaducar.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idImpul) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND" +
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertImpulso.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idRotacion) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertRotacion.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idSugeridos) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertSugeridos.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idTareas) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertTareas.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idCanjes) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertCanjes.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idMCI) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND" +
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertMCIPdv.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idMaterialesRecibidos) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=? AND" +
-                    "fecha BETWEEN ? AND ?; ";
-            String[] selectArgs = {status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertMaterialesRecibidos.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idEjecMateriales) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=?;";
-            String[] selectArgs = {status};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertEjecucionMateriales.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idPDI) {
-            String selection = Constantes.PENDIENTE_INSERCION + "=?;";
-            String[] selectArgs = {status};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertPDI.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idCodificados) {
+            loader = new CursorLoader(this, ContractInsertPromocion.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idValores) {
             String selection = columnaPdv + "=? AND " + columnaCategoria + "=? AND " +
                     Constantes.PENDIENTE_INSERCION + "=? AND " +
-                    "fecha BETWEEN ? AND ?; ";
+                    "fecha BETWEEN ? AND ?";
             String[] selectArgs = {pdv, categoria, status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertCodificados.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idEvidencias) {
+            loader = new CursorLoader(this, ContractInsertValores.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idImple) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertImplementacion.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idEncuestas) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertEvaluacionEncuesta.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idNotificacion) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractNotificacion.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idShare) {
             String selection = columnaPdv + "=? AND " + columnaCategoria + "=? AND " +
                     columnaSubcategoria + "=? AND " + Constantes.PENDIENTE_INSERCION + "=? AND " +
-                    "fecha BETWEEN ? AND ?; ";
+                    "fecha BETWEEN ? AND ?";
             String[] selectArgs = {pdv, categoria, subcategoria, status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertEvidencias.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idTracking) {
+            loader = new CursorLoader(this, ContractInsertShare.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idAgotados) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertAgotados.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idVenta) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertVenta.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idExhAntDes) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertFotografico.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idPreg) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertPreguntas.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idPacks) {
+            String selection = columnaPdv + "=? AND " + columnaCategoria + "=? AND " +
+                    Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {pdv, categoria, status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertPacks.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idProdCad) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertProdCaducar.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idImpul) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertImpulso.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idRotacion) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertRotacion.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idSugeridos) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertSugeridos.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idTareas) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertTareas.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idCanjes) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertCanjes.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idMCI) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertMCIPdv.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idMaterialesRecibidos) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertMaterialesRecibidos.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idEjecMateriales) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=?";
+            String[] selectArgs = {status};
+            loader = new CursorLoader(this, ContractInsertEjecucionMateriales.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idPDI) {
+            String selection = Constantes.PENDIENTE_INSERCION + "=?";
+            String[] selectArgs = {status};
+            loader = new CursorLoader(this, ContractInsertPDI.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idCodificados) {
+            String selection = columnaPdv + "=? AND " + columnaCategoria + "=? AND " +
+                    Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {pdv, categoria, status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertCodificados.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idEvidencias) {
+            // FIX: query simplificada, solo filtra por PDV y status (sin categoria ni subcategoria)
+            Log.i("onCreateLoader", "vars evidencias: pdv=" + pdv + ", status=" + status);
+            String selection = columnaPdv + "=? AND " +
+                    Constantes.PENDIENTE_INSERCION + "=? AND " +
+                    "fecha BETWEEN ? AND ?";
+            String[] selectArgs = {pdv, status, fDesde, fHasta};
+            loader = new CursorLoader(this, ContractInsertEvidencias.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idTracking) {
             String selection = columnaPdv + "=? AND " + columnaCategoria + "=? AND " +
                     columnaSubcategoria + "=? AND " + Constantes.PENDIENTE_INSERCION + "=? AND " +
-                    "fecha BETWEEN ? AND ?; ";
+                    "fecha BETWEEN ? AND ?";
             String[] selectArgs = {pdv, categoria, subcategoria, status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertTracking.CONTENT_URI,
-                    null,selection,selectArgs,null);
-        }else
-        if (id==idConvenios) {
+            loader = new CursorLoader(this, ContractInsertTracking.CONTENT_URI,
+                    null, selection, selectArgs, null);
+        } else if (id == idConvenios) {
             String selection = columnaPdv + "=? AND " + columnaCategoria + "=? AND " +
                     columnaSubcategoria + "=? AND " + Constantes.PENDIENTE_INSERCION + "=? AND " +
-                    "fecha BETWEEN ? AND ?; ";
+                    "fecha BETWEEN ? AND ?";
             String[] selectArgs = {pdv, categoria, subcategoria, status, fDesde, fHasta};
-            loader=new CursorLoader(
-                    this,
-                    ContractInsertConvenios.CONTENT_URI,
-                    null,selection,selectArgs,null);
+            loader = new CursorLoader(this, ContractInsertConvenios.CONTENT_URI,
+                    null, selection, selectArgs, null);
         }
 
-        return loader ;
+        return loader;
     }
 
     @Override
     public void onLoadFinished(Loader<Cursor> loader, Cursor data) {
-        Log.i("onLoadFinished",columnaPdv + " colCat: " + columnaCategoria + "colSub " + columnaSubcategoria + "vars: " + pdv +","+categoria+","+subcategoria+","+status);
-        data.moveToFirst(); // Mueve al primer registro
-        while (!data.isAfterLast()) {
-            // Obtén el valor de la columna 'columna_nombre'
-            String columnaValor = data.getString(5);
-            String columnaValor2 = data.getString(6);
-            Log.i("data onloadfinished","Fecha: " + columnaValor+" hora: "+columnaValor2+"");
+        Log.i("onLoadFinished", columnaPdv + " colCat: " + columnaCategoria + " colSub: " + columnaSubcategoria + " vars: " + pdv + "," + categoria + "," + subcategoria + "," + status);
 
-            data.moveToNext(); // Mueve al siguiente registro
+        if (data != null) {
+            data.moveToFirst();
+            while (!data.isAfterLast()) {
+                String columnaValor = data.getString(5);
+                String columnaValor2 = data.getString(6);
+                Log.i("data onloadfinished", "Fecha: " + columnaValor + " hora: " + columnaValor2);
+                data.moveToNext();
+            }
         }
+
+        // FIX: todos los cases tienen break para evitar fall-through
         switch (loader.getId()) {
             case 0:
-                if (loader!=null && adapterPrecio != null) {
-                    Log.d("TAG" , "||onLoadFinished called precios||");
+                if (adapterPrecio != null) {
+                    Log.d("TAG", "||onLoadFinished called precios||");
                     adapterPrecio.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 1:
-                if (loader != null && adapterExh != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterExh != null) {
+                    Log.d("TAG", "||onLoadFinished called exh||");
                     adapterExh.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 2:
-                if (loader != null && adapterGps != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterGps != null) {
+                    Log.d("TAG", "||onLoadFinished called gps||");
                     adapterGps.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 3:
-                if (loader != null && adapterFlooring != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
-                    Log.d("TAG" , "TRACKING = " + data);
+                if (adapterFlooring != null) {
+                    Log.d("TAG", "||onLoadFinished called flooring||");
                     adapterFlooring.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 4:
-                if (loader != null && adapterPromo != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
-                    Log.d("TAG" , "Promo = " + data);
+                if (adapterPromo != null) {
+                    Log.d("TAG", "||onLoadFinished called promo||");
                     adapterPromo.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 5:
-                if (loader != null && adapterValores != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterValores != null) {
+                    Log.d("TAG", "||onLoadFinished called valores||");
                     adapterValores.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 6:
-                if (loader != null && adapterImplementacion != null) {
-                    Log.d("TAG" , "||onLoadFinished called npdv||");
+                if (adapterImplementacion != null) {
+                    Log.d("TAG", "||onLoadFinished called npdv||");
                     adapterImplementacion.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 7:
-                if (loader != null && adapterPDV != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
-                    Log.d("TAG" , "Implementacion = " + data);
+                if (adapterPDV != null) {
+                    Log.d("TAG", "||onLoadFinished called pdv||");
                     adapterPDV.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 8:
-                if (loader != null && adapterShare != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterShare != null) {
+                    Log.d("TAG", "||onLoadFinished called share||");
                     adapterShare.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 9:
-                if (loader != null && adapterAgotados != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterAgotados != null) {
+                    Log.d("TAG", "||onLoadFinished called agotados||");
                     adapterAgotados.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 10:
-                if (loader != null && adapterVenta != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterVenta != null) {
+                    Log.d("TAG", "||onLoadFinished called venta||");
                     adapterVenta.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 11:
-                if (loader != null && adapterFotografico != null) {
-                    Log.d("TAG" , "||onLoadFinished called fotografico||");
+                if (adapterFotografico != null) {
+                    Log.d("TAG", "||onLoadFinished called fotografico||");
                     adapterFotografico.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 12:
-                if (loader != null && adapterPreguntas != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterPreguntas != null) {
+                    Log.d("TAG", "||onLoadFinished called preguntas||");
                     adapterPreguntas.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 13:
-                if (loader != null && adapterPacks != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterPacks != null) {
+                    Log.d("TAG", "||onLoadFinished called packs||");
                     adapterPacks.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 14:
-                if (loader != null && adapterProdCad != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterProdCad != null) {
+                    Log.d("TAG", "||onLoadFinished called prodcad||");
                     adapterProdCad.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 15:
-                if (loader != null && adapterImpulso != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterImpulso != null) {
+                    Log.d("TAG", "||onLoadFinished called impulso||");
                     adapterImpulso.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 16:
-                if (loader != null && adapterRotacion != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterRotacion != null) {
+                    Log.d("TAG", "||onLoadFinished called rotacion||");
                     adapterRotacion.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 17:
-                if (loader != null && adapterSugeridos != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterSugeridos != null) {
+                    Log.d("TAG", "||onLoadFinished called sugeridos||");
                     adapterSugeridos.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 18:
-                if (loader != null && adapterTareas != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterTareas != null) {
+                    Log.d("TAG", "||onLoadFinished called tareas||");
                     adapterTareas.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 19:
-                if (loader != null && adapterCanjes != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterCanjes != null) {
+                    Log.d("TAG", "||onLoadFinished called canjes||");
                     adapterCanjes.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 20:
-                if (loader != null && adapterMCI != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterMCI != null) {
+                    Log.d("TAG", "||onLoadFinished called mci||");
                     adapterMCI.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 21:
-                if (loader != null && adapterMaterialesRecibidos != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterMaterialesRecibidos != null) {
+                    Log.d("TAG", "||onLoadFinished called materiales recibidos||");
                     adapterMaterialesRecibidos.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 22:
-                if (loader != null && adapterEjecucionMateriales != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterEjecucionMateriales != null) {
+                    Log.d("TAG", "||onLoadFinished called ejecucion materiales||");
                     adapterEjecucionMateriales.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 23:
-                if (loader != null && adapterPDI != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterPDI != null) {
+                    Log.d("TAG", "||onLoadFinished called pdi||");
                     adapterPDI.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 24:
-                if (loader != null && adapterCodificados != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterCodificados != null) {
+                    Log.d("TAG", "||onLoadFinished called codificados||");
                     adapterCodificados.swapCursor(data);
                     emptyView.setText("");
                 }
-            case 25:
-                if (loader != null && adapterEvidencias != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                break;
+            case 25: // FIX: ahora tiene break, no cae al siguiente case
+                if (adapterEvidencias != null) {
+                    Log.d("TAG", "||onLoadFinished called EVIDENCIAS - registros: " +
+                            (data != null ? data.getCount() : 0) + "||");
                     adapterEvidencias.swapCursor(data);
-                    emptyView.setText("");
+                    if (data == null || data.getCount() == 0) {
+                        emptyView.setText("No hay registros de evidencias");
+                    } else {
+                        emptyView.setText("");
+                    }
                 }
+                break;
             case 26:
-                if (loader != null && adapterTracking != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterTracking != null) {
+                    Log.d("TAG", "||onLoadFinished called tracking||");
                     adapterTracking.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 27:
-                if (loader != null && adapterConvenios != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterConvenios != null) {
+                    Log.d("TAG", "||onLoadFinished called convenios||");
                     adapterConvenios.swapCursor(data);
                     emptyView.setText("");
                 }
-
+                break;
             case 28:
-            if (loader != null && adapterEncuesta != null) {
-                Log.d("TAG" , "||onLoadFinished called||");
-                adapterEncuesta.swapCursor(data);
-                emptyView.setText("");
-            }
-            case 29:  // PARA NOVEDADES
-                if (loader != null && adapterNovedades != null) {
-                    Log.d("TAG", "||onLoadFinished called NOVEDADES - ID: " + loader.getId() +
-                            ", Registros: " + (data != null ? data.getCount() : 0) + "||");
+                if (adapterEncuesta != null) {
+                    Log.d("TAG", "||onLoadFinished called encuesta||");
+                    adapterEncuesta.swapCursor(data);
+                    emptyView.setText("");
+                }
+                break;
+            case 29:
+                if (adapterNovedades != null) {
+                    Log.d("TAG", "||onLoadFinished called NOVEDADES - registros: " +
+                            (data != null ? data.getCount() : 0) + "||");
                     adapterNovedades.swapCursor(data);
-
-                    // Actualizar emptyView según si hay datos o no
                     if (data == null || data.getCount() == 0) {
                         emptyView.setText("No hay registros de novedades");
                     } else {
@@ -1621,83 +1393,79 @@ public class HistorialActivity extends AppCompatActivity implements
                 }
                 break;
             case 30:
-                if (loader != null && adapterVenta != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterVenta != null) {
+                    Log.d("TAG", "||onLoadFinished called ventas||");
                     adapterVenta.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 31:
-                if (loader != null && adapterProbadores != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterProbadores != null) {
+                    Log.d("TAG", "||onLoadFinished called probadores||");
                     adapterProbadores.swapCursor(data);
                     emptyView.setText("");
                 }
+                break;
             case 32:
-                if (loader != null && adapterMuestras != null) {
-                    Log.d("TAG" , "||onLoadFinished called||");
+                if (adapterMuestras != null) {
+                    Log.d("TAG", "||onLoadFinished called muestras||");
                     adapterMuestras.swapCursor(data);
                     emptyView.setText("");
                 }
-
+                break;
         }
     }
 
     @Override
     public void onLoaderReset(Loader<Cursor> loader) {
-       // adapterPrecio.swapCursor(null);
-
+        // no-op
     }
 
     public void vaciarHistorial() {
-        try{
-            //Reportes: Eliminar todos los registros que han sido enviados (Pendienteinsercion=0)
-            String selection =  Constantes.PENDIENTE_INSERCION + "=?";
+        try {
+            String selection = Constantes.PENDIENTE_INSERCION + "=?";
             String[] selectionArgs = new String[]{"0"};
-            getContentResolver().delete(ContractInsertPrecios.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertExh.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertGps.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(InsertFlooring.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertPromocion.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertProbadores.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertMuestras.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertValores.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertImplementacion.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractNotificacion.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertShare.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertAgotados.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertVenta.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertFotografico.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertPreguntas.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertProdCaducar.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertPacks.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertImpulso.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertRotacion.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertCanjes.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertMCIPdv.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertMaterialesRecibidos.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertEjecucionMateriales.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertPDI.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertCodificados.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertEvidencias.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertTracking.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertConvenios.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertEvaluacionEncuesta.CONTENT_URI,selection,selectionArgs);
-            getContentResolver().delete(ContractInsertNovedades.CONTENT_URI,selection,selectionArgs);
+            getContentResolver().delete(ContractInsertPrecios.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertExh.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertGps.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(InsertFlooring.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertPromocion.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertProbadores.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertMuestras.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertValores.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertImplementacion.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractNotificacion.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertShare.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertAgotados.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertVenta.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertFotografico.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertPreguntas.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertProdCaducar.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertPacks.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertImpulso.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertRotacion.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertCanjes.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertMCIPdv.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertMaterialesRecibidos.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertEjecucionMateriales.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertPDI.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertCodificados.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertEvidencias.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertTracking.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertConvenios.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertEvaluacionEncuesta.CONTENT_URI, selection, selectionArgs);
+            getContentResolver().delete(ContractInsertNovedades.CONTENT_URI, selection, selectionArgs);
 
-//            getContentResolver().delete(ContractLog.CONTENT_URI,selection,selectionArgs);
-
-            //Reload la actividad
             finish();
             startActivity(getIntent());
-        }catch (Exception e) {
-            Toast.makeText(getApplicationContext(),e.getMessage(),Toast.LENGTH_SHORT).show();
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_SHORT).show();
             e.printStackTrace();
         }
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_historial, menu);
         return true;
     }
@@ -1705,7 +1473,6 @@ public class HistorialActivity extends AppCompatActivity implements
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-
         if (id == R.id.action_hist) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setIcon(android.R.drawable.ic_dialog_alert);
@@ -1717,17 +1484,10 @@ public class HistorialActivity extends AppCompatActivity implements
                     vaciarHistorial();
                 }
             });
-
-            builder.setNeutralButton("NO",null);
-
+            builder.setNeutralButton("NO", null);
             AlertDialog ad = builder.create();
             ad.show();
-            Button pButton = ad.getButton(DialogInterface.BUTTON_POSITIVE);
-            //pButton.setTextColor(Color.rgb(79, 195, 247));
-            Button cButton = ad.getButton(DialogInterface.BUTTON_NEUTRAL);
-            //cButton.setTextColor(Color.rgb(79, 195, 247));
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -1747,7 +1507,7 @@ public class HistorialActivity extends AppCompatActivity implements
             if (!fechaInicio.trim().isEmpty()) {
                 finPromo();
             } else {
-                Toast.makeText(this, "Primero seleccione fecha incio", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Primero seleccione fecha inicio", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -1769,9 +1529,7 @@ public class HistorialActivity extends AppCompatActivity implements
                         date = dateFormat.parse(dayOfMonth + "/" + (month + 1) + "/" + year);
                         String outDate = dateFormat.format(date);
                         txtFinicio.setText(outDate);
-
                         fDesde = outDate;
-
                         if (!txtFfin.getText().toString().trim().isEmpty()) {
                             txtFfin.setText("Fecha fin");
                         }
@@ -1800,32 +1558,29 @@ public class HistorialActivity extends AppCompatActivity implements
                     SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
                     Date date = null;
                     try {
-                        date = dateFormat.parse(dayOfMonth + "/" + (month+1) + "/" + year);
+                        date = dateFormat.parse(dayOfMonth + "/" + (month + 1) + "/" + year);
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
                     String outDate = dateFormat.format(date);
                     txtFfin.setText(outDate);
-
                     fHasta = outDate;
                 }
-            },anio,mes,dia);
+            }, anio, mes, dia);
 
             SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
             formatter.setLenient(false);
-
             String oldTime = txtFinicio.getText().toString();
             Date oldDate = formatter.parse(oldTime);
 
             Calendar calendar1 = Calendar.getInstance();
             calendar1.setTime(oldDate);
-            calendar1.add(Calendar.DAY_OF_MONTH, 6); // Suma 6 días
+            calendar1.add(Calendar.DAY_OF_MONTH, 6);
             Date newDate = calendar1.getTime();
 
             long newMillis = newDate.getTime();
             long oldMillis = oldDate.getTime();
 
-            // set maximum date to be selected as today
             from_dateListener.getDatePicker().setMinDate(oldMillis);
             from_dateListener.getDatePicker().setMaxDate(newMillis);
             from_dateListener.show();
@@ -1833,100 +1588,4 @@ public class HistorialActivity extends AppCompatActivity implements
             System.out.println("FIN PROMO: " + e.getMessage());
         }
     }
-
-
-
-    /*public void generatePDF(RecyclerView view) {
-
-        RecyclerView.Adapter adapter = view.getAdapter();
-        Bitmap bigBitmap = null;
-        if (adapter != null) {
-            int size = adapter.getItemCount();
-            int height = 0;
-            Paint paint = new Paint();
-            int iHeight = 0;
-            final int maxMemory = (int) (Runtime.getRuntime().maxMemory() / 1024);
-
-            // Use 1/8th of the available memory for this memory cache.
-            final int cacheSize = maxMemory / 8;
-            LruCache<String, Bitmap> bitmaCache = new LruCache<>(cacheSize);
-            for (int i = 0; i < size; i++) {
-                RecyclerView.ViewHolder holder = adapter.createViewHolder(view, adapter.getItemViewType(i));
-                adapter.onBindViewHolder(holder, i);
-                holder.itemView.measure(View.MeasureSpec.makeMeasureSpec(view.getWidth(), View.MeasureSpec.EXACTLY),
-                        View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED));
-                holder.itemView.layout(0, 0, holder.itemView.getMeasuredWidth(), holder.itemView.getMeasuredHeight());
-                holder.itemView.setDrawingCacheEnabled(true);
-                holder.itemView.buildDrawingCache();
-                Bitmap drawingCache = holder.itemView.getDrawingCache();
-                if (drawingCache != null) {
-
-                    bitmaCache.put(String.valueOf(i), drawingCache);
-                }
-
-                height += holder.itemView.getMeasuredHeight();
-            }
-
-            bigBitmap = Bitmap.createBitmap(view.getMeasuredWidth(), height, Bitmap.Config.ARGB_8888);
-            Canvas bigCanvas = new Canvas(bigBitmap);
-            bigCanvas.drawColor(Color.WHITE);
-
-            Document document = new Document(PageSize.A4);
-            final File file = new File(getStorageDir("PDF"), "print.pdf");
-            try {
-                PdfWriter.getInstance(document, new FileOutputStream(file));
-            } catch (DocumentException | FileNotFoundException e) {
-                e.printStackTrace();
-            }
-
-            for (int i = 0; i < size; i++) {
-
-                try {
-                    //Adding the content to the document
-                    Bitmap bmp = bitmaCache.get(String.valueOf(i));
-                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                    bmp.compress(Bitmap.CompressFormat.PNG, 100, stream);
-                    Image image = Image.getInstance(stream.toByteArray());
-                    float scaler = ((document.getPageSize().getWidth() - document.leftMargin()
-                            - document.rightMargin() - 0) / image.getWidth()) * 100; // 0 means you have no indentation. If you have any, change it.
-                    image.scalePercent(scaler);
-                    image.setAlignment(com.itextpdf.text.Image.ALIGN_CENTER | com.itextpdf.text.Image.ALIGN_TOP);
-                    if (!document.isOpen()) {
-                        document.open();
-                    }
-                    document.add(image);
-
-                } catch (Exception ex) {
-                    Log.e("TAG-ORDER PRINT ERROR", ex.getMessage());
-                }
-            }
-
-            if (document.isOpen()) {
-                document.close();
-            }
-            // Set on UI Thread
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-
-                    AlertDialog.Builder builder = new AlertDialog.Builder(HistorialActivity.this);
-                    builder.setTitle("Success")
-                            .setMessage("PDF File Generated Successfully.")
-                            .setIcon(android.R.drawable.ic_dialog_alert)
-                            .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    Intent intent = new Intent(Intent.ACTION_VIEW);
-                                    intent.setDataAndType(Uri.fromFile(file), "application/pdf");
-                                    intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
-                                    startActivity(intent);
-                                }
-
-                            }).show();
-                }
-            });
-
-        }
-
-    }*/
-
 }
