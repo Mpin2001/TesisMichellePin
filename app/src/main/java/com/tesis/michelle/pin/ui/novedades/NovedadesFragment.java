@@ -150,7 +150,7 @@ public class NovedadesFragment extends Fragment implements AdapterView.OnItemSel
 
         LoadData();
 
-        new GuardarLog(getContext()).saveLog(user, codigo_pdv, "Ingreso a Novedades");
+        new GuardarLog(getContext()).saveLog(user, punto_venta, "Ingreso a Novedades");
 
         asignarReferencias(rootView);
       //  actualizarContador();

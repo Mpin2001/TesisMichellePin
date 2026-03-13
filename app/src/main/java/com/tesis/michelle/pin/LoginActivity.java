@@ -76,6 +76,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnKeyListen
     CoordinatorLayout coordinatorLayout;
     DatabaseHelper handler;
     private EditText txtUser;
+    private boolean isNavigating = false;
+
     private EditText txtPass;
     private Button btnIngresar;
     private String user, pass, name, nombres;
@@ -495,6 +497,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnKeyListen
     }
 
     private void closeSync(String usuario) {
+        if (isNavigating) return; // Evita navegación múltiple
+        isNavigating = true;
 
         String name = txtUser.getText().toString();
         mEditor.putString(getString(R.string.name),name);

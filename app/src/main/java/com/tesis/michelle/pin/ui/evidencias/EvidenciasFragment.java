@@ -60,6 +60,7 @@ import com.tesis.michelle.pin.Conexion.VerificarNet;
 import com.tesis.michelle.pin.Contracts.ContractInsertEvidencias;
 import com.tesis.michelle.pin.R;
 import com.tesis.michelle.pin.Sync.SyncAdapter;
+import com.tesis.michelle.pin.Utils.GuardarLog;
 import com.tesis.michelle.pin.Utils.ImageMark;
 import com.tesis.michelle.pin.Utils.RequestPermissions;
 
@@ -133,6 +134,8 @@ public class EvidenciasFragment extends Fragment implements View.OnClickListener
         handler = new DatabaseHelper(getContext(), Provider.DATABASE_NAME,null,1);
 
         LoadData();
+        new GuardarLog(getContext()).saveLog(user, punto_venta, "Ingreso a Evi.");
+
 
         new DeveloperOptions().modalDevOptions(getActivity());
         RequestPermissions requestPermissions = new RequestPermissions(getContext(), getActivity());
